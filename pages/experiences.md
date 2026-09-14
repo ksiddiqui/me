@@ -1,68 +1,32 @@
-# Professional Experience
-
-> [← Back to Home](index.md) | [Projects](projects.md) | [Skills](skills.md)
-
----
-
-## GenAI Transformation Specialist
-
-### Independent Consultant / GenAI Architect
-**Self-employed** | Islamabad, Pakistan | 2024 — Present
-
-Working on GenAI transformation projects for enterprise clients across various industries. Crafting solutions from Ideation → Design → Implementation.
-
-**Key Contributions:**
-- Designed and implemented multi-agentic systems for enterprise workflow automation
-- Architected cloud-native AI solutions on AWS, Azure, and GCP
-- Developed end-to-end GenAI transformation programs covering business context analysis, opportunity identification, process analysis, and transformation using LLMs and agent architectures
-- Created scalable technical architectures for AI-integrated systems
-
----
-
-## Software Architecture & Engineering
-
-### Senior/Lead Architect
-**Various Organizations** | Islamabad, Pakistan | 2018 — 2024
-
-Led architectural decisions for high-scale systems spanning cloud-native, distributed, and traditional architectures.
-
-**Key Responsibilities:**
-- Designing intelligent systems and scalable technical architectures
-- Embedding AI into enterprise workflows across fintech, healthcare, and SaaS domains
-- Building multi-agent systems and autonomous orchestration platforms
-- Implementing cloud-native solutions with Kubernetes, serverless, and event-driven patterns
-
----
-
-## Notable Projects by Domain
+## Engagement Highlights
 
 <div class="card-grid">
 
 <div class="card">
 <span class="card-meta">AI Agents</span>
-<div class="card-title">Multi-Agent Systems & Orchestration</div>
+<div class="card-title">GenAI Solutions Leadership</div>
 <div class="card-content">
-Built autonomous agent frameworks using LangGraph, LangChain, and CrewAI. Implemented agent-memory systems for persistent cross-session intelligence and agent evaluation frameworks with LLM-as-judge methodologies.
+Led design and implementation of scalable GenAI solutions used by several important clients — optimized operations and significant cost savings. AI-driven tools profoundly impacted customer feedback processing, improving decision-making and client satisfaction.
 </div>
-<div class="card-tech">LangGraph · CrewAI · Agent Memory</div>
+<div class="card-tech">Multi-Agentic Systems · RAG · Cloud</div>
 </div>
 
 <div class="card">
-<span class="card-meta">Cloud</span>
-<div class="card-title">Cloud-Native Architecture</div>
+<span class="card-meta">Leadership</span>
+<div class="card-title">Practice & Division Building</div>
 <div class="card-content">
-Architected Kubernetes-based deployments across AWS, Azure, and GCP. Implemented serverless solutions with event-driven patterns using Terraform, Docker, and CI/CD pipelines.
+Grew Nisum's GenAI practice as Head of Practice, and ran Folio3's Enterprise division as Division Owner — technical direction, full project lifecycle management, and process improvements.
 </div>
-<div class="card-tech">Kubernetes · AWS · Azure · GCP · Terraform</div>
+<div class="card-tech">Practice Leadership · Enterprise Architecture</div>
 </div>
 
 <div class="card">
-<span class="card-meta">AI/ML</span>
-<div class="card-title">AI/ML Platform Engineering</div>
+<span class="card-meta">Systems</span>
+<div class="card-title">Deep Systems Engineering Roots</div>
 <div class="card-content">
-Built end-to-end ML pipelines with MLOps practices. Designed RAG systems and vector search implementations. Implemented model serving and monitoring infrastructure.
+Started as a Linux kernel developer and transport-protocol researcher — kernel modules, device drivers, and a novel fault-tolerant communication protocol at LUMS.
 </div>
-<div class="card-tech">MLOps · RAG · Model Serving · Vector Search</div>
+<div class="card-tech">Linux Kernel · C/C++ · Protocol Design</div>
 </div>
 
 </div>
@@ -71,16 +35,95 @@ Built end-to-end ML pipelines with MLOps practices. Designed RAG systems and vec
 
 ## Career Timeline
 
-| Year | Role | Focus |
-|------|------|-------|
-| 2024 — Present | GenAI Transformation Specialist | End-to-end GenAI programs |
-| 2020 — 2024 | Senior Architect | Multi-agent systems, cloud-native |
-| 2018 — 2020 | Lead Engineer | Distributed systems |
-| 2015 — 2018 | Backend Developer | Enterprise applications |
+| Year | Company/Organization | Tenure | Role | Focus |
+|------|----------------------|--------|------|-------|
+| 08/2025 — Present | NorthBay Solutions<br>[northbaysolutions.com](https://www.northbaysolutions.com) | 1 yr 1 mo | AVP Technology | Technical oversight across projects & accounts · GenAI/Cloud architecture |
+| 03/2018 — 07/2025 | Nisum Technologies<br>[nisum.com](https://nisum.com) | 7 yrs 4 mos | Head of Practice · GenAI/Cloud-Native Solution Architect | Built & led the GenAI practice · large-scale AI solutions |
+| 06/2006 — 02/2018 | Folio3 (Pvt) Ltd.<br>[folio3.com](https://www.folio3.com) | 11 yrs 8 mos | Lead Architect · Division Owner | Owned the Enterprise division · AI, big data, IoT, security initiatives |
+| 2005 — 2007 | Muhammad Ali Jinnah University<br>[jinnah.edu](https://www.jinnah.edu) | ~2 yrs | Visiting Faculty — MS CS Program | Advanced OS & Network Security courses |
+| 04/2005 — 05/2006 | ARPATech (Pvt) Ltd.<br>[arpatech.com](https://arpatech.com) | 1 yr 2 mos | Lead Software Engineer | Security solutions & rule-based systems |
+| 10/2004 — 04/2005 | LUMS<br>[lums.edu.pk](https://lums.edu.pk) | 7 mos | Research Assistant | Novel fault-tolerant transport protocol |
+| 11/2002 — 10/2003 | Infinilogic (Pvt) Ltd.<br>[infinilogic.com](https://infinilogic.com) | ~1 yr | Software Engineer | Linux kernel modules & device drivers |
 
 ---
 
-> [← Back to Home](index.md) | [Next: Projects](projects.md)
+## AVP Technology
+
+### NorthBay Solutions
+**Islamabad, Pakistan | 08/2025 — Present**
+
+Technology strategist and analyst providing technical oversight for multiple projects and accounts.
+
+**Key Contributions:**
+- GenAI and Cloud-Native architect on billable client engagements
+- Market-trend analysis feeding strategic technology roadmaps
+
+---
+
+## Head of Practice · GenAI/Cloud-Native Solution Architect
+
+### Nisum Technologies
+**03/2018 — 07/2025 (~7 years)**
+
+Led the growth of the company's GenAI practice.
+
+**Key Responsibilities:**
+- Designed and implemented large-scale AI solutions
+- Provided technical direction to engineering and product teams
+- Managed the full project lifecycle
+- Architected scalable, secure cloud and on-prem solutions
+
+---
+
+## Lead Architect · Division Owner
+
+### Folio3 (Pvt) Ltd.
+**06/2006 — 02/2018 (~12 years)**
+
+Owner of the Enterprise division, managing all of its operations.
+
+**Key Responsibilities:**
+- Technical oversight of a diverse project portfolio
+- Process improvements across the division
+- Architecture and emerging-technology initiatives — AI, big data, IoT, security
+- Enterprise solutions spanning mobile, communication, and integration domains
+
+---
+
+## Visiting Faculty Member · MS CS Program
+
+### Muhammad Ali Jinnah University
+**2005 — 2007 (~3 years)**
+
+Developed and taught **Advanced Operating Systems** and **Network Security**, plus foundational CS courses.
+
+---
+
+## Lead Software Engineer
+
+### ARPATech (Pvt) Ltd.
+**04/2005 — 05/2006 (~1 year)**
+
+- Led teams building security solutions and rule-based systems
+- Drove process enhancements
+
+---
+
+## Research Assistant
+
+### LUMS
+**10/2004 — 04/2005 (~6 months)**
+
+Novel transport-layer protocol for fault-tolerant communication — core design and implementation.
+
+---
+
+## Software Engineer
+
+### Infinilogic (Pvt) Ltd.
+**11/2002 — 10/2003 (~1 year)**
+
+Linux kernel developer — kernel modules and drivers for a commercial solution, plus serial device applications.
 
 <!-- Metadata: Experience page. Links to parent (index.md) and sibling pages. -->
-<!-- Last verified: 2026-09-11 -->
+<!-- Last verified: 2026-09-13 against resume -->

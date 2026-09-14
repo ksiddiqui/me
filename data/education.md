@@ -1,3 +1,9 @@
+# Education
+
+> [← Back to Home](index.md) | [Experience](experiences.md) | [Skills](skills.md) | [Certifications](certifications.md)
+
+---
+
 ## Higher Education
 
 ### LUMS — Lahore University of Management Sciences
@@ -50,6 +56,8 @@ I believe in lifelong learning and staying current with the latest technologies.
 4. **Mentorship** in tech startups and tech community engagement
 
 ---
+
+> [← Back to Home](index.md) | [Experience](experiences.md) | [Skills](skills.md) | [Next: Certifications](certifications.md)
 
 <!-- Metadata: Education page. Links to parent (index.md) and sibling pages. -->
 <!-- Last verified: 2026-09-13 against resume -->

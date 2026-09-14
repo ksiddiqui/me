@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kashif Ali Siddiqui — Profile Observatory</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root {
+    --bg:#0b0e14; --bg-2:#0f141c; --panel:rgba(22,28,40,.55); --panel-solid:#141a26;
+    --fg:#e8edf5; --fg-2:#9aa7ba; --fg-3:#5f6b7e;
+    --green:#00ed64; --green-2:#00c975; --cyan:#38d9ff; --violet:#8b7cff; --amber:#ffb454;
+    --border:rgba(255,255,255,.08); --border-hi:rgba(0,237,100,.35);
+    --glow:0 0 40px rgba(0,237,100,.08);
+    --radius:20px;
+}
+body {
+    background:var(--bg); color:var(--fg); font-family:'Inter',sans-serif; font-size:16px; line-height:1.7;
+    background-image:
+        radial-gradient(ellipse 60% 40% at 80% -5%, rgba(0,237,100,.07), transparent),
+        radial-gradient(ellipse 50% 35% at 10% 15%, rgba(139,124,255,.05), transparent),
+        radial-gradient(ellipse 45% 30% at 50% 110%, rgba(56,217,255,.05), transparent);
+    min-height:100vh;
+}
+.wrap { max-width:1240px; margin:0 auto; padding:0 2rem; }
+/* ===== NAV ===== */
+.nav {
+    position:sticky; top:0; z-index:40; backdrop-filter:blur(14px);
+    background:rgba(11,14,20,.75); border-bottom:1px solid var(--border);
+}
+.nav-inner { display:flex; align-items:center; gap:2rem; padding:1rem 2rem; max-width:1240px; margin:0 auto; }
+.brand { display:flex; align-items:baseline; gap:.15rem; font-weight:800; font-size:1.15rem; color:var(--fg); text-decoration:none; letter-spacing:-.02em; }
+.brand .k { color:var(--green); }
+.brand .dot { color:var(--green); }
+.nav-links { display:flex; gap:1.6rem; margin-left:auto; align-items:center; }
+.nav-links a { color:var(--fg-2); text-decoration:none; font-size:.86rem; font-weight:500; padding:.3rem 0; border-bottom:2px solid transparent; transition:all .2s; }
+.nav-links a:hover { color:var(--fg); }
+.nav-links a.active { color:var(--green); border-bottom-color:var(--green); }
+.theme-pill {
+    background:rgba(255,255,255,.05); border:1px solid var(--border); color:var(--fg-2);
+    font-size:.75rem; padding:.4rem 1rem; border-radius:99px; cursor:pointer; transition:all .2s; font-family:inherit;
+}
+.theme-pill:hover { border-color:var(--green); color:var(--green); }
+/* ===== HERO ===== */
+.hero { padding:4.5rem 0 3rem; text-align:center; }
+.hero .eyebrow {
+    font-family:'JetBrains Mono',monospace; color:var(--green); font-size:.72rem; letter-spacing:3px;
+    text-transform:uppercase; margin-bottom:1.2rem; display:inline-block;
+    border:1px solid var(--border-hi); padding:.35rem 1rem; border-radius:99px; background:rgba(0,237,100,.05);
+}
+.hero h1 {
+    font-size:clamp(2.6rem,6vw,4.2rem); font-weight:800; letter-spacing:-.03em; line-height:1.08;
+    background:linear-gradient(135deg,#ffffff 30%,#9fe8c4 75%,var(--green));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:.75rem;
+}
+.hero .sub { color:var(--fg-2); font-size:1.05rem; max-width:640px; margin:0 auto; }
+.hero .loc { color:var(--fg-3); font-size:.85rem; margin-top:.6rem; font-family:'JetBrains Mono',monospace; }
+.hero .cta-row { display:flex; gap:.9rem; justify-content:center; margin-top:1.75rem; flex-wrap:wrap; }
+.btn {
+    display:inline-flex; align-items:center; gap:.5rem; text-decoration:none; font-size:.88rem; font-weight:600;
+    padding:.65rem 1.5rem; border-radius:99px; transition:all .2s;
+}
+.btn.primary { background:var(--green); color:#04110a; box-shadow:0 4px 24px rgba(0,237,100,.25); }
+.btn.primary:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(0,237,100,.35); }
+.btn.ghost { border:1px solid var(--border); color:var(--fg); background:rgba(255,255,255,.03); }
+.btn.ghost:hover { border-color:var(--green); color:var(--green); }
+/* ===== STATS ===== */
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1.1rem; margin:3rem 0 4.5rem; }
+.stat {
+    background:var(--panel); backdrop-filter:blur(14px); border:1px solid var(--border);
+    border-radius:var(--radius); padding:1.6rem 1.2rem; text-align:center; transition:all .25s; position:relative; overflow:hidden;
+}
+.stat::before { content:''; position:absolute; inset:0 0 auto 0; height:2px; background:linear-gradient(90deg,transparent,var(--green),transparent); opacity:0; transition:opacity .25s; }
+.stat:hover { transform:translateY(-4px); border-color:var(--border-hi); box-shadow:var(--glow); }
+.stat:hover::before { opacity:1; }
+.stat .num { font-size:2.6rem; font-weight:800; color:var(--fg); font-family:'JetBrains Mono',monospace; line-height:1; }
+.stat .num .plus { color:var(--green); }
+.stat .lbl { color:var(--fg-2); font-size:.8rem; margin-top:.5rem; text-transform:uppercase; letter-spacing:1.2px; font-weight:500; }
+/* ===== SECTIONS ===== */
+.section { padding:3.5rem 0; }
+.section-head { display:flex; align-items:center; gap:1rem; margin-bottom:2.25rem; }
+.section-head .num { font-family:'JetBrains Mono',monospace; color:var(--green); font-size:.8rem; border:1px solid var(--border-hi); border-radius:8px; padding:.25rem .6rem; }
+.section-head h2 { font-size:1.8rem; font-weight:700; letter-spacing:-.02em; }
+.section-head .rule { flex:1; height:1px; background:linear-gradient(90deg,var(--border),transparent); }
+/* glass cards grid */
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.25rem; }
+.gcard {
+    background:var(--panel); backdrop-filter:blur(14px); border:1px solid var(--border);
+    border-radius:var(--radius); padding:1.75rem; transition:all .25s; position:relative; overflow:hidden;
+}
+.gcard:hover { transform:translateY(-3px); border-color:var(--border-hi); box-shadow:var(--glow); }
+.gcard .meta { display:inline-block; font-family:'JetBrains Mono',monospace; font-size:.68rem; letter-spacing:2px; text-transform:uppercase; color:var(--cyan); border:1px solid rgba(56,217,255,.25); padding:.2rem .7rem; border-radius:99px; margin-bottom:.9rem; }
+.gcard h3 { font-size:1.15rem; font-weight:700; margin-bottom:.6rem; letter-spacing:-.01em; }
+.gcard p { color:var(--fg-2); font-size:.9rem; }
+.gcard .tech { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1.1rem; padding-top:1rem; border-top:1px solid var(--border); }
+.gcard .tech span { font-family:'JetBrains Mono',monospace; font-size:.72rem; color:var(--green); background:rgba(0,237,100,.06); border:1px solid rgba(0,237,100,.12); padding:.15rem .6rem; border-radius:99px; }
+/* ===== TIMELINE ===== */
+.timeline { position:relative; max-width:860px; margin:0 auto; padding:1rem 0; }
+.timeline::before { content:''; position:absolute; left:50%; top:0; bottom:0; width:2px; transform:translateX(-50%); background:linear-gradient(180deg,transparent,var(--green) 8%,var(--green) 92%,transparent); opacity:.4; }
+.titem { position:relative; width:50%; padding:0 2.5rem 2.75rem; }
+.titem:nth-child(odd) { left:0; text-align:right; }
+.titem:nth-child(even) { left:50%; }
+.titem .tdot {
+    position:absolute; top:.35rem; width:14px; height:14px; border-radius:50%; background:var(--bg);
+    border:3px solid var(--green); box-shadow:0 0 16px rgba(0,237,100,.5); z-index:2;
+}
+.titem:nth-child(odd) .tdot { right:-7px; }
+.titem:nth-child(even) .tdot { left:-7px; }
+.titem .tdate { font-family:'JetBrains Mono',monospace; color:var(--green); font-size:.75rem; letter-spacing:1.5px; margin-bottom:.5rem; }
+.titem .tcard { background:var(--panel); backdrop-filter:blur(14px); border:1px solid var(--border); border-radius:16px; padding:1.4rem; transition:all .25s; }
+.titem .tcard:hover { border-color:var(--border-hi); transform:translateY(-2px); }
+.titem h3 { font-size:1.05rem; font-weight:700; margin-bottom:.3rem; }
+.titem .role { color:var(--cyan); font-size:.85rem; font-weight:500; margin-bottom:.7rem; }
+.titem p { color:var(--fg-2); font-size:.86rem; }
+.titem ul { margin:.8rem 0 0; padding-left:1.1rem; text-align:left; }
+.titem:nth-child(odd) ul { text-align:left; }
+.titem li { color:var(--fg-2); font-size:.84rem; margin:.35rem 0; }
+/* ===== SKILLS ===== */
+.skill-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.1rem; }
+.scard { background:var(--panel); backdrop-filter:blur(14px); border:1px solid var(--border); border-radius:16px; padding:1.25rem 1.4rem; transition:all .25s; }
+.scard:hover { border-color:var(--border-hi); }
+.scard .srow { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:.6rem; }
+.scard .sname { font-weight:600; font-size:.95rem; }
+.scard .slvl { font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:1px; }
+.scard .slvl.expert { color:var(--green); } .scard .slvl.advanced { color:var(--cyan); } .scard .slvl.intermediate { color:var(--amber); } .scard .slvl.learning { color:var(--violet); }
+.sbar { height:7px; background:rgba(255,255,255,.06); border-radius:99px; overflow:hidden; }
+.sfill { height:100%; border-radius:99px; width:0; transition:width 1.2s cubic-bezier(.2,.7,.3,1); background:linear-gradient(90deg,var(--green-2),var(--green)); }
+.scard[data-lvl="advanced"] .sfill { background:linear-gradient(90deg,#1f9bd1,var(--cyan)); }
+.scard[data-lvl="intermediate"] .sfill { background:linear-gradient(90deg,#d18a2e,var(--amber)); }
+.scard[data-lvl="learning"] .sfill { background:linear-gradient(90deg,#5d4fd1,var(--violet)); }
+/* ===== MD CONTENT (about/education/certs) ===== */
+.md h2 { font-size:1.5rem; font-weight:700; margin:2.25rem 0 .9rem; letter-spacing:-.01em; }
+.md h2::before { content:'▸ '; color:var(--green); }
+.md h3 { font-size:1.1rem; font-weight:600; margin:1.6rem 0 .6rem; color:var(--fg); }
+.md p { color:var(--fg-2); margin:.9rem 0; }
+.md strong { color:var(--fg); }
+.md ul { margin:.9rem 0; padding-left:0; list-style:none; }
+.md ul li { position:relative; padding-left:1.4rem; margin:.5rem 0; color:var(--fg-2); }
+.md ul li::before { content:'●'; position:absolute; left:.2rem; color:var(--green); font-size:.5rem; top:.55em; }
+.md table { width:100%; border-collapse:collapse; margin:1.4rem 0; font-size:.9rem; }
+.md th { text-align:left; padding:.6rem .8rem; color:var(--green); font-family:'JetBrains Mono',monospace; font-size:.72rem; text-transform:uppercase; letter-spacing:1.5px; border-bottom:2px solid var(--border-hi); }
+.md td { padding:.6rem .8rem; border-bottom:1px solid var(--border); color:var(--fg-2); }
+.md tr:hover td { background:rgba(0,237,100,.03); }
+.md blockquote { border-left:3px solid var(--green); background:rgba(0,237,100,.04); padding:1rem 1.3rem; margin:1.4rem 0; border-radius:0 12px 12px 0; color:var(--fg-2); }
+.md code { font-family:'JetBrains Mono',monospace; background:rgba(0,237,100,.08); color:var(--green); padding:.15rem .45rem; border-radius:5px; font-size:.85em; }
+/* ===== FOOTER ===== */
+footer { border-top:1px solid var(--border); margin-top:4rem; padding:2.5rem 0 3rem; text-align:center; color:var(--fg-3); font-size:.85rem; }
+footer a { color:var(--green); text-decoration:none; } footer a:hover { text-decoration:underline; }
+/* light */
+body.light {
+    --bg:#f7f9f8; --bg-2:#eef2f0; --panel:rgba(255,255,255,.65); --panel-solid:#fff;
+    --fg:#17222b; --fg-2:#4b5a64; --fg-3:#7c8a92;
+    --green:#00884a; --green-2:#00a35b; --cyan:#0d7db0; --violet:#6457d8; --amber:#c17a1a;
+    --border:rgba(23,34,43,.09); --border-hi:rgba(0,136,74,.3); --glow:0 0 40px rgba(0,136,74,.08);
+}
+body.light .nav { background:rgba(247,249,248,.8); }
+/* responsive */
+@media (max-width:1000px) { .stats { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:768px) {
+    .wrap { padding:0 1.1rem; }
+    .nav-links { gap:1rem; } .nav-links a { font-size:.78rem; }
+    .timeline::before { left:12px; }
+    .titem { width:100%; left:0 !important; text-align:left !important; padding:0 0 2.25rem 2.5rem; }
+    .titem .tdot { left:5px !important; right:auto !important; }
+    .titem ul { text-align:left !important; }
+    .hero { padding:3rem 0 2rem; }
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-inner">
+        <a class="brand" href="#" onclick="go('about');return false;"><span class="k">k</span>siddiqui<span class="dot">.</span></a>
+        <div class="nav-links">
+            <a data-sec="about" href="#" onclick="go('about');return false;">About</a>
+            <a data-sec="experience" href="#" onclick="go('experience');return false;">Experience</a>
+            <a data-sec="projects" href="#" onclick="go('projects');return false;">Projects</a>
+            <a data-sec="skills" href="#" onclick="go('skills');return false;">Skills</a>
+            <a data-sec="education" href="#" onclick="go('education');return false;">Education</a>
+            <a href="https://www.linkedin.com/in/ksiddiqui/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <button class="theme-pill" onclick="toggleTheme()">theme</button>
+        </div>
+    </div>
+</nav>
+
+<div class="wrap">
+    <header class="hero" id="about">
+        <span class="eyebrow">GenAI • Architecture • Cloud</span>
+        <h1>Kashif Ali Siddiqui</h1>
+        <p class="sub">GenAI Transformation Specialist crafting end-to-end programs from <b>Ideation → Design → Implementation</b>. Building AI-native systems where agents reason, architectures scale, and ambiguity becomes structure.</p>
+        <p class="loc">Islamabad, Pakistan · Independent Consultant / GenAI Architect</p>
+        <div class="cta-row">
+            <a class="btn primary" href="https://www.linkedin.com/in/ksiddiqui/" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
+            <a class="btn ghost" href="https://github.com/ksiddiqui" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+    </header>
+
+    <div class="stats">
+        <div class="stat"><div class="num"><span data-count="11">0</span><span class="plus">+</span></div><div class="lbl">Years Experience</div></div>
+        <div class="stat"><div class="num"><span data-count="6">0</span><span class="plus">+</span></div><div class="lbl">Public Repos</div></div>
+        <div class="stat"><div class="num"><span data-count="3">0</span></div><div class="lbl">Cloud Platforms</div></div>
+        <div class="stat"><div class="num"><span data-count="12">0</span><span class="plus">+</span></div><div class="lbl">Certifications</div></div>
+    </div>
+
+    <section class="section" id="about-sec">
+        <div class="section-head"><span class="num">01</span><h2>About</h2><span class="rule"></span></div>
+        <div class="md" id="about-content"><p style="color:var(--fg-3)">Loading…</p></div>
+    </section>
+
+    <section class="section" id="experience">
+        <div class="section-head"><span class="num">02</span><h2>Experience</h2><span class="rule"></span></div>
+        <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="section" id="projects">
+        <div class="section-head"><span class="num">03</span><h2>Projects</h2><span class="rule"></span></div>
+        <div class="cards" id="project-cards"></div>
+    </section>
+
+    <section class="section" id="skills">
+        <div class="section-head"><span class="num">04</span><h2>Skills</h2><span class="rule"></span></div>
+        <div class="skill-grid" id="skill-cards"></div>
+    </section>
+
+    <section class="section" id="education">
+        <div class="section-head"><span class="num">05</span><h2>Education & Certifications</h2><span class="rule"></span></div>
+        <div class="md" id="edu-content"><p style="color:var(--fg-3)">Loading…</p></div>
+    </section>
+</div>
+
+<footer>
+    © 2026 Kashif Ali Siddiqui · <a href="https://www.linkedin.com/in/ksiddiqui/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/ksiddiqui" target="_blank" rel="noopener">GitHub</a> · rendered live from raw markdown
+</footer>
+
+<script>
+const LANGS = [
+    { n:'Python', l:'expert' }, { n:'Go', l:'expert' }, { n:'Rust', l:'expert' },
+    { n:'TypeScript', l:'expert' }, { n:'Shell/Bash', l:'expert' },
+    { n:'Java', l:'advanced' }, { n:'Kotlin', l:'advanced' }, { n:'AssemblyScript', l:'advanced' }, { n:'PowerShell', l:'advanced' },
+    { n:'C', l:'intermediate' }, { n:'C++', l:'intermediate' }, { n:'R', l:'intermediate' },
+    { n:'Scala', l:'intermediate' }, { n:'Dart', l:'intermediate' }, { n:'Julia', l:'intermediate' },
+    { n:'Zig', l:'learning' }
+];
+const LVL_W = { expert: 92, advanced: 74, intermediate: 52, learning: 25 };
+const PROJECTS = [
+    { m:'AI Agents', t:'Multi-Agent Orchestration System', d:'Production-grade multi-agent orchestration platform for autonomous AI workflows with persistent agent memory, dynamic skill routing, and cost-aware orchestration.', tech:['LangGraph','CrewAI','Agent Memory'] },
+    { m:'Infrastructure', t:'Cloud-Native AI Platform', d:'Cloud-native platform for scalable AI workloads with multi-cloud deployment strategies, serverless ML pipelines, and containerized microservices.', tech:['Kubernetes','Terraform','AWS/Azure/GCP'] },
+    { m:'Search', t:'RAG & Vector Search System', d:'Hybrid search system combining vector and keyword search with smart document ingestion, embedding model optimization, and improved recall across diverse queries.', tech:['FAISS','Pinecone','Weaviate'] },
+    { m:'AI Tools', t:'LLM Evaluation Platform', d:'Evaluation platform for assessing LLM application quality with automated 8-dimension scoring, LLM-as-judge methodology, and A/B testing framework.', tech:['LLM-as-Judge','Prompt Opt.','Bias Mitigation'] },
+    { m:'Automation', t:'Enterprise Workflow Automation', d:'AI-powered automation for enterprise workflows including browser automation, document processing, and multi-platform bot integrations.', tech:['RPA','AI Agents','Playwright'] },
+    { m:'Open Source', t:'GitHub Contributions', d:'Active open-source contributor with 6+ public repositories. Notable work includes 12-Factor App Patterns and various AI tooling contributions.', tech:['12-Factor','AI Tooling'] }
+];
+const TIMELINE = [
+    { d:'2024 — PRESENT', t:'GenAI Transformation Specialist', r:'Independent Consultant · GenAI Architect', p:'End-to-end GenAI transformation programs for enterprise clients — Ideation → Design → Implementation.',
+      li:['Multi-agentic systems for enterprise workflow automation','Cloud-native AI solutions on AWS, Azure, GCP','Business context analysis & opportunity identification','Scalable architectures for AI-integrated systems'] },
+    { d:'2020 — 2024', t:'Senior Architect', r:'High-Scale & Distributed Systems', p:'Led architectural decisions spanning cloud-native, distributed, and traditional architectures.',
+      li:['Intelligent systems & scalable technical architectures','Embedding AI into enterprise workflows — fintech, healthcare, SaaS','Multi-agent systems & autonomous orchestration platforms','Kubernetes, serverless, event-driven patterns'] },
+    { d:'2018 — 2020', t:'Lead Engineer', r:'Distributed Systems', p:'Designed and delivered distributed systems with high-throughput requirements.', li:['Distributed computing & microservices','Event-driven architecture','Team leadership & mentoring'] },
+    { d:'2015 — 2018', t:'Backend Developer', r:'Enterprise Applications', p:'Built enterprise-grade backend systems and learned the craft of software architecture.', li:['Enterprise application development','Relational data modeling','Production operations'] }
+];
+
+function toggleTheme() {
+    document.body.classList.toggle('light');
+    localStorage.setItem('proto-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+}
+function go(sec) {
+    document.querySelectorAll('.nav-links a[data-sec]').forEach(a => a.classList.toggle('active', a.dataset.sec === sec));
+    document.getElementById(sec === 'about' ? 'about' : sec).scrollIntoView({ behavior:'smooth', block:'start' });
+}
+function animateCounters() {
+    document.querySelectorAll('[data-count]').forEach(el => {
+        const end = +el.dataset.count;
+        const t0 = performance.now(); const dur = 1400;
+        const step = now => {
+            const p = Math.min((now - t0) / dur, 1);
+            el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * end);
+            if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+    });
+}
+function fillBars() {
+    document.querySelectorAll('.sfill').forEach((b, i) => {
+        setTimeout(() => b.style.width = b.dataset.w + '%', 120 * i);
+    });
+}
+async function fetchMd(f) {
+    const r = await fetch('../pages/' + f);
+    if (!r.ok) throw new Error(r.status);
+    return r.text();
+}
+function stripTop(md) {
+    return md.replace(/^#\s.*\n+/, '').replace(/^>\s*\[←.*\n+(>\s*.*\n+)*\n?/, '');
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    if (localStorage.getItem('proto-theme') === 'light') document.body.classList.add('light');
+    animateCounters();
+
+    // timeline
+    document.getElementById('timeline').innerHTML = TIMELINE.map(t =>
+        '<div class="titem"><span class="tdot"></span><div class="tdate">' + t.d + '</div><div class="tcard">' +
+        '<h3>' + t.t + '</h3><div class="role">' + t.r + '</div><p>' + t.p + '</p><ul>' +
+        t.li.map(x => '<li>' + x + '</li>').join('') + '</ul></div></div>'
+    ).join('');
+
+    // projects
+    document.getElementById('project-cards').innerHTML = PROJECTS.map(p =>
+        '<div class="gcard"><span class="meta">' + p.m + '</span><h3>' + p.t + '</h3><p>' + p.d + '</p>' +
+        '<div class="tech">' + p.tech.map(x => '<span>' + x + '</span>').join('') + '</div></div>'
+    ).join('');
+
+    // skills
+    document.getElementById('skill-cards').innerHTML = LANGS.map(s =>
+        '<div class="scard" data-lvl="' + s.l + '"><div class="srow"><span class="sname">' + s.n + '</span>' +
+        '<span class="slvl ' + s.l + '">' + s.l.toUpperCase() + '</span></div>' +
+        '<div class="sbar"><div class="sfill" data-w="' + LVL_W[s.l] + '"></div></div></div>'
+    ).join('');
+    fillBars();
+
+    // markdown sections
+    try {
+        const about = await fetchMd('index.md');
+        document.getElementById('about-content').innerHTML = marked.parse(stripTop(about));
+        const edu = await fetchMd('education.md');
+        const certs = await fetchMd('certifications.md');
+        document.getElementById('edu-content').innerHTML = marked.parse(stripTop(edu)) + marked.parse(stripTop(certs));
+    } catch (e) {
+        document.getElementById('about-content').innerHTML = '<p style="color:#ff5c8a">Could not fetch markdown (' + e.message + '). Serve repo root: <b>python -m http.server 8000</b> → open <b>http://localhost:8000/prototypes/dashboard.html</b></p>';
+    }
+    const SECTION = { 'index':'about', 'experiences':'experience', 'projects':'projects', 'skills':'skills', 'education':'education', 'certifications':'education' };
+    document.querySelectorAll('.md').forEach(el => el.addEventListener('click', e => {
+        const a = e.target.closest('a[href$=".md"]');
+        if (!a) return;
+        e.preventDefault();
+        const sec = SECTION[a.getAttribute('href').replace(/^\.\//, '').replace(/\.md$/, '')];
+        if (sec) go(sec);
+    }));
+    document.querySelector('.nav-links a[data-sec="about"]').classList.add('active');
+});
+</script>
+</body>
+</html>

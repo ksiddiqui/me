@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KASHIF ALI SIDDIQUI — GENAI ARCHITECT</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    /* Dark default: black paper + neon accents; light = cream + ink */
+    --bg: #0e0d0b;
+    --bg-2: #171512;
+    --fg: #f2efe6;
+    --fg-soft: #c9c4b6;
+    --fg-dim: #8d887c;
+    --accent: #ffe600;      /* acid yellow */
+    --accent-2: #ff4d9d;    /* hot pink */
+    --accent-3: #37e2ff;    /* cyan */
+    --border: #f2efe6;
+    --shadow: 6px 6px 0 rgba(255,230,0,.9);
+    --shadow-2: 6px 6px 0 rgba(255,77,157,.9);
+    --card-bg: #171512;
+}
+body.light {
+    --bg: #f5efdd;
+    --bg-2: #efe7cf;
+    --fg: #141210;
+    --fg-soft: #3a362e;
+    --fg-dim: #6f6a5e;
+    --accent: #141210;
+    --accent-2: #d61f7c;
+    --accent-3: #0057b8;
+    --border: #141210;
+    --shadow: 6px 6px 0 #141210;
+    --shadow-2: 6px 6px 0 #d61f7c;
+    --card-bg: #f5efdd;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    background:var(--bg);
+    color:var(--fg);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.7;
+    overflow-x:hidden;
+}
+::selection { background:var(--accent-2); color:var(--bg); }
+a { color:var(--accent-3); text-decoration:none; border-bottom:2px solid currentColor; font-weight:600; }
+a:hover { color:var(--accent-2); }
+img { max-width:100%; }
+
+/* ---------- marquee ticker ---------- */
+.ticker {
+    border-bottom:3px solid var(--border);
+    background:var(--accent);
+    color:var(--bg);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:.45rem 0;
+    position:relative;
+}
+.ticker-inner {
+    display:inline-block;
+    font-family:'Archivo Black',sans-serif;
+    font-size:.78rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    animation:ticker 28s linear infinite;
+}
+@keyframes ticker { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+
+/* ---------- header ---------- */
+.top {
+    border-bottom:3px solid var(--border);
+    background:var(--bg);
+    padding:1.1rem 2rem;
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.9rem;
+    max-width:1240px; margin:0 auto; border-left:none; border-right:none; border-top:none;
+}
+.logo {
+    font-family:'Archivo Black',sans-serif;
+    font-size:1.5rem;
+    text-transform:uppercase;
+    letter-spacing:.01em;
+    line-height:1;
+    background:var(--accent);
+    color:var(--bg);
+    padding:.35rem .7rem;
+    transform:rotate(-1.2deg);
+    box-shadow:4px 4px 0 var(--accent-2);
+    display:inline-block;
+}
+.logo small { display:block; font-family:'Space Mono',monospace; font-size:.55rem; font-weight:400; letter-spacing:.24em; margin-top:.15rem; }
+.theme-btn {
+    font-family:'Archivo Black',sans-serif;
+    font-size:.75rem; text-transform:uppercase; letter-spacing:.06em;
+    background:var(--bg-2); color:var(--fg);
+    border:3px solid var(--border);
+    padding:.55rem 1.1rem;
+    cursor:pointer;
+    transition:transform .12s, box-shadow .12s;
+    box-shadow:4px 4px 0 var(--accent);
+}
+.theme-btn:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--accent); }
+.theme-btn:active { transform:translate(2px,2px); box-shadow:1px 1px 0 var(--accent); }
+
+/* ---------- nav chips ---------- */
+.nav-strip {
+    max-width:1240px; margin:0 auto;
+    padding:1.2rem 2rem;
+    display:flex; flex-wrap:wrap; gap:.8rem;
+}
+.nav-link {
+    font-family:'Archivo Black',sans-serif;
+    font-size:.8rem; text-transform:uppercase; letter-spacing:.05em;
+    border:3px solid var(--border);
+    color:var(--fg);
+    background:var(--bg);
+    padding:.6rem 1.15rem;
+    display:inline-block;
+    transition:transform .12s, box-shadow .12s, background .12s, color .12s;
+    box-shadow:4px 4px 0 var(--fg-dim);
+}
+.nav-link:hover { transform:translate(-2px,-2px); box-shadow:6px 6px 0 var(--accent-3); border-bottom:2px solid currentColor; }
+.nav-link.active {
+    background:var(--accent); color:var(--bg);
+    border-color:var(--border);
+    box-shadow:4px 4px 0 var(--accent-2);
+    transform:rotate(-.6deg);
+}
+
+/* ---------- page hero ---------- */
+.page {
+    max-width:1240px; margin:0 auto; padding:0 2rem 5.5rem;
+}
+.hero {
+    padding:3rem 0 2.6rem;
+    display:flex; align-items:flex-end; flex-wrap:wrap; gap:1.6rem;
+}
+.hero-title {
+    font-family:'Archivo Black',sans-serif;
+    font-size:clamp(2.4rem, 7vw, 4.6rem);
+    text-transform:uppercase;
+    line-height:.98;
+    letter-spacing:-.01em;
+}
+.hero-title .hl { background:var(--accent-2); color:var(--bg); padding:0 .3em; display:inline-block; transform:rotate(-1deg); }
+.hero-sticker {
+    font-family:'Space Mono',monospace;
+    font-size:.72rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    background:var(--accent-3); color:var(--bg);
+    border:3px solid var(--border);
+    padding:.5rem .9rem;
+    transform:rotate(3deg);
+    box-shadow:5px 5px 0 var(--border);
+    display:inline-block;
+    margin-bottom:.8rem;
+}
+.hero-sub { flex:1 1 260px; font-size:1.02rem; color:var(--fg-soft); max-width:520px; padding-bottom:.4rem; }
+.hero-sub strong { color:var(--accent); }
+
+/* ---------- content ---------- */
+.md { max-width:900px; }
+.md h2 {
+    font-family:'Archivo Black',sans-serif;
+    font-size:clamp(1.4rem, 3vw, 1.9rem);
+    text-transform:uppercase; letter-spacing:.02em;
+    margin:3.4rem 0 1.2rem;
+    display:inline-block;
+    position:relative;
+    padding:.35rem .7rem;
+    background:var(--bg-2);
+    border:3px solid var(--border);
+    box-shadow:5px 5px 0 var(--accent);
+    transform:rotate(-.5deg);
+}
+.md h3 {
+    font-family:'Archivo Black',sans-serif;
+    font-size:1.02rem; text-transform:uppercase; letter-spacing:.04em;
+    margin:2.4rem 0 .7rem;
+    color:var(--fg);
+}
+.md h3::before { content:'■ '; color:var(--accent-2); font-size:.85em; }
+.md h4 {
+    font-family:'Space Mono',monospace; font-size:.72rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.18em; color:var(--accent-3);
+    margin:1.9rem 0 .55rem;
+}
+.md p { margin:1.05rem 0; color:var(--fg-soft); }
+.md ul, .md ol { margin:1.05rem 0 1.05rem 1.3rem; }
+.md li { margin:.45rem 0; color:var(--fg-soft); }
+.md li::marker { content:'▪ '; color:var(--accent); }
+.md blockquote {
+    margin:2.1rem 0; padding:1.1rem 1.4rem;
+    background:var(--bg-2);
+    border:3px solid var(--border);
+    border-left:10px solid var(--accent-2);
+    box-shadow:5px 5px 0 var(--accent-3);
+    font-family:'Space Mono',monospace; font-size:.86rem; color:var(--fg);
+}
+.md code { font-family:'Space Mono',monospace; font-size:.84em; background:var(--accent); color:var(--bg); padding:.1em .38em; font-weight:700; }
+.md pre {
+    background:var(--bg-2); border:3px solid var(--border);
+    box-shadow:6px 6px 0 var(--accent-2);
+    padding:1.2rem 1.3rem; overflow-x:auto; margin:1.6rem 0;
+    transform:rotate(.3deg);
+}
+.md pre code { background:none; color:var(--fg-soft); padding:0; font-weight:400; }
+.md table {
+    width:100%; border-collapse:collapse; margin:2rem 0;
+    border:3px solid var(--border);
+    box-shadow:6px 6px 0 var(--fg-dim);
+    background:var(--bg);
+    font-size:.9rem;
+}
+.md th {
+    font-family:'Archivo Black',sans-serif; font-size:.7rem; text-transform:uppercase; letter-spacing:.12em;
+    text-align:left; padding:.75rem .9rem;
+    background:var(--accent); color:var(--bg);
+    border:2px solid var(--border);
+}
+.md td { padding:.7rem .9rem; border:2px solid var(--border); vertical-align:top; color:var(--fg-soft); }
+.md td:first-child { color:var(--fg); font-weight:600; }
+.md hr { border:none; border-top:3px dashed var(--fg-dim); margin:3rem 0; }
+.md strong { color:var(--fg); font-weight:700; background:linear-gradient(transparent 62%, var(--accent) 62%); padding:0 .1em; }
+.md em { color:var(--accent-3); font-style:italic; }
+
+/* cards */
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:1.7rem; margin:2.2rem 0; }
+.card {
+    background:var(--card-bg);
+    border:3px solid var(--border);
+    padding:1.6rem 1.6rem 1.4rem;
+    transition:transform .15s, box-shadow .15s;
+    box-shadow:var(--shadow);
+}
+.card:nth-child(even) { box-shadow:var(--shadow-2); }
+.card:hover { transform:translate(-3px,-3px) rotate(-.4deg); box-shadow:9px 9px 0 var(--accent-3); }
+.card-meta {
+    font-family:'Space Mono',monospace; font-size:.66rem; font-weight:700;
+    text-transform:uppercase; letter-spacing:.16em;
+    color:var(--bg);
+    background:var(--accent-3);
+    display:inline-block;
+    padding:.2rem .55rem;
+    margin-bottom:.7rem;
+}
+.card-title { font-family:'Archivo Black',sans-serif; font-size:1.15rem; text-transform:uppercase; line-height:1.15; margin-bottom:.65rem; }
+.card-content { font-size:.92rem; color:var(--fg-soft); }
+.card-content ul { margin:.4rem 0 .4rem 1.1rem; }
+.card-tech {
+    margin-top:1rem; font-family:'Space Mono',monospace; font-size:.7rem; color:var(--fg-dim);
+    border-top:3px dashed var(--fg-dim); padding-top:.65rem;
+}
+
+/* skill-grid */
+.skill-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.7rem; margin:2.2rem 0; }
+.skill-grid h3 { margin:0 0 .5rem; }
+.skill-grid h3 + p { font-size:.92rem; color:var(--fg-soft); margin-top:0; }
+.skill-grid > div, .skill-grid > table { break-inside:avoid; }
+
+/* footer */
+.foot {
+    border-top:3px solid var(--border);
+    background:var(--bg-2);
+    padding:1.4rem 2rem;
+    max-width:100%;
+    text-align:center;
+    font-family:'Space Mono',monospace;
+    font-size:.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--fg-dim);
+}
+.foot b { color:var(--accent); }
+
+@media (max-width:900px) {
+    .top, .nav-strip, .page { padding-left:1.1rem; padding-right:1.1rem; }
+    .hero { padding-top:2rem; }
+    .md h2 { transform:rotate(-.8deg); }
+}
+.fade-in { animation:fadeUp .5s ease both; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+</style>
+</head>
+<body>
+<div class="ticker">
+    <div class="ticker-inner">
+        ★ GENAI TRANSFORMATION ★ MULTI-AGENT SYSTEMS ★ RAG &amp; VECTOR SEARCH ★ AWS · AZURE · GCP ★ ISLAMABAD, PK ★ 11+ YEARS ★ TOGAF ★ CISSP ★ &nbsp;&nbsp;&nbsp; ★ GENAI TRANSFORMATION ★ MULTI-AGENT SYSTEMS ★ RAG &amp; VECTOR SEARCH ★ AWS · AZURE · GCP ★ ISLAMABAD, PK ★ 11+ YEARS ★ TOGAF ★ CISSP ★ &nbsp;&nbsp;&nbsp;
+    </div>
+</div>
+<header class="top">
+    <div class="logo">KASHIF<small>SIDDIQUI ★ KS</small></div>
+    <button class="theme-btn" onclick="toggleTheme()">Ink / Paper</button>
+</header>
+<nav class="nav-strip">
+    <a href="index.md" class="nav-link" data-page="index.md">Home</a>
+    <a href="experiences.md" class="nav-link" data-page="experiences.md">Experience</a>
+    <a href="projects.md" class="nav-link" data-page="projects.md">Projects</a>
+    <a href="skills.md" class="nav-link" data-page="skills.md">Skills</a>
+    <a href="education.md" class="nav-link" data-page="education.md">Education</a>
+    <a href="certifications.md" class="nav-link" data-page="certifications.md">Certs</a>
+</nav>
+<main class="page" id="main"></main>
+<div class="foot">KASHIF ALI SIDDIQUI — GENAI ARCHITECT — <b>ISLAMABAD</b> — BUILT THE HARD WAY</div>
+<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+<script>
+const PAGES = {
+    'index.md':         { kicker:'№ 01 — HELLO', title:['THE', 'ARCHITECT'],           hl:2, sub:'GenAI Transformation Specialist · Independent Consultant · Islamabad, Pakistan' },
+    'experiences.md':   { kicker:'№ 02 — WORK',  title:['PROFESSIONAL', 'EXPERIENCE'],  hl:2, sub:'11+ years · Ideation → Design → Implementation' },
+    'projects.md':      { kicker:'№ 03 — BUILT', title:['THE', 'BUILT WORK'],           hl:2, sub:'Multi-agent systems · RAG platforms · cloud-native AI' },
+    'skills.md':        { kicker:'№ 04 — TOOLS', title:['INSTRUMENTS', '& SKILLS'],     hl:1, sub:'From Python & TypeScript to Kubernetes & TOGAF' },
+    'education.md':     { kicker:'№ 05 — STUDY', title:['EDUCATION', '& TRAINING'],     hl:2, sub:'NED University · ISB · continuous learning' },
+    'certifications.md':{ kicker:'№ 06 — PROOF', title:['CERTIFIED', '× 14'],           hl:1, sub:'AWS SA Pro · Azure SA Expert · GCP PCA · TOGAF · CISSP' }
+};
+function toggleTheme() {
+    document.body.classList.toggle('light');
+    localStorage.setItem('proto-theme', document.body.classList.contains('light') ? 'light' : 'dark');
+}
+async function loadPage(page) {
+    const main = document.getElementById('main');
+    const meta = PAGES[page] || { kicker:'', title:[page], hl:0, sub:'' };
+    document.querySelectorAll('.nav-link').forEach(el => el.classList.toggle('active', el.dataset.page === page));
+    window.scrollTo({ top:0 });
+    main.innerHTML = '<div class="hero fade-in"><div class="hero-sticker">LOADING…</div></div>';
+    try {
+        const res = await fetch('../pages/' + page);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const text = await res.text();
+        const body = marked.parse(
+            text.replace(/^#\s.*\n+/, '').replace(/^>\s*\[←.*\n+(>\s*.*\n+)*\n?/, '')
+        );
+        const t = meta.title;
+        const titleHtml = t.map((w, i) => (meta.hl === i + 1 || meta.hl === i) ? '<span class="hl">' + w + '</span> ' : w + (i < t.length - 1 ? ' ' : '')).join('');
+        main.innerHTML =
+            '<div class="hero fade-in">' +
+              '<div style="flex:1 1 420px;">' +
+                '<div class="hero-sticker">' + meta.kicker + '</div>' +
+                '<h1 class="hero-title">' + titleHtml + '</h1>' +
+              '</div>' +
+              (meta.sub ? '<div class="hero-sub">' + meta.sub + '</div>' : '') +
+            '</div>' +
+            '<div class="md fade-in">' + body + '</div>';
+    } catch (err) {
+        main.innerHTML = '<div class="hero"><div><h1 class="hero-title"><span class="hl">ERROR</span></h1><div class="hero-sub">Could not load ' + page + ' (' + err.message + '). Serve repo root with <strong>python -m http.server 8000</strong>, then open http://localhost:8000/prototypes/brutalist.html</div></div></div>';
+    }
+}
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('proto-theme') === 'light') document.body.classList.add('light');
+    document.querySelectorAll('.nav-link').forEach(el => el.addEventListener('click', e => { e.preventDefault(); loadPage(el.dataset.page); }));
+    document.getElementById('main').addEventListener('click', e => {
+        const a = e.target.closest('a[href$=".md"]');
+        if (!a) return;
+        e.preventDefault();
+        loadPage(a.getAttribute('href').replace(/^\.\//, ''));
+    });
+    loadPage('index.md');
+});
+</script>
+</body>
+</html>

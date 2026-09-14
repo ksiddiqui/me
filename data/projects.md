@@ -1,9 +1,8 @@
-<div class="proj-tabs">
-<button type="button" class="tab-btn active" data-tab="gallery" onclick="switchProjTab('gallery')">Gallery</button>
-<button type="button" class="tab-btn" data-tab="details" onclick="switchProjTab('details')">Details</button>
-</div>
+# Projects
 
-<div class="tab-panel" data-panel="details" hidden>
+> [← Back to Home](index.md) | [← Experience](experiences.md) | [Skills](skills.md)
+
+---
 
 ## NorthBay Solutions (2025 — Present)
 
@@ -304,12 +303,10 @@ Linux kernel customizations; RAID NAS with access control.
 </div>
 
 </div>
-</div>
 
-<div class="tab-panel" data-panel="gallery">
+---
 
 ## Project Gallery
-
 
 | Project | Organization | Year |
 |---------|--------------|------|
@@ -344,8 +341,9 @@ Linux kernel customizations; RAID NAS with access control.
 | Transparent Fault Tolerance Communication System | LUMS | 2004-2005 |
 | Dynamic NAS System | Infinilogics | 2003 |
 
+---
 
-</div>
+> [← Back to Home](index.md) | [← Experience](experiences.md) | [Next: Skills](skills.md)
 
 <!-- Metadata: Projects page. Links to parent (experiences.md) and sibling pages. -->
 <!-- Last verified: 2026-09-13 against resume -->

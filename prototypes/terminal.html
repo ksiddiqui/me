@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ksiddiqui@agentic-transformation-specialist:~$ cat profile — Kashif Ali Siddiqui</title>
+<title>kashif@genai:~$ cat profile — Kashif Ali Siddiqui</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <style>
@@ -11,9 +11,9 @@
 :root {
     --bg:#0a0d12; --bg-alt:#0d1117; --panel:#0c1017; --panel-alt:#10151d;
     --green:#00ff88; --green-dim:#00cc6d; --cyan:#38d9ff; --amber:#ffb454; --magenta:#ff5c8a;
-    --art:#2f9e63; --code-bg:#0e131b;
     --fg:#c9d4e0; --fg-dim:#7a8699; --fg-bright:#eef4fb;
     --border:#1c2530; --border-glow:rgba(0,255,136,.25);
+    --code-bg:#0e131b;
 }
 html { scroll-behavior:smooth; }
 body {
@@ -29,10 +29,9 @@ body {
     position:sticky; top:0; z-index:50;
     background:rgba(10,13,18,.92); backdrop-filter:blur(8px);
     border-bottom:1px solid var(--border);
-    padding:.8rem 1.5rem; display:flex; align-items:center; gap:.1rem; flex-wrap:wrap;
+    padding:.8rem 1.5rem; display:flex; align-items:center; gap:.75rem; flex-wrap:wrap;
 }
 .prompt-bar .user { color:var(--green); font-weight:700; }
-.prompt-bar .user .k { font-weight:900; color:inherit; }
 .prompt-bar .at { color:var(--fg-dim); }
 .prompt-bar .host { color:var(--cyan); font-weight:700; }
 .prompt-bar .path { color:var(--amber); }
@@ -49,23 +48,13 @@ body {
     font-family:inherit; font-size:.72rem; padding:.35rem .9rem; border-radius:6px;
     cursor:pointer; transition:all .2s; letter-spacing:.5px;
 }
-.prompt-line2 {
-    flex-basis:100%; display:flex; align-items:center; gap:.4rem;
-    font-size:.72rem; color:var(--fg-dim); padding-top:0; letter-spacing:.3px;
-}
-.prompt-line2 .cwd { color:var(--amber); }
-.prompt-line2 .cwd::before { content:'📁 '; font-size:.75rem; }
-.prompt-line2 .git-branch { color:var(--fg-dim); }
-.prompt-line2 .git-branch .branch { color:var(--magenta); font-weight:500; }
-.prompt-line2 .git-dirty { color:var(--amber); }
 .theme-btn:hover { border-color:var(--green); color:var(--green); box-shadow:0 0 12px var(--border-glow); }
 /* ===== LAYOUT ===== */
-.shell { display:grid; grid-template-columns:320px 1fr; gap:0; max-width:1820px; margin:0 auto; min-height:calc(100vh - 110px); }
-.shell > * { min-width:0; }
+.shell { display:grid; grid-template-columns:260px 1fr; gap:0; max-width:1500px; margin:0 auto; min-height:calc(100vh - 60px); }
 /* ===== SIDEBAR (ls) ===== */
 .cmd-list {
     border-right:1px solid var(--border); padding:1.75rem 1.25rem;
-    background:var(--panel); position:sticky; top:var(--hdr, 90px); height:calc(100vh - var(--hdr, 90px)); overflow-y:auto;
+    background:var(--panel); position:sticky; top:61px; height:calc(100vh - 61px); overflow-y:auto;
 }
 .cmd-list .ls-label { color:var(--fg-dim); font-size:.75rem; margin-bottom:1.25rem; letter-spacing:1px; }
 .cmd-list .ls-label::before { content:'$ '; color:var(--green); }
@@ -81,9 +70,9 @@ body {
 .cmd-list .divider { color:var(--fg-dim); font-size:.75rem; margin:1.75rem 0 .75rem; opacity:.6; }
 .social-link { display:block; color:var(--fg-dim); text-decoration:none; font-size:.78rem; padding:.35rem .75rem; border-radius:4px; }
 .social-link:hover { color:var(--cyan); background:rgba(56,217,255,.06); }
-.social-link::before { content:'⇗ '; color:var(--green); font-weight:700; }
+.social-link::before { content:'↗ '; color:var(--green); }
 /* ===== MAIN ===== */
-.main { padding:2.5rem 3rem 5rem; }
+.main { padding:2.5rem 3rem 5rem; max-width:980px; }
 /* typed hero */
 .hero-cmd { color:var(--fg-dim); font-size:.85rem; margin-bottom:.5rem; }
 .hero-cmd .p { color:var(--green); }
@@ -123,28 +112,10 @@ body {
 .md pre::before { content:'output'; position:absolute; top:.5rem; right:.9rem; font-size:.65rem; color:var(--fg-dim); letter-spacing:1px; }
 .md pre code { background:transparent; border:none; color:var(--fg); padding:0; }
 .md table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; }
-.md .art-duo { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; margin:1.5rem 0; }
-.md .art-duo pre.ascii-art { margin:0; min-width:0; }
-.md pre.ascii-art { font-size:7.5px; line-height:1.15; padding:1rem; overflow-x:auto; color:var(--art); background:transparent; border:1px solid var(--green); }
-.md pre.ascii-art::before { content:none; }
-.md pre.ascii-art code { background:transparent; border:none; padding:0; color:inherit; }
 .md th { text-align:left; color:var(--green); border-bottom:2px solid var(--border-glow); padding:.6rem .8rem; font-weight:700; font-size:.78rem; text-transform:uppercase; letter-spacing:.8px; }
 .md td { padding:.6rem .8rem; border-bottom:1px solid var(--border); color:var(--fg); }
 .md tr:hover td { background:rgba(0,255,136,.03); }
-.md table.jump-table tbody tr { cursor:pointer; }
-.md table.jump-table tbody tr:hover td { background:rgba(0,255,136,.06); }
-.md table.jump-table tbody tr td:first-child::after { content:' ⤵'; color:var(--fg-dim); font-size:.7em; opacity:0; transition:opacity .15s; }
-.md table.jump-table tbody tr:hover td:first-child::after { opacity:1; }
 .md hr { border:none; height:1px; background:repeating-linear-gradient(90deg,var(--border) 0 8px,transparent 8px 16px); margin:2.5rem 0; }
-/* project tabs */
-.md .proj-tabs { display:flex; gap:.5rem; margin:0 0 1.5rem; }
-.md .proj-tabs .tab-btn {
-    background:var(--panel); border:1px solid var(--border); color:var(--fg-dim);
-    font-family:inherit; font-size:.8rem; padding:.45rem 1.1rem; border-radius:6px;
-    cursor:pointer; transition:all .2s; letter-spacing:.5px;
-}
-.md .proj-tabs .tab-btn:hover { border-color:var(--border-glow); color:var(--fg); }
-.md .proj-tabs .tab-btn.active { background:rgba(0,255,136,.09); border-color:var(--border-glow); color:var(--green); }
 /* cards (from .card-grid in md) */
 .md .card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:1.1rem; margin:1.75rem 0; }
 .md .card { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:1.35rem; transition:all .2s; position:relative; overflow:hidden; }
@@ -166,7 +137,7 @@ body {
 body.light {
     --bg:#f4f2ec; --bg-alt:#ece9e0; --panel:#faf9f5; --panel-alt:#f0ede6;
     --green:#00884a; --green-dim:#006b3c; --cyan:#0369a1; --amber:#b45309; --magenta:#be185d;
-    --fg:#333a45; --fg-dim:#6b7280; --fg-bright:#111827; --art:#00694a;
+    --fg:#333a45; --fg-dim:#6b7280; --fg-bright:#111827;
     --border:#d9d4c8; --border-glow:rgba(0,136,74,.3); --code-bg:#ece9e0;
     background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.012) 3px);
 }
@@ -179,38 +150,27 @@ body.light .prompt-bar { background:rgba(244,242,236,.92); }
     .social-link { display:inline-block; }
     .main { padding:2rem 1.25rem 4rem; }
 }
-@media (max-width:1800px) {
-    .md .art-duo { grid-template-columns:1fr; }
-}
 </style>
 </head>
 <body>
 <div class="prompt-bar">
-    <span><span class="user"><span class="k">k</span>siddiqui</span><span class="at">@</span><span class="host">agentic-transformation-specialist</span>:<span class="path">~</span><span class="dollar">$</span> <span class="cmd" id="cmd-display">cat index.md</span></span>
+    <span><span class="user">kashif</span><span class="at">@</span><span class="host">genai</span>:<span class="path">~</span><span class="dollar">$</span> <span class="cmd" id="cmd-display">cat index.md</span></span>
     <span class="cursor-block"></span>
     <span class="spacer"></span>
     <button class="theme-btn" onclick="toggleTheme()">[ theme: dark ]</button>
-    <div class="prompt-line2">
-        <span class="cwd">~/ksiddiqui/my/profile</span>
-        <span class="git-branch"> git:(<span class="branch">dev</span>)</span>
-        <span class="git-dirty">✗</span>
-    </div>
 </div>
 
 <div class="shell">
     <nav class="cmd-list">
         <div class="ls-label">ls pages/</div>
         <a class="cmd-item active" data-page="index.md" onclick="loadPage('index.md'); return false;"><span class="ext">md</span>index.md</a>
-        <a class="cmd-item" data-page="about.md" onclick="loadPage('about.md'); return false;"><span class="ext">md</span>about.md</a>
         <a class="cmd-item" data-page="experiences.md" onclick="loadPage('experiences.md'); return false;"><span class="ext">md</span>experiences.md</a>
         <a class="cmd-item" data-page="projects.md" onclick="loadPage('projects.md'); return false;"><span class="ext">md</span>projects.md</a>
         <a class="cmd-item" data-page="skills.md" onclick="loadPage('skills.md'); return false;"><span class="ext">md</span>skills.md</a>
         <a class="cmd-item" data-page="education.md" onclick="loadPage('education.md'); return false;"><span class="ext">md</span>education.md</a>
         <a class="cmd-item" data-page="certifications.md" onclick="loadPage('certifications.md'); return false;"><span class="ext">md</span>certifications.md</a>
         <div class="divider">external links</div>
-
         <a class="social-link" href="https://www.linkedin.com/in/ksiddiqui/" target="_blank" rel="noopener">linkedin/in/ksiddiqui</a>
-        <a class="social-link" href="https://www.quora.com/profile/Kashif-Ali-Siddiqui" target="_blank" rel="noopener">quora/kashif-ali-siddiqui</a>
         <a class="social-link" href="https://github.com/ksiddiqui" target="_blank" rel="noopener">github/ksiddiqui</a>
         <a class="social-link" href="mailto:kashif.ali.siddiqui@gmail.com">kashif.ali.siddiqui@gmail</a>
     </nav>
@@ -221,18 +181,17 @@ body.light .prompt-bar { background:rgba(244,242,236,.92); }
 </div>
 
 <div class="term-footer">
-    <span class="p">ksiddiqui@agentic-transformation-specialist</span> © 2026 · rendered from raw markdown · <a href="https://www.linkedin.com/in/ksiddiqui/" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">linkedin ↗</a>
+    <span class="p">kashif@genai</span> © 2026 · rendered from raw markdown · <a href="https://www.linkedin.com/in/ksiddiqui/" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">linkedin ↗</a>
 </div>
 
 <script>
 const PAGES = {
     'index.md':        { cmd:'cat index.md',        hero:'Kashif Ali Siddiqui', tag:'GenAI • Architecture • Cloud', loc:'Islamabad, Pakistan' },
-    'about.md':        { cmd:'cat about.md',        hero:'About Me', tag:'whoami — beyond the terminal', loc:'22+ years in IT' },
-    'experiences.md':  { cmd:'cat experiences.md',  hero:'Professional Experience', tag:'Ideation → Design → Implementation', loc:'2002 — Present' },
-    'projects.md':     { cmd:'cat projects.md',     hero:'Projects', tag:'Things I have built', loc:'30 engagements · 4 companies' },
-    'skills.md':       { cmd:'cat skills.md',       hero:'Skills', tag:'Technologies & competencies', loc:'uptime: 22+ years' },
-    'education.md':    { cmd:'cat education.md',    hero:'Education', tag:'Academic background', loc:'LUMS · University of Karachi' },
-    'certifications.md':{ cmd:'cat certifications.md', hero:'Certifications', tag:'Professional credentials', loc:'PSDC · no vendor certs — 22+ years hands-on' }
+    'experiences.md':  { cmd:'cat experiences.md',  hero:'Professional Experience', tag:'Ideation → Design → Implementation', loc:'2015 — Present' },
+    'projects.md':     { cmd:'cat projects.md',     hero:'Projects', tag:'Things I have built', loc:'github.com/ksiddiqui' },
+    'skills.md':       { cmd:'cat skills.md',       hero:'Skills', tag:'Technologies & competencies', loc:'uptime: 11+ years' },
+    'education.md':    { cmd:'cat education.md',    hero:'Education', tag:'Academic background', loc:'NED University · ISB' },
+    'certifications.md':{ cmd:'cat certifications.md', hero:'Certifications', tag:'Professional credentials', loc:'AWS · Azure · GCP' }
 };
 
 function toggleTheme() {
@@ -251,7 +210,7 @@ async function loadPage(page) {
     window.scrollTo({top:0});
     content.innerHTML = '<div class="boot"><div class="line">$ fetching pages/' + page + ' ...</div></div>';
     try {
-        const res = await fetch('pages/' + page);
+        const res = await fetch('../pages/' + page);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         const text = await res.text();
         const body = marked.parse(text);
@@ -261,47 +220,13 @@ async function loadPage(page) {
             (meta.tag ? '<div class="hero-tag">' + meta.tag + '</div>' : '') +
             (meta.loc ? '<div class="hero-loc">' + meta.loc + '</div>' : '');
         content.innerHTML = heroBlock + '<div class="md">' + body + '</div>';
-        content.querySelectorAll('.md a[href^="http"]').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
-        // Career Timeline rows jump to their role sections
-        const timeline = content.querySelector('table');
-        const tlHeading = Array.from(content.querySelectorAll('h2')).find(h => h.textContent.trim() === 'Career Timeline');
-        if (timeline && tlHeading) {
-            timeline.classList.add('jump-table');
-            const sections = Array.from(content.querySelectorAll('h2')).filter(h => h !== tlHeading && h.textContent.trim() !== 'Engagement Highlights');
-            const rows = Array.from(timeline.querySelectorAll('tbody tr'));
-            // map by role-name match: row's Role cell text matches section heading
-            rows.forEach(row => {
-                const roleText = row.cells[3].textContent.trim().split('·')[0].trim();
-                const target = sections.find(h => h.textContent.trim().toLowerCase().startsWith(roleText.slice(0, 14).toLowerCase()));
-                if (target) {
-                    row.addEventListener('click', e => {
-                        if (e.target.closest('a')) return; // don't hijack company links
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    });
-                } else {
-                    row.style.cursor = 'default';
-                }
-            });
-        }
     } catch (err) {
-        content.innerHTML = '<div class="boot"><div class="line">fetch: <span style="color:#ff5c8a">' + err.message + '</span></div><div class="line">$ serve the repo first: <span style="color:var(--amber)">python -m http.server 8000</span> from repo root, then open <span style="color:var(--cyan)">http://localhost:8000/</span></div></div>';
+        content.innerHTML = '<div class="boot"><div class="line">fetch: <span style="color:#ff5c8a">' + err.message + '</span></div><div class="line">$ serve the repo first: <span style="color:var(--amber)">python -m http.server 8000</span> from repo root, then open <span style="color:var(--cyan)">http://localhost:8000/prototypes/terminal.html</span></div></div>';
     }
 }
 
-
-function switchProjTab(tab) {
-    document.querySelectorAll('.md .proj-tabs .tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
-    document.querySelectorAll('.md .tab-panel').forEach(p => { p.hidden = p.dataset.panel !== tab; });
-}
-
-function syncHeaderHeight() {
-    const h = document.querySelector('.prompt-bar').getBoundingClientRect().height;
-    document.documentElement.style.setProperty('--hdr', Math.round(h) + 'px');
-}
-window.addEventListener('resize', syncHeaderHeight);
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('proto-theme') === 'light') toggleTheme();
-    syncHeaderHeight();
     document.getElementById('content').addEventListener('click', e => {
         const a = e.target.closest('a[href$=".md"]');
         if (!a) return;

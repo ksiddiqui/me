@@ -1,3 +1,9 @@
+# Certifications
+
+> [← Back to Home](index.md) | [Experience](experiences.md) | [Skills](skills.md) | [Education](education.md)
+
+---
+
 ## Professional Credentials
 
 ### Professional Software Developer Certification (PSDC) — Program Designer & Executor
@@ -31,6 +37,8 @@ I hold no vendor certifications (AWS, Azure, GCP, Kubernetes, security, etc.). M
 | Urdu | Native |
 
 ---
+
+> [← Back to Home](index.md) | [Skills](skills.md) | [Education](education.md)
 
 <!-- Metadata: Certifications page. Links to parent (index.md) and sibling pages. -->
 <!-- Last verified: 2026-09-13 against resume -->

@@ -1,3 +1,9 @@
+# Skills
+
+> [← Back to Home](index.md) | [← Experience](experiences.md) | [Projects](projects.md)
+
+---
+
 ## Core Competencies
 
 | Category | Skills |
@@ -130,6 +136,8 @@ Docker · Kubernetes · Jenkins · Registry · Artifactory · Grafana Stack
 </div>
 
 ---
+
+> [← Back to Home](index.md) | [← Experience](experiences.md) | [Projects](projects.md) | [Next: Education](education.md)
 
 <!-- Metadata: Skills page. Links to parent (experiences.md) and sibling pages. -->
 <!-- Last verified: 2026-09-13 against resume -->
