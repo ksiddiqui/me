@@ -1,0 +1,48 @@
+{
+  "higherEducation": [
+    {
+      "h": "LUMS — Lahore University of Management Sciences",
+      "meta": "**Master of Science, Computer Science** | Lahore, Pakistan | 2003 — 2004",
+      "bullets": [
+        "**GPA:** 3.64 / 4.0",
+        "**Majors:** Computer Networking; Theoretical Computer Science & AI",
+        "Research on a novel transport-layer protocol for fault-tolerant communication"
+      ]
+    },
+    {
+      "h": "University of Karachi",
+      "meta": "**Bachelor of Science, Computer Science** | Karachi, Pakistan | 1999 — 2002",
+      "bullets": [
+        "**GPA:** 3.56 / 4.0"
+      ]
+    }
+  ],
+  "ielts": {
+    "h": "IELTS — International English Language Testing System",
+    "meta": "**British Council, Karachi** | January 2023",
+    "scores": {
+      "headers": ["Band", "Score"],
+      "rows": [
+        ["**Overall**", "**7.0 / 9** (CEFR C1)"],
+        ["Listening", "7.0"],
+        ["Reading", "8.5"],
+        ["Writing", "6.5"],
+        ["Speaking", "6.5"]
+      ]
+    }
+  },
+  "visitingFaculty": {
+    "h": "Muhammad Ali Jinnah University — MS CS Program",
+    "meta": "**2005 — 2007**",
+    "text": "Developed and taught graduate courses in **Advanced Operating Systems** and **Network Security**, plus foundational CS courses."
+  },
+  "continuousLearning": {
+    "intro": "I believe in lifelong learning and staying current with the latest technologies. My learning approach includes:",
+    "items": [
+      "**Hands-on experimentation** with new tools, frameworks, and agentic workflows",
+      "**Technical presentations** and knowledge sharing",
+      "**Thought leadership** and skill development across the practice",
+      "**Mentorship** in tech startups and tech community engagement"
+    ]
+  }
+}

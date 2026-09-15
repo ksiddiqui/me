@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ksiddiqui@agentic-transformation-specialist:~$ cat profile — Kashif Ali Siddiqui</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 :root {
@@ -60,7 +59,7 @@ body {
 .prompt-line2 .git-dirty { color:var(--amber); }
 .theme-btn:hover { border-color:var(--green); color:var(--green); box-shadow:0 0 12px var(--border-glow); }
 /* ===== LAYOUT ===== */
-.shell { display:grid; grid-template-columns:320px 1fr; gap:0; max-width:1820px; margin:0 auto; min-height:calc(100vh - 110px); }
+.shell { display:grid; grid-template-columns:320px 1fr; gap:0; max-width:1820px; margin:0; min-height:calc(100vh - 110px); }
 .shell > * { min-width:0; }
 /* ===== SIDEBAR (ls) ===== */
 .cmd-list {
@@ -186,7 +185,7 @@ body.light .prompt-bar { background:rgba(244,242,236,.92); }
 </head>
 <body>
 <div class="prompt-bar">
-    <span><span class="user"><span class="k">k</span>siddiqui</span><span class="at">@</span><span class="host">agentic-transformation-specialist</span>:<span class="path">~</span><span class="dollar">$</span> <span class="cmd" id="cmd-display">cat index.md</span></span>
+    <span><span class="user"><span class="k">k</span>siddiqui</span><span class="at">@</span><span class="host">agentic-transformation-specialist</span>:<span class="path">~</span><span class="dollar">$</span> <span class="cmd" id="cmd-display">cat data/index.json</span></span>
     <span class="cursor-block"></span>
     <span class="spacer"></span>
     <button class="theme-btn" onclick="toggleTheme()">[ theme: dark ]</button>
@@ -199,14 +198,14 @@ body.light .prompt-bar { background:rgba(244,242,236,.92); }
 
 <div class="shell">
     <nav class="cmd-list">
-        <div class="ls-label">ls pages/</div>
-        <a class="cmd-item active" data-page="index.md" onclick="loadPage('index.md'); return false;"><span class="ext">md</span>index.md</a>
-        <a class="cmd-item" data-page="about.md" onclick="loadPage('about.md'); return false;"><span class="ext">md</span>about.md</a>
-        <a class="cmd-item" data-page="experiences.md" onclick="loadPage('experiences.md'); return false;"><span class="ext">md</span>experiences.md</a>
-        <a class="cmd-item" data-page="projects.md" onclick="loadPage('projects.md'); return false;"><span class="ext">md</span>projects.md</a>
-        <a class="cmd-item" data-page="skills.md" onclick="loadPage('skills.md'); return false;"><span class="ext">md</span>skills.md</a>
-        <a class="cmd-item" data-page="education.md" onclick="loadPage('education.md'); return false;"><span class="ext">md</span>education.md</a>
-        <a class="cmd-item" data-page="certifications.md" onclick="loadPage('certifications.md'); return false;"><span class="ext">md</span>certifications.md</a>
+        <div class="ls-label">ls data/</div>
+        <a class="cmd-item active" data-page="index" onclick="loadPage('index'); return false;"><span class="ext">json</span>index.json</a>
+        <a class="cmd-item" data-page="about" onclick="loadPage('about'); return false;"><span class="ext">json</span>about.json</a>
+        <a class="cmd-item" data-page="experiences" onclick="loadPage('experiences'); return false;"><span class="ext">json</span>experiences.json</a>
+        <a class="cmd-item" data-page="projects" onclick="loadPage('projects'); return false;"><span class="ext">json</span>projects.json</a>
+        <a class="cmd-item" data-page="skills" onclick="loadPage('skills'); return false;"><span class="ext">json</span>skills.json</a>
+        <a class="cmd-item" data-page="education" onclick="loadPage('education'); return false;"><span class="ext">json</span>education.json</a>
+        <a class="cmd-item" data-page="certifications" onclick="loadPage('certifications'); return false;"><span class="ext">json</span>certifications.json</a>
         <div class="divider">external links</div>
 
         <a class="social-link" href="https://www.linkedin.com/in/ksiddiqui/" target="_blank" rel="noopener">linkedin/in/ksiddiqui</a>
@@ -219,20 +218,19 @@ body.light .prompt-bar { background:rgba(244,242,236,.92); }
         <div id="content"><div class="boot"><div class="line">$ initializing...</div></div></div>
     </main>
 </div>
-
 <div class="term-footer">
-    <span class="p">ksiddiqui@agentic-transformation-specialist</span> © 2026 · rendered from raw markdown · <a href="https://www.linkedin.com/in/ksiddiqui/" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">linkedin ↗</a>
+    <span class="p">ksiddiqui@agentic-transformation-specialist</span> © 2026 · rendered from data/*.json · <a href="https://www.linkedin.com/in/ksiddiqui/" target="_blank" rel="noopener" style="color:var(--cyan);text-decoration:none;">linkedin ↗</a>
 </div>
 
 <script>
 const PAGES = {
-    'index.md':        { cmd:'cat index.md',        hero:'Kashif Ali Siddiqui', tag:'GenAI • Architecture • Cloud', loc:'Islamabad, Pakistan' },
-    'about.md':        { cmd:'cat about.md',        hero:'About Me', tag:'whoami — beyond the terminal', loc:'22+ years in IT' },
-    'experiences.md':  { cmd:'cat experiences.md',  hero:'Professional Experience', tag:'Ideation → Design → Implementation', loc:'2002 — Present' },
-    'projects.md':     { cmd:'cat projects.md',     hero:'Projects', tag:'Things I have built', loc:'30 engagements · 4 companies' },
-    'skills.md':       { cmd:'cat skills.md',       hero:'Skills', tag:'Technologies & competencies', loc:'uptime: 22+ years' },
-    'education.md':    { cmd:'cat education.md',    hero:'Education', tag:'Academic background', loc:'LUMS · University of Karachi' },
-    'certifications.md':{ cmd:'cat certifications.md', hero:'Certifications', tag:'Professional credentials', loc:'PSDC · no vendor certs — 22+ years hands-on' }
+    'index':           { cmd:'cat data/index.json',           hero:'Kashif Ali Siddiqui', tag:'GenAI • Architecture • Cloud', loc:'Islamabad, Pakistan' },
+    'about':           { cmd:'cat data/about.json',           hero:'About Me', tag:'whoami — beyond the terminal', loc:'22+ years in IT' },
+    'experiences':     { cmd:'cat data/experiences.json',     hero:'Professional Experience', tag:'Ideation → Design → Implementation', loc:'2002 — Present' },
+    'projects':        { cmd:'cat data/projects.json',        hero:'Projects', tag:'Things I have built', loc:'30 engagements · 4 companies' },
+    'skills':          { cmd:'cat data/skills.json',          hero:'Skills', tag:'Technologies & competencies', loc:'uptime: 22+ years' },
+    'education':       { cmd:'cat data/education.json',        hero:'Education', tag:'Academic background', loc:'LUMS · University of Karachi' },
+    'certifications':  { cmd:'cat data/certifications.json',  hero:'Certifications', tag:'Professional credentials', loc:'PSDC · no vendor certs — 22+ years hands-on' }
 };
 
 function toggleTheme() {
@@ -243,51 +241,298 @@ function toggleTheme() {
     localStorage.setItem('proto-theme', light ? 'light' : 'dark');
 }
 
+/* ---------- DOM helpers ---------- */
+function mdInline(s) {
+    return String(s)
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>');
+}
+function el(tag, cls, html) {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (html !== undefined) n.innerHTML = mdInline(html);
+    return n;
+}
+function makeLink(url, label) {
+    const a = el('a', null, label);
+    a.href = url;
+    if (url.startsWith('http')) { a.target = '_blank'; a.rel = 'noopener'; }
+    return a;
+}
+function makeTable(headers, bodyRows) {
+    const t = el('table');
+    const thead = el('thead');
+    const htr = el('tr');
+    headers.forEach(h => htr.appendChild(el('th', null, h)));
+    thead.appendChild(htr);
+    const tbody = el('tbody');
+    bodyRows.forEach(r => {
+        const tr = el('tr');
+        r.forEach(c => tr.appendChild(el('td', null, c)));
+        tbody.appendChild(tr);
+    });
+    t.appendChild(thead); t.appendChild(tbody);
+    return t;
+}
+function makeList(items) {
+    const ul = el('ul');
+    items.forEach(i => ul.appendChild(el('li', null, i)));
+    return ul;
+}
+function makeCard(card) {
+    const c = el('div', 'card');
+    c.appendChild(el('span', 'card-meta', card.meta));
+    c.appendChild(el('div', 'card-title', card.title));
+    c.appendChild(el('div', 'card-content', card.content));
+    c.appendChild(el('div', 'card-tech', card.tech));
+    return c;
+}
+function makeH3Block(h, text) {
+    const wrap = el('div');
+    wrap.appendChild(el('h3', null, h));
+    wrap.appendChild(el('p', null, text));
+    return wrap;
+}
+
+/* ---------- per-page builders (return .md wrapper) ---------- */
+async function renderIndex(data) {
+    const md = el('div', 'md');
+    data.quotes.forEach(q => {
+        const bq = el('blockquote');
+        bq.appendChild(el('p', null, q));
+        md.appendChild(bq);
+    });
+    md.appendChild(el('hr'));
+    const artDuo = el('div', 'art-duo');
+    await Promise.all(data.art.map(async p => {
+        const res = await fetch(p);
+        if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + p);
+        const pre = el('pre', 'ascii-art');
+        pre.textContent = await res.text();
+        artDuo.appendChild(pre);
+    }));
+    md.appendChild(artDuo);
+    return md;
+}
+
+function renderAbout(d) {
+    const md = el('div', 'md');
+    md.appendChild(el('h2', null, 'Introduction'));
+    d.introduction.paras.forEach(p => md.appendChild(el('p', null, p)));
+    md.appendChild(el('h3', null, 'What I Do'));
+    md.appendChild(makeList(d.introduction.whatIDo));
+    md.appendChild(el('h3', null, 'My Architectural Journey'));
+    md.appendChild(makeList(d.introduction.journey));
+    md.appendChild(el('h3', null, 'Key Achievements'));
+    md.appendChild(makeList(d.introduction.achievements));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'My Focus Areas'));
+    md.appendChild(makeTable(d.focusAreas.headers, d.focusAreas.rows));
+    return md;
+}
+
+function renderExperiences(d) {
+    const md = el('div', 'md');
+    md.appendChild(el('h2', null, 'Engagement Highlights'));
+    const grid = el('div', 'card-grid');
+    d.highlights.forEach(c => grid.appendChild(makeCard(c)));
+    md.appendChild(grid);
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'Career Timeline'));
+    const t = el('table', 'jump-table');
+    const thead = el('thead');
+    const htr = el('tr');
+    d.timeline.headers.forEach(h => htr.appendChild(el('th', null, h)));
+    thead.appendChild(htr);
+    t.appendChild(thead);
+    const tbody = el('tbody');
+    d.timeline.rows.forEach(r => {
+        const tr = el('tr');
+        tr.appendChild(el('td', null, r.year));
+        const tdCo = el('td');
+        tdCo.appendChild(el('div', null, r.company));
+        tdCo.appendChild(el('br'));
+        tdCo.appendChild(makeLink(r.url, r.site));
+        tr.appendChild(tdCo);
+        tr.appendChild(el('td', null, r.tenure));
+        tr.appendChild(el('td', null, r.role));
+        tr.appendChild(el('td', null, r.focus));
+        tbody.appendChild(tr);
+    });
+    t.appendChild(tbody);
+    md.appendChild(t);
+    md.appendChild(el('hr'));
+    d.roles.forEach(r => {
+        md.appendChild(el('h2', null, r.role));
+        md.appendChild(el('h3', null, r.company));
+        if (r.meta) md.appendChild(el('p', null, '<strong>' + r.meta + '</strong>'));
+        if (r.intro) md.appendChild(el('p', null, r.intro));
+        if (r.contribTitle) md.appendChild(el('p', null, '<strong>' + r.contribTitle + '</strong>'));
+        if (r.bullets.length) md.appendChild(makeList(r.bullets));
+    });
+    return md;
+}
+
+function renderProjects(d) {
+    const md = el('div', 'md');
+    const tabs = el('div', 'proj-tabs');
+    const gBtn = el('button', 'tab-btn active', 'Gallery');
+    gBtn.type = 'button'; gBtn.dataset.tab = 'gallery'; gBtn.onclick = () => switchProjTab('gallery');
+    const dBtn = el('button', 'tab-btn', 'Details');
+    dBtn.type = 'button'; dBtn.dataset.tab = 'details'; dBtn.onclick = () => switchProjTab('details');
+    tabs.appendChild(gBtn); tabs.appendChild(dBtn);
+    md.appendChild(tabs);
+    const detailsPanel = el('div', 'tab-panel');
+    detailsPanel.dataset.panel = 'details'; detailsPanel.hidden = true;
+    d.groups.forEach((g, gi) => {
+        detailsPanel.appendChild(el('h2', null, g.title));
+        const grid = el('div', 'card-grid');
+        g.cards.forEach(c => grid.appendChild(makeCard(c)));
+        detailsPanel.appendChild(grid);
+        if (gi < d.groups.length - 1) detailsPanel.appendChild(el('hr'));
+    });
+    md.appendChild(detailsPanel);
+    const galleryPanel = el('div', 'tab-panel');
+    galleryPanel.dataset.panel = 'gallery';
+    galleryPanel.appendChild(el('h2', null, 'Project Gallery'));
+    galleryPanel.appendChild(makeTable(d.gallery.headers, d.gallery.rows));
+    md.appendChild(galleryPanel);
+    return md;
+}
+
+function renderSkills(d) {
+    const md = el('div', 'md');
+    md.appendChild(el('h2', null, 'Core Competencies'));
+    md.appendChild(makeTable(d.coreCompetencies.headers, d.coreCompetencies.rows));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'Solution Design &amp; Architecture'));
+    md.appendChild(makeTable(d.patterns.headers, d.patterns.rows));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'AI Agents Development'));
+    d.aiAgents.forEach(s => md.appendChild(makeH3Block(s.h, s.text)));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'Data Engineering · CV · AI/ML · GenAI Development'));
+    d.dataAI.forEach(s => md.appendChild(makeH3Block(s.h, s.text)));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'Agentic SDLC'));
+    d.agenticSDLC.forEach(s => md.appendChild(makeH3Block(s.h, s.text)));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'Backend Development'));
+    d.backend.forEach(s => md.appendChild(makeH3Block(s.h, s.text)));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'Cloud &amp; Infrastructure'));
+    md.appendChild(makeTable(d.cloud.providerTable.headers, d.cloud.providerTable.rows));
+    md.appendChild(makeH3Block(d.cloud.toolsH, d.cloud.tools));
+    md.appendChild(el('hr'));
+    return md;
+}
+
+function renderEducation(d) {
+    const md = el('div', 'md');
+    md.appendChild(el('h2', null, 'Higher Education'));
+    d.higherEducation.forEach(s => {
+        md.appendChild(el('h3', null, s.h));
+        if (s.meta) md.appendChild(el('p', null, s.meta));
+        if (s.bullets.length) md.appendChild(makeList(s.bullets));
+        md.appendChild(el('hr'));
+    });
+    md.appendChild(el('h2', null, 'International Language Assessment'));
+    md.appendChild(el('h3', null, d.ielts.h));
+    md.appendChild(el('p', null, d.ielts.meta));
+    md.appendChild(makeTable(d.ielts.scores.headers, d.ielts.scores.rows));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'Visiting Faculty'));
+    md.appendChild(el('h3', null, d.visitingFaculty.h));
+    md.appendChild(el('p', null, d.visitingFaculty.meta));
+    md.appendChild(el('p', null, d.visitingFaculty.text));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'Continuous Learning'));
+    md.appendChild(el('p', null, d.continuousLearning.intro));
+    const ol = el('ol');
+    d.continuousLearning.items.forEach(i => ol.appendChild(el('li', null, i)));
+    md.appendChild(ol);
+    md.appendChild(el('hr'));
+    return md;
+}
+
+function renderCertifications(d) {
+    const md = el('div', 'md');
+    md.appendChild(el('h2', null, 'Professional Credentials'));
+    md.appendChild(el('h3', null, d.credentials.h));
+    md.appendChild(el('p', null, d.credentials.meta));
+    md.appendChild(el('p', null, d.credentials.text));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'International Language Assessment'));
+    md.appendChild(el('h3', null, d.ielts.h));
+    md.appendChild(el('p', null, d.ielts.meta));
+    md.appendChild(makeList(d.ielts.bullets));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'A Note on Professional Certifications'));
+    md.appendChild(el('p', null, d.note));
+    md.appendChild(el('hr'));
+    md.appendChild(el('h2', null, 'Languages'));
+    md.appendChild(makeTable(d.languages.headers, d.languages.rows));
+    md.appendChild(el('hr'));
+    return md;
+}
+
+
+const RENDERERS = {
+    index: renderIndex,
+    about: renderAbout,
+    experiences: renderExperiences,
+    projects: renderProjects,
+    skills: renderSkills,
+    education: renderEducation,
+    certifications: renderCertifications
+};
+
 async function loadPage(page) {
     const content = document.getElementById('content');
-    const meta = PAGES[page] || { cmd:'cat '+page, hero:page, tag:'', loc:'' };
+    const meta = PAGES[page] || { cmd:'cat data/' + page + '.json', hero:page, tag:'', loc:'' };
     document.getElementById('cmd-display').textContent = meta.cmd;
-    document.querySelectorAll('.cmd-item').forEach(el => el.classList.toggle('active', el.dataset.page === page));
+    document.querySelectorAll('.cmd-item').forEach(item => item.classList.toggle('active', item.dataset.page === page));
     window.scrollTo({top:0});
-    content.innerHTML = '<div class="boot"><div class="line">$ fetching pages/' + page + ' ...</div></div>';
+    content.innerHTML = '<div class="boot"><div class="line">$ fetching data/' + page + '.json ...</div></div>';
     try {
-        const res = await fetch('pages/' + page);
+        const res = await fetch('data/' + page + '.json');
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        const text = await res.text();
-        const body = marked.parse(text);
+        const data = await res.json();
+        const md = await RENDERERS[page](data);
         const heroBlock =
             '<div class="hero-cmd"><span class="p">$</span> whoami</div>' +
             '<h1 class="hero-name">' + meta.hero + '<span class="blink-cursor">_</span></h1>' +
             (meta.tag ? '<div class="hero-tag">' + meta.tag + '</div>' : '') +
             (meta.loc ? '<div class="hero-loc">' + meta.loc + '</div>' : '');
-        content.innerHTML = heroBlock + '<div class="md">' + body + '</div>';
-        content.querySelectorAll('.md a[href^="http"]').forEach(a => { a.target = '_blank'; a.rel = 'noopener'; });
-        // Career Timeline rows jump to their role sections
-        const timeline = content.querySelector('table');
-        const tlHeading = Array.from(content.querySelectorAll('h2')).find(h => h.textContent.trim() === 'Career Timeline');
-        if (timeline && tlHeading) {
-            timeline.classList.add('jump-table');
-            const sections = Array.from(content.querySelectorAll('h2')).filter(h => h !== tlHeading && h.textContent.trim() !== 'Engagement Highlights');
-            const rows = Array.from(timeline.querySelectorAll('tbody tr'));
-            // map by role-name match: row's Role cell text matches section heading
-            rows.forEach(row => {
-                const roleText = row.cells[3].textContent.trim().split('·')[0].trim();
-                const target = sections.find(h => h.textContent.trim().toLowerCase().startsWith(roleText.slice(0, 14).toLowerCase()));
-                if (target) {
-                    row.addEventListener('click', e => {
-                        if (e.target.closest('a')) return; // don't hijack company links
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    });
-                } else {
-                    row.style.cursor = 'default';
-                }
-            });
-        }
+        content.innerHTML = '';
+        content.insertAdjacentHTML('afterbegin', heroBlock);
+        content.appendChild(md);
+        wireTimelineJumps(content);
     } catch (err) {
         content.innerHTML = '<div class="boot"><div class="line">fetch: <span style="color:#ff5c8a">' + err.message + '</span></div><div class="line">$ serve the repo first: <span style="color:var(--amber)">python -m http.server 8000</span> from repo root, then open <span style="color:var(--cyan)">http://localhost:8000/</span></div></div>';
     }
 }
 
+function wireTimelineJumps(content) {
+    const tlHeading = Array.from(content.querySelectorAll('h2')).find(h => h.textContent.trim() === 'Career Timeline');
+    if (!tlHeading) return;
+    const timeline = tlHeading.parentElement.querySelector('table.jump-table') || content.querySelector('table.jump-table');
+    if (!timeline) return;
+    const sections = Array.from(content.querySelectorAll('h2')).filter(h => h !== tlHeading && h.textContent.trim() !== 'Engagement Highlights');
+    const rows = Array.from(timeline.querySelectorAll('tbody tr'));
+    rows.forEach(row => {
+        const roleText = row.cells[3].textContent.trim().split('·')[0].trim();
+        const target = sections.find(h => h.textContent.trim().toLowerCase().startsWith(roleText.slice(0, 14).toLowerCase()));
+        if (target) {
+            row.addEventListener('click', e => {
+                if (e.target.closest('a')) return; // don't hijack company links
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        } else {
+            row.style.cursor = 'default';
+        }
+    });
+}
 
 function switchProjTab(tab) {
     document.querySelectorAll('.md .proj-tabs .tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
@@ -302,13 +547,7 @@ window.addEventListener('resize', syncHeaderHeight);
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('proto-theme') === 'light') toggleTheme();
     syncHeaderHeight();
-    document.getElementById('content').addEventListener('click', e => {
-        const a = e.target.closest('a[href$=".md"]');
-        if (!a) return;
-        e.preventDefault();
-        loadPage(a.getAttribute('href').replace(/^\.\//, ''));
-    });
-    loadPage('index.md');
+    loadPage('index');
 });
 </script>
 </body>

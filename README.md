@@ -1,21 +1,20 @@
 # kashif@genai:~$
 
-Personal profile site for **Kashif Ali Siddiqui** — rendered as a terminal. The page presents itself as a shell session (`kashif@genai`), with a sidebar `ls pages/` listing of markdown files and content fetched and rendered client-side from raw markdown — no build step, no framework.
+Personal profile site for **Kashif Ali Siddiqui** — rendered as a terminal. The page presents itself as a shell session, with a sidebar `ls data/` listing of JSON files and content fetched and rendered client-side — no build step, no framework, no markdown parser.
 
 ## Structure
 
 ```
 me/
-├── index.html      # terminal viewer (fetches + renders pages/*.md client-side)
-├── pages/          # the rendered site content (7 markdown files)
-│   ├── index.md          # home — identity header + ASCII self-portraits
-│   ├── about.md          # full profile / whoami
-│   ├── experiences.md    # professional experience
-│   ├── projects.md       # projects
-│   ├── skills.md         # skills & competencies
-│   ├── education.md      # education
-│   └── certifications.md # certifications
-├── data/           # knowledgebase — source of truth for content edits
+├── index.html      # terminal viewer (fetches data/*.json, builds DOM per page)
+├── data/           # the site content — edit these JSON files
+│   ├── index.json          # home — identity blockquotes + ASCII self-portraits
+│   ├── about.json          # full profile / whoami
+│   ├── experiences.json    # professional experience (highlights, timeline, roles)
+│   ├── projects.json       # projects (card groups + gallery table)
+│   ├── skills.json         # skills & competencies
+│   ├── education.json      # education, IELTS, faculty, learning
+│   └── certifications.json  # credentials & languages
 ├── docs/           # ASCII portrait sources (me-picture-*.txt), DESIGN.md, Me.png
 ├── prototypes/     # design prototypes (terminal.html is the chosen design)
 ├── serve.sh        # local server (Linux/macOS)
@@ -34,22 +33,30 @@ python -m http.server 8000   # or just this
 
 Then open **http://localhost:8000/**
 
+Opening `index.html` directly via `file://` will not work — browsers block `fetch()` of local files (CORS). Use a server.
+
 ## Features
 
-- **Client-side markdown rendering** — [marked@12](https://github.com/markedjs/marked) fetches `pages/*.md` and renders with zero build tooling
-- **Terminal aesthetic** — prompt bar with blinking cursor, `whoami` hero headers, `ls pages/` navigation, boot-sequence loading states
+- **Client-side JSON rendering** — `index.html` fetches the page's JSON from `data/` and builds the DOM with a dedicated renderer per page; zero build tooling, zero dependencies
+- **Terminal aesthetic** — prompt bar with blinking cursor, `$ whoami` hero headers, `ls data/` navigation, boot-sequence loading states
 - **Dark / light theme toggle** — persisted via `localStorage` (`proto-theme` key)
-- **Card grids** — experience and project entries render as hoverable terminal cards
-- **ASCII self-portraits** — hand-drawn portraits rendered in styled `<pre>` blocks on the home page
+- **Card grids** — engagement highlights and project entries render as hoverable terminal cards
+- **Project tabs** — Gallery / Details views toggle client-side
+- **Career timeline jumps** — clicking a timeline row smooth-scrolls to that role's section; company links open in a new tab
+- **ASCII self-portraits** — hand-drawn portraits in `docs/me-picture-*.txt`, fetched and rendered in styled `<pre>` blocks on the home page
 - **Responsive** — sidebar collapses to a wrapping chip row below 900px
 
 ## Hosting (GitHub Pages)
 
-The viewer lives at the repo root, so standard GitHub Pages works with no configuration: enable Pages on the branch, and `index.html` + `pages/` deploy as-is.
+The viewer lives at the repo root, so standard GitHub Pages works with no configuration: enable Pages on the branch, and `index.html` + `data/` + `docs/` deploy as-is.
 
 ## Updating content
 
-Edit the markdown files in `pages/` — changes appear on reload, no build step. For substantive content changes, edit `data/` first (the source of truth), then mirror into `pages/`.
+Edit the JSON files in `data/` — that is the only place content lives. Changes appear on reload, no build step.
+
+Each file's schema is page-specific (e.g. `experiences.json` has `highlights`, `timeline`, `roles`; `projects.json` has card `groups` and the `gallery` table). The renderer for each page lives in `index.html`. Limited inline markup is supported in text fields: `**bold**` and `*italic*`.
+
+The ASCII portraits stay in `docs/me-picture-*.txt` and are referenced by path from `data/index.json`.
 
 ## Credits
 
