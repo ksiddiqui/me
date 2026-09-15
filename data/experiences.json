@@ -1,0 +1,164 @@
+{
+  "highlights": [
+    {
+      "meta": "AI Agents",
+      "title": "GenAI Solutions Leadership",
+      "content": "Led design and implementation of scalable GenAI solutions used by several important clients — optimized operations and significant cost savings. AI-driven tools profoundly impacted customer feedback processing, improving decision-making and client satisfaction.",
+      "tech": "Multi-Agentic Systems · RAG · Cloud"
+    },
+    {
+      "meta": "Leadership",
+      "title": "Practice & Division Building",
+      "content": "Grew Nisum's GenAI practice as Head of Practice, and ran Folio3's Enterprise division as Division Owner — technical direction, full project lifecycle management, and process improvements.",
+      "tech": "Practice Leadership · Enterprise Architecture"
+    },
+    {
+      "meta": "Systems",
+      "title": "Deep Systems Engineering Roots",
+      "content": "Started as a Linux kernel developer and transport-protocol researcher — kernel modules, device drivers, and a novel fault-tolerant communication protocol at LUMS.",
+      "tech": "Linux Kernel · C/C++ · Protocol Design"
+    }
+  ],
+  "timeline": {
+    "headers": ["Year", "Company/Organization", "Tenure", "Role", "Focus"],
+    "rows": [
+      {
+        "year": "08/2025 — Present",
+        "company": "NorthBay Solutions",
+        "site": "northbaysolutions.com",
+        "url": "https://www.northbaysolutions.com",
+        "tenure": "1 yr 1 mo",
+        "role": "AVP Technology",
+        "focus": "Technical oversight across projects & accounts · GenAI/Cloud architecture"
+      },
+      {
+        "year": "03/2018 — 07/2025",
+        "company": "Nisum Technologies",
+        "site": "nisum.com",
+        "url": "https://nisum.com",
+        "tenure": "7 yrs 4 mos",
+        "role": "Head of Practice · GenAI/Cloud-Native Solution Architect",
+        "focus": "Built & led the GenAI practice · large-scale AI solutions"
+      },
+      {
+        "year": "06/2006 — 02/2018",
+        "company": "Folio3 (Pvt) Ltd.",
+        "site": "folio3.com",
+        "url": "https://www.folio3.com",
+        "tenure": "11 yrs 8 mos",
+        "role": "Lead Architect · Division Owner",
+        "focus": "Owned the Enterprise division · AI, big data, IoT, security initiatives"
+      },
+      {
+        "year": "2005 — 2007",
+        "company": "Muhammad Ali Jinnah University",
+        "site": "jinnah.edu",
+        "url": "https://www.jinnah.edu",
+        "tenure": "~2 yrs",
+        "role": "Visiting Faculty — MS CS Program",
+        "focus": "Advanced OS & Network Security courses"
+      },
+      {
+        "year": "04/2005 — 05/2006",
+        "company": "ARPATech (Pvt) Ltd.",
+        "site": "arpatech.com",
+        "url": "https://arpatech.com",
+        "tenure": "1 yr 2 mos",
+        "role": "Lead Software Engineer",
+        "focus": "Security solutions & rule-based systems"
+      },
+      {
+        "year": "10/2004 — 04/2005",
+        "company": "LUMS",
+        "site": "lums.edu.pk",
+        "url": "https://lums.edu.pk",
+        "tenure": "7 mos",
+        "role": "Research Assistant",
+        "focus": "Novel fault-tolerant transport protocol"
+      },
+      {
+        "year": "11/2002 — 10/2003",
+        "company": "Infinilogic (Pvt) Ltd.",
+        "site": "infinilogic.com",
+        "url": "https://infinilogic.com",
+        "tenure": "~1 yr",
+        "role": "Software Engineer",
+        "focus": "Linux kernel modules & device drivers"
+      }
+    ]
+  },
+  "roles": [
+    {
+      "role": "AVP Technology",
+      "company": "NorthBay Solutions",
+      "meta": "Islamabad, Pakistan | 08/2025 — Present",
+      "intro": "Technology strategist and analyst providing technical oversight for multiple projects and accounts.",
+      "contribTitle": "Key Contributions:",
+      "bullets": [
+        "GenAI and Cloud-Native architect on billable client engagements",
+        "Market-trend analysis feeding strategic technology roadmaps"
+      ]
+    },
+    {
+      "role": "Head of Practice · GenAI/Cloud-Native Solution Architect",
+      "company": "Nisum Technologies",
+      "meta": "03/2018 — 07/2025 (~7 years)",
+      "intro": "Led the growth of the company's GenAI practice.",
+      "contribTitle": "Key Responsibilities:",
+      "bullets": [
+        "Designed and implemented large-scale AI solutions",
+        "Provided technical direction to engineering and product teams",
+        "Managed the full project lifecycle",
+        "Architected scalable, secure cloud and on-prem solutions"
+      ]
+    },
+    {
+      "role": "Lead Architect · Division Owner",
+      "company": "Folio3 (Pvt) Ltd.",
+      "meta": "06/2006 — 02/2018 (~12 years)",
+      "intro": "Owner of the Enterprise division, managing all of its operations.",
+      "contribTitle": "Key Responsibilities:",
+      "bullets": [
+        "Technical oversight of a diverse project portfolio",
+        "Process improvements across the division",
+        "Architecture and emerging-technology initiatives — AI, big data, IoT, security",
+        "Enterprise solutions spanning mobile, communication, and integration domains"
+      ]
+    },
+    {
+      "role": "Visiting Faculty Member · MS CS Program",
+      "company": "Muhammad Ali Jinnah University",
+      "meta": "2005 — 2007 (~3 years)",
+      "intro": "Developed and taught **Advanced Operating Systems** and **Network Security**, plus foundational CS courses.",
+      "contribTitle": "",
+      "bullets": []
+    },
+    {
+      "role": "Lead Software Engineer",
+      "company": "ARPATech (Pvt) Ltd.",
+      "meta": "04/2005 — 05/2006 (~1 year)",
+      "intro": "",
+      "contribTitle": "",
+      "bullets": [
+        "Led teams building security solutions and rule-based systems",
+        "Drove process enhancements"
+      ]
+    },
+    {
+      "role": "Research Assistant",
+      "company": "LUMS",
+      "meta": "10/2004 — 04/2005 (~6 months)",
+      "intro": "Novel transport-layer protocol for fault-tolerant communication — core design and implementation.",
+      "contribTitle": "",
+      "bullets": []
+    },
+    {
+      "role": "Software Engineer",
+      "company": "Infinilogic (Pvt) Ltd.",
+      "meta": "11/2002 — 10/2003 (~1 year)",
+      "intro": "Linux kernel developer — kernel modules and drivers for a commercial solution, plus serial device applications.",
+      "contribTitle": "",
+      "bullets": []
+    }
+  ]
+}

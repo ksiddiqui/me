@@ -1,0 +1,239 @@
+{
+  "groups": [
+    {
+      "title": "NorthBay Solutions (2025 — Present)",
+      "cards": [
+        {
+          "meta": "2026 · NBS",
+          "title": "AI Product Promotion Optimization Engine",
+          "content": "Predicts promotion plans using price elasticity and cross-product cannibalization.",
+          "tech": "Python · Beam · Airflow · Pandas · scikit-learn · xgboost · AWS Redshift/DynamoDB/SageMaker/Lambda/Step Functions"
+        },
+        {
+          "meta": "2026 · NBS",
+          "title": "Agentic KYC Workflow",
+          "content": "UAE client. Public portal that validates documents via AI agents with cross-document reconciliation.",
+          "tech": "Python · Semantic Kernel · LlamaIndex · MCP servers · Docling · HF YOLOv8/DINOv2/conditional-DETR/stamp2vec · Azure Functions · Document Intelligence OCR"
+        },
+        {
+          "meta": "2025 · NBS",
+          "title": "Enterprise Work AI Platform For Executives",
+          "content": "Tracks day-to-day activities, classifies urgent/important/casual, integrates email, calendar, and DMS, and learns the user persona.",
+          "tech": "Python · FastAPI · Semantic Kernel · MCP · Postgres + PGvector · Docling · LlamaIndex · Neo4J · Qwen 3.5 · BGE-m3"
+        },
+        {
+          "meta": "2025 · NBS",
+          "title": "CFO Copilot",
+          "content": "Integrates ERP/OLAP/BI/IoT/emails/docs, builds knowledgebases, detects events and anomalies, and performs root-cause analysis.",
+          "tech": "Python · FastAPI · React.js · LlamaIndex · Strands · Docling · AWS Bedrock/OpenSearch/RDS/Lambda/App-Runner"
+        },
+        {
+          "meta": "2025 · NBS",
+          "title": "AI Based Recruiter and Interviewing Platform",
+          "content": "Automates and evaluates interviews — answers, tone, confidence, facial language — with PII masking and prompt-injection guardrails.",
+          "tech": "Python · FastAPI · React.js · LlamaIndex · Strands · AWS API Gateway/Lambda/ECS Fargate/SQS/S3/DynamoDB/Transcribe/Bedrock/AgentCore"
+        }
+      ]
+    },
+    {
+      "title": "Nisum Technologies (2018 — 2025)",
+      "cards": [
+        {
+          "meta": "2025 · Nisum",
+          "title": "Agentic RAG based Document Search",
+          "content": "Self-reflective agentic RAG document search with observability, monitoring, and evaluations.",
+          "tech": "Python · LlamaIndex · CrewAI · Docling · Ollama + Llama3 · OpenAI GPT4.1 · Open-WebUI · RAGAs"
+        },
+        {
+          "meta": "2025 · Nisum",
+          "title": "Request PERCEPTA",
+          "content": "Multi-agent presales platform processing RFPs/RFQs into technical and financial proposals in hours.",
+          "tech": "Python · Gemini 2.5 Pro · Google ADK · Pandas"
+        },
+        {
+          "meta": "2024 · Nisum",
+          "title": "Personalized Code Copilot",
+          "content": "Private AI coding assistant using open-source LLMs with IDE extensions.",
+          "tech": "Ollama · Python · Llama3.1 · CodeLlama · StarCoder · VSCode · Cody"
+        },
+        {
+          "meta": "2023-24 · Nisum",
+          "title": "Price Intelligence",
+          "content": "AI pricing optimization for BigCommerce.",
+          "tech": "React · Node · Python · TensorFlow · Keras · Matplotlib · NumPy · Pandas · BigCommerce"
+        },
+        {
+          "meta": "2023 · Nisum",
+          "title": "GenAI-based Enterprise Search",
+          "content": "NLU contextual search engine.",
+          "tech": "React · Node · Python · LangChain · GPT-3.5 · FAISS"
+        },
+        {
+          "meta": "2022 · Nisum",
+          "title": "Release Performance Analysis",
+          "content": "CI/CD analytics delivering team release performance insights.",
+          "tech": "GCP Cloud Run/Functions/PubSub/Firestore/BigTable/Looker · React · Node · Python · Jenkins · GitLab · Jira · Confluence · SendGrid"
+        },
+        {
+          "meta": "2022 · Nisum",
+          "title": "Cloud Cost Optimization Engine",
+          "content": "Detects underutilized resources and generates cost recommendations.",
+          "tech": "GCP Cloud Run/Functions/PubSub/Looker · React · Node · Java · Quarkus · JPA · MongoDB · SendGrid"
+        },
+        {
+          "meta": "2022 · Nisum",
+          "title": "Invoice Ingestion Processor",
+          "content": "Digitized invoices into structured data.",
+          "tech": "OCI Functions/MySQL Heatwave/Document AI · Python · Tesseract"
+        },
+        {
+          "meta": "2022 · Nisum",
+          "title": "NFT Marketplace",
+          "content": "Ethereum NFT marketplace.",
+          "tech": "Next.js · Tailwind · Web3UI Kit · React-Moralis · Moralis · MongoDB · Solidity · Hardhat · Metamask"
+        },
+        {
+          "meta": "2022 · Nisum",
+          "title": "Ecommerce Content Delivery Pipeline",
+          "content": "Adobe AEM to eCommerce marketplace content pipeline.",
+          "tech": "AEM · Sling · HTL · CRX-DE · Java · Spring Boot · JPA · JSP · Oracle DB"
+        },
+        {
+          "meta": "2021-Present · Nisum",
+          "title": "Human Capital Care",
+          "content": "HRM system: attendance, leaves, reimbursements, plus analytics.",
+          "tech": "VueJS · Java 14 · Spring Boot/Security · JPA · Thymeleaf · RabbitMQ · OAuth2 · JWT · MySQL · ELK · Docker · Jenkins · Flutter · Dart"
+        },
+        {
+          "meta": "2021 · Nisum",
+          "title": "Employee Satisfaction Analysis",
+          "content": "Sentiment analysis from online reviews.",
+          "tech": "Python · Scrapy · Elasticsearch · Kibana · GCP NLU"
+        },
+        {
+          "meta": "2020 · Nisum",
+          "title": "Food Promotion & Delivery Platform",
+          "content": "Multi-portal food ordering and management.",
+          "tech": "React · React Native · Java 8 · Spring Boot/Security/Cloud · Netflix OSS · OAuth2 · JWT · MySQL · RabbitMQ · Elasticsearch · Keycloak · Docker · Jenkins · Kubernetes · AWS"
+        },
+        {
+          "meta": "2020 · Nisum",
+          "title": "Blockchain-based Asset Management",
+          "content": "Private-blockchain asset management.",
+          "tech": "JavaScript · Node · Go · Solidity · Hyperledger Fabric · CouchDB · Docker · Digital Ocean"
+        },
+        {
+          "meta": "2019 · Nisum",
+          "title": "SWA Settlement",
+          "content": "Enterprise invoice-settlement system.",
+          "tech": "React · Node · Java 8 · Spring Boot/Security/Cloud · Netflix OSS · OAuth2 · JWT · MySQL · GCP"
+        },
+        {
+          "meta": "2019 · Nisum",
+          "title": "Crosseek",
+          "content": "GIS-based recruitment platform.",
+          "tech": "React · Java 8 · Spring Boot/Security/Cloud · Netflix OSS · OAuth2 · JWT · MySQL · Docker · AWS"
+        },
+        {
+          "meta": "2018 · Nisum",
+          "title": "ISP Elimination",
+          "content": "Order management system.",
+          "tech": "Java 8 · Spring Boot · JPA · Spring Cloud · Oracle DB · TibcoEMS · TestNG · RestAssured"
+        }
+      ]
+    },
+    {
+      "title": "Folio3 (2006 — 2018)",
+      "cards": [
+        {
+          "meta": "2017 · Folio3",
+          "title": "Smartphone Defect Detection System",
+          "content": "Mobile AI detecting hardware defects via image processing.",
+          "tech": "Android Java · iOS Swift · Java 8 · OpenCV · Python · TensorFlow · Keras · NumPy · CUDA · AWS Cognito/API Gateway/Lambda/DynamoDB"
+        },
+        {
+          "meta": "2017 · Folio3",
+          "title": "AAA's Cattle Management System",
+          "content": "Online cattle management for breeders.",
+          "tech": "Angular 2.0 · Java 8 · Spring Boot · JPA · RabbitMQ · MySQL · MongoDB"
+        },
+        {
+          "meta": "2016 · Folio3",
+          "title": "Home Automation System",
+          "content": "Mercedes vehicles integrated with Samsung SmartThings.",
+          "tech": "Samsung SmartThings · Groovy"
+        },
+        {
+          "meta": "2008 · Folio3",
+          "title": "TruSight",
+          "content": "DirectX real-time video filter with patented DRC algorithms.",
+          "tech": "C++ · Windows SDK · DirectX"
+        },
+        {
+          "meta": "2006-2016 · Folio3",
+          "title": "Hiplink Enterprise Communication Platform",
+          "content": "Enterprise notification and VoIP platform with mass alerting.",
+          "tech": "Android (Java) · iOS (Swift) · BB10 (Qt + C/C++) · Asterisk · Perl · Bash · C/C++ · MySQL"
+        }
+      ]
+    },
+    {
+      "title": "Earlier Work",
+      "cards": [
+        {
+          "meta": "2005 · ARPATech",
+          "title": "Network Security Assessment System",
+          "content": "Network vulnerability assessment with threat reports.",
+          "tech": "JSF · JSP · Java · Servlets · JNI · MySQL"
+        },
+        {
+          "meta": "2004-2005 · LUMS",
+          "title": "Transparent Fault Tolerance Communication System",
+          "content": "Linux-native transport protocol.",
+          "tech": "Linux Kernel · C · Bash"
+        },
+        {
+          "meta": "2003 · Infinilogics",
+          "title": "Dynamic NAS System",
+          "content": "Linux kernel customizations; RAID NAS with access control.",
+          "tech": "Linux Kernel · C · C++ · Bash"
+        }
+      ]
+    }
+  ],
+  "gallery": {
+    "headers": ["Project", "Organization", "Year"],
+    "rows": [
+      ["AI Product Promotion Optimization Engine", "NorthBay Solutions", "2026"],
+      ["Agentic KYC Workflow", "NorthBay Solutions", "2026"],
+      ["Enterprise Work AI Platform For Executives", "NorthBay Solutions", "2025"],
+      ["CFO Copilot", "NorthBay Solutions", "2025"],
+      ["AI Based Recruiter and Interviewing Platform", "NorthBay Solutions", "2025"],
+      ["Agentic RAG based Document Search", "Nisum", "2025"],
+      ["Request PERCEPTA", "Nisum", "2025"],
+      ["Personalized Code Copilot", "Nisum", "2024"],
+      ["Price Intelligence", "Nisum", "2023-24"],
+      ["GenAI-based Enterprise Search", "Nisum", "2023"],
+      ["Release Performance Analysis", "Nisum", "2022"],
+      ["Cloud Cost Optimization Engine", "Nisum", "2022"],
+      ["Invoice Ingestion Processor", "Nisum", "2022"],
+      ["NFT Marketplace", "Nisum", "2022"],
+      ["Ecommerce Content Delivery Pipeline", "Nisum", "2022"],
+      ["Human Capital Care", "Nisum", "2021-Present"],
+      ["Employee Satisfaction Analysis", "Nisum", "2021"],
+      ["Food Promotion & Delivery Platform", "Nisum", "2020"],
+      ["Blockchain-based Asset Management", "Nisum", "2020"],
+      ["SWA Settlement", "Nisum", "2019"],
+      ["Crosseek", "Nisum", "2019"],
+      ["ISP Elimination", "Nisum", "2018"],
+      ["Smartphone Defect Detection System", "Folio3", "2017"],
+      ["AAA's Cattle Management System", "Folio3", "2017"],
+      ["Home Automation System", "Folio3", "2016"],
+      ["TruSight", "Folio3", "2008"],
+      ["Hiplink Enterprise Communication Platform", "Folio3", "2006-2016"],
+      ["Network Security Assessment System", "ARPATech", "2005"],
+      ["Transparent Fault Tolerance Communication System", "LUMS", "2004-2005"],
+      ["Dynamic NAS System", "Infinilogics", "2003"]
+    ]
+  }
+}

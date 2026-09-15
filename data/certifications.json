@@ -1,0 +1,23 @@
+{
+  "credentials": {
+    "h": "Professional Software Developer Certification (PSDC) — Program Designer & Executor",
+    "meta": "**Baitussalam Tech-Park** | Non-profit initiative",
+    "text": "Designed the certification program end-to-end — including all course outlines — and executed it fully. The program enrolled **160 under-privileged teenagers** in free software development training."
+  },
+  "ielts": {
+    "h": "IELTS — International English Language Testing System",
+    "meta": "**British Council, Karachi** | January 2023",
+    "bullets": [
+      "**Overall:** 7.0 / 9 — CEFR C1",
+      "Listening 7.0 · Reading 8.5 · Writing 6.5 · Speaking 6.5"
+    ]
+  },
+  "note": "I hold no vendor certifications (AWS, Azure, GCP, Kubernetes, security, etc.). My cloud, AI, and architecture expertise comes from **22+ years of hands-on delivery** — enterprise engagements across the US, Pakistan, and the Middle East, practice leadership at Nisum, and division ownership at Folio3.",
+  "languages": {
+    "headers": ["Language", "Proficiency"],
+    "rows": [
+      ["English", "Proficient"],
+      ["Urdu", "Native"]
+    ]
+  }
+}

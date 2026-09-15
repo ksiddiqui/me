@@ -1,0 +1,64 @@
+{
+  "coreCompetencies": {
+    "headers": ["Category", "Skills"],
+    "rows": [
+      ["**Solution Architecture**", "12 Factor App, Microservices, Serverless, Self-Contained Systems, Data Pipelines, RAG, Advanced RAG, Multi-Agentic Systems"],
+      ["**AI Agents**", "Strands, Semantic Kernel, CrewAI, Google ADK, LangFlow, AWS Bedrock Agents, AWS AgentCore"],
+      ["**Cloud**", "GCP, AWS, Azure, OCI · Docker, Kubernetes, Jenkins, Artifactory, Grafana Stack"],
+      ["**Backend**", "Python, Java, C/C++, Rust, Go · Spring Boot, FastAPI, Flask"],
+      ["**Data & AI/ML**", "TensorFlow, PyTorch, Keras, HuggingFace, LangChain, LlamaIndex, Airflow, Beam"],
+      ["**Databases**", "MySQL, PostgreSQL, SQL Server, SQLite3 · MongoDB, Neo4j, CouchDB, Cassandra, Redis"],
+      ["**Agentic SDLC**", "Coding agents, coding LLMs, MCPs, agent skills, custom agents"]
+    ]
+  },
+  "patterns": {
+    "headers": ["Pattern", "", "Pattern", "", "Pattern"],
+    "rows": [
+      ["12 Factor App", "", "Microservice Architecture", "", "Serverless Architecture"],
+      ["Self-Contained Systems", "", "Data Pipelines", "", "RAG Systems"],
+      ["Advanced RAG Systems", "", "Multi-Agentic Systems", "", ""]
+    ]
+  },
+  "aiAgents": [
+    { "h": "Libraries", "text": "Strands · Semantic Kernel · CrewAI · Google ADK · LangFlow · AWS Bedrock Agents · AWS AgentCore" },
+    { "h": "Agentic Patterns", "text": "Single Agent · Agentic RAG · Orchestration · Agent-as-Tools · Swarm" },
+    { "h": "Enterprise Frameworks", "text": "Reliability AI · Transparent AI" },
+    { "h": "Others", "text": "Tool-calling · MCP integration · MCP gateway" }
+  ],
+  "dataAI": [
+    { "h": "Data Engineering", "text": "Apache Beam · Apache Airflow" },
+    { "h": "CV & AI/ML", "text": "OpenCV · TensorFlow · PyTorch · Keras · HuggingFace Transformers" },
+    { "h": "AI Platforms", "text": "Vertex AI · OpenAI · Google Gemini · Ollama · MCP" },
+    { "h": "LLM Frameworks", "text": "LangChain · LlamaIndex · Docling" },
+    { "h": "Data Science", "text": "NumPy · Pandas · Dash · Matplotlib" },
+    { "h": "LLM Platforms", "text": "Ollama · OpenAI · Anthropic Claude · Meta Llama · Google Gemini · DeepSeek R1" },
+    { "h": "Vector Stores", "text": "FAISS · Chroma · Pinecone · PGvector · Weaviate" },
+    { "h": "Cloud AI", "text": "GCP Vertex AI · AWS Bedrock · AWS SageMaker · Azure AI Foundry" }
+  ],
+  "agenticSDLC": [
+    { "h": "Coding Agents", "text": "Claude Code · Kiro · OpenCode · Antigravity · MiMo Code · Kimi K CLI · Crush · Pi" },
+    { "h": "Coding LLMs", "text": "Claude Family · Gemini Family · DeepSeek 4 Pro · MiMo V2.5 · Qwen 2.5/2.6/2.7 · GLM 2.5 · Kimi K2.5 · Minimax" },
+    { "h": "MCPs", "text": "Context7 · Playwright · Azure DevOps · AWS (several) · Jira · Google · Agent-Memory · Dart · DuckDuckGo-search" },
+    { "h": "Others", "text": "Agent skills · Custom commands · Custom agents · Plugins (superpowers, caveman, headroom)" }
+  ],
+  "backend": [
+    { "h": "Operating Systems", "text": "Windows · Linux · UNIX (Solaris, HP-UX, IBM AIX)" },
+    { "h": "Languages", "text": "C/C++ · Java · Python · Rust · Go" },
+    { "h": "Java Libraries", "text": "STL · Boost · Spring Boot · JPA · Spring Security · Spring Cloud · Netflix OSS" },
+    { "h": "Python Libraries", "text": "Flask · FastAPI · Pydantic · SQLAlchemy · Pandas · Dash · Matplotlib" },
+    { "h": "Databases", "text": "MySQL · PostgreSQL · SQL Server · SQLite3" },
+    { "h": "NoSQL", "text": "MongoDB · Neo4j · CouchDB · Cassandra · Elasticsearch · Redis · FAISS · Pinecone" },
+    { "h": "Others", "text": "Kafka · ActiveMQ · RabbitMQ · Splunk · ELK" }
+  ],
+  "cloud": {
+    "providerTable": {
+      "headers": ["Provider", "", "Provider", "", "Provider"],
+      "rows": [
+        ["GCP", "", "AWS", "", "Azure"],
+        ["OCI", "", "", "", ""]
+      ]
+    },
+    "toolsH": "Tools",
+    "tools": "Docker · Kubernetes · Jenkins · Registry · Artifactory · Grafana Stack"
+  }
+}
