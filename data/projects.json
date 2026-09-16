@@ -1,239 +1,1671 @@
 {
-  "groups": [
+  "engagements": [
     {
-      "title": "NorthBay Solutions (2025 — Present)",
-      "cards": [
+      "company_name": "NorthBay Solutions",
+      "duration": "2025 — Present",
+      "projects": [
         {
-          "meta": "2026 · NBS",
+          "meta": "NBS",
+          "start_date": "2026-07-01",
+          "duration_months": 3,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "AI Product Promotion Optimization Engine",
-          "content": "Predicts promotion plans using price elasticity and cross-product cannibalization.",
-          "tech": "Python · Beam · Airflow · Pandas · scikit-learn · xgboost · AWS Redshift/DynamoDB/SageMaker/Lambda/Step Functions"
+          "details": "Predicts promotion plans using price elasticity and cross-product cannibalization analysis. The engine ingests historical sales, pricing, and competitor data to forecast the revenue impact of promotional campaigns across thousands of SKUs, accounting for cannibalization effects between related products and seasonal demand fluctuations.Built on a serverless data pipeline orchestrated by Apache Beam on Google Cloud, the system runs daily training cycles that re-fit XGBoost regression models as new point-of-sale data arrives. Pricing recommendations are scored by projected lift and surfaced to category managers through an interactive dashboard, reducing manual promotion planning from weeks to hours while improving incremental revenue by measurable margins.",
+          "cloud_services": [
+            "AWS Redshift",
+            "AWS DynamoDB",
+            "AWS SageMaker",
+            "AWS Lambda",
+            "AWS Step Functions",
+            "AWS ECS/Fargate"
+          ],
+          "tech": [
+            "Python",
+            "Beam",
+            "Airflow",
+            "Pandas",
+            "Scikit-Learn",
+            "Xgboost"
+          ],
+          "models": [
+            "GradiantBoostedDecisionTrees"
+          ],
+          "tags": [
+            "AI/ML",
+            "DataEngg.",
+            "Python",
+            "AWS"
+          ],
+          "region": "Saudi Arabia"
         },
         {
-          "meta": "2026 · NBS",
+          "meta": "NBS",
+          "start_date": "2026-03-01",
+          "duration_months": 4,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Agentic KYC Workflow",
-          "content": "UAE client. Public portal that validates documents via AI agents with cross-document reconciliation.",
-          "tech": "Python · Semantic Kernel · LlamaIndex · MCP servers · Docling · HF YOLOv8/DINOv2/conditional-DETR/stamp2vec · Azure Functions · Document Intelligence OCR"
+          "details": "UAE client. Public portal that validates documents via AI agents with cross-document reconciliation. The workflow orchestrates a fleet of specialized agents — one per document type (passport, visa, bank statement, trade license) — each running OCR and facial/embedding checks, then a reconciliation agent cross-references fields across all submitted documents to flag inconsistencies.Built with a multi-agent architecture using Semantic Kernel and a custom MCP server layer, the system routes document images through Docling for layout-aware parsing and HF vision models (YOLOv8 for detection, DINOv2 for embeddings, conditional-DETR for structured field extraction, and stamp2vec for seal/authentication-mark verification). Results are persisted and surfaced via Azure Functions and Document Intelligence OCR, cutting manual KYC review time from days to minutes while enforcing prompt-injection guardrails.",
+          "cloud_services": [
+            "Azure Functions",
+            "Document Intelligence OCR"
+          ],
+          "tech": [
+            "Python",
+            "Semantic Kernel",
+            "LlamaIndex",
+            "MCP Servers",
+            "Docling"
+          ],
+          "models": [
+            "YOLOv8",
+            "DINOv2",
+            "Conditional-DETR",
+            "Stamp2vec"
+          ],
+          "tags": [
+            "AI/ML",
+            "GenAI",
+            "Agents",
+            "Python",
+            "Azure",
+            "RAG"
+          ],
+          "region": "UAE"
         },
         {
-          "meta": "2025 · NBS",
+          "meta": "NBS",
+          "start_date": "2026-02-01",
+          "duration_months": 3,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Enterprise Work AI Platform For Executives",
-          "content": "Tracks day-to-day activities, classifies urgent/important/casual, integrates email, calendar, and DMS, and learns the user persona.",
-          "tech": "Python · FastAPI · Semantic Kernel · MCP · Postgres + PGvector · Docling · LlamaIndex · Neo4J · Qwen 3.5 · BGE-m3"
+          "details": "Tracks day-to-day activities, classifies urgent/important/casual priorities, integrates email, calendar, and DMS, and learns the user persona. The platform ingests streams from email, calendar, and document management systems, then uses an agentic classifier to tag and prioritize each item along the Eisenhower matrix — urgent/important, important-but-not-urgent, delegated, or deletable.A personal knowledge base is continuously updated as the system learns the executive's preferences, communication style, and decision history. Built with Python and FastAPI, it leverages Semantic Kernel and MCP for agent orchestration, Postgres with PGvector for vector similarity search, Docling for document ingestion, LlamaIndex for retrieval, Neo4J for relationship mapping, and Qwen 3.5 / BGE-m3 for embedding and reranking — delivering a context-aware assistant that anticipates needs and surfaces the right information at the right time.",
+          "tech": [
+            "Python",
+            "FastAPI",
+            "Semantic Kernel",
+            "MCP",
+            "Postgres",
+            "PGvector",
+            "Docling",
+            "LlamaIndex",
+            "Neo4J"
+          ],
+          "models": [
+            "Qwen 3.5",
+            "BGE-M3"
+          ],
+          "tags": [
+            "AI/ML",
+            "Agents",
+            "Python",
+            "RAG",
+            "GraphKB"
+          ],
+          "region": "UAE"
         },
         {
-          "meta": "2025 · NBS",
+          "meta": "NBS",
+          "start_date": "2026-01-01",
+          "duration_months": 1,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
+          "title": "AI Based Product Portfolio Evalator Platform",
+          "details": "Automates and evaluates product listing and product information against various quality issues. This include textual issues, language based issues, inconsistencies across various text fields and images, idendity image quality issues, various compliance issues, etc. I find out the issues and also provide recommendations for resolution. The HITL dashboard provides all the insights with recommendations, and an easy way to apply recommendations in bulk mode. Built with Python, FastAPI, and React.js, the system uses LlamaIndex and Strands for agent orchestration, with AWS API Gateway, Lambda, ECS Fargate, SQS, S3, DynamoDB, Transcribe, Bedrock, and AgentCore for scalable, secure processing. All PII is masked at ingestion time, and multi-layer prompt-injection guardrails ensure the evaluation remains fair and compliant with employment regulations.",
+          "cloud_services": [
+            "AWS API Gateway",
+            "AWS Lambda",
+            "AWS SQS",
+            "AWS S3",
+            "AWS DynamoDB",
+            "AWS Bedrock",
+            "AWS AgentCore",
+            "AWS OpenSearch"
+          ],
+          "tech": [
+            "Python",
+            "FastAPI",
+            "React.Js",
+            "LlamaIndex",
+            "Strands"
+          ],
+          "tags": [
+            "GenAI",
+            "Agents",
+            "Python",
+            "React",
+            "AWS"
+          ],
+          "region": "Saudi Arabia"
+        },
+        {
+          "meta": "NBS",
+          "start_date": "2025-11-01",
+          "duration_months": 4,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "CFO Copilot",
-          "content": "Integrates ERP/OLAP/BI/IoT/emails/docs, builds knowledgebases, detects events and anomalies, and performs root-cause analysis.",
-          "tech": "Python · FastAPI · React.js · LlamaIndex · Strands · Docling · AWS Bedrock/OpenSearch/RDS/Lambda/App-Runner"
+          "details": "Integrates ERP/OLAP/BI/IoT/emails/docs, builds knowledgebases, detects events and anomalies, and performs root-cause analysis. The copilot creates a unified semantic layer over siloed enterprise data sources — pulling financial figures from ERP systems, operational metrics from BI dashboards, sensor readings from IoT devices, and unstructured context from email and document repositories.A Strands-based agent pipeline continuously monitors these streams, flags anomalous events (e.g., unexpected cash-flow dips, inventory write-offs, or spend spikes), and performs automated root-cause analysis by tracing signals across systems. Built with Python and FastAPI on the backend with a React.js frontend, it leverages LlamaIndex for retrieval, Docling for document processing, and AWS Bedrock/OpenSearch/RDS/Lambda/App-Runner for scalable inference and storage — giving CFOs instant answers to 'why did this happen' and 'what should we do about it.'",
+          "cloud_services": [
+            "AWS API Gateway",
+            "AWS Bedrock",
+            "AWS AgentCore",
+            "AWS OpenSearch",
+            "AWS Neptune",
+            "AWS RDS",
+            "AWS Redshift",
+            "AWS DynamoDB",
+            "AWS Lambda",
+            "AWS App-Runner",
+            "AWS S3"
+          ],
+          "tech": [
+            "Python",
+            "FastAPI",
+            "React.Js",
+            "LlamaIndex",
+            "Strands",
+            "MCPs",
+            "Docling"
+          ],
+          "tags": [
+            "AI/ML",
+            "DataEngg.",
+            "Agents",
+            "Python",
+            "React",
+            "AWS",
+            "RAG",
+            "GraphKB"
+          ],
+          "region": "Saudi Arabia"
         },
         {
-          "meta": "2025 · NBS",
+          "meta": "NBS",
+          "start_date": "2025-10-01",
+          "duration_months": 4,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "AI Based Recruiter and Interviewing Platform",
-          "content": "Automates and evaluates interviews — answers, tone, confidence, facial language — with PII masking and prompt-injection guardrails.",
-          "tech": "Python · FastAPI · React.js · LlamaIndex · Strands · AWS API Gateway/Lambda/ECS Fargate/SQS/S3/DynamoDB/Transcribe/Bedrock/AgentCore"
+          "details": "Automates and evaluates interviews — answers, tone, confidence, facial language — with PII masking and prompt-injection guardrails. The platform conducts structured video interviews using an AI agent that asks role-specific questions, captures the candidate's verbal and non-verbal responses, and scores them against competency rubrics.Built with Python, FastAPI, and React.js, the system uses LlamaIndex and Strands for agent orchestration, with AWS API Gateway, Lambda, ECS Fargate, SQS, S3, DynamoDB, Transcribe, Bedrock, and AgentCore for scalable, secure processing. All PII is masked at ingestion time, and multi-layer prompt-injection guardrails ensure the evaluation remains fair and compliant with employment regulations.",
+          "cloud_services": [
+            "AWS API Gateway",
+            "AWS Lambda",
+            "AWS ECS Fargate",
+            "AWS SQS",
+            "AWS S3",
+            "AWS DynamoDB",
+            "AWS Transcribe",
+            "AWS Bedrock",
+            "AWS AgentCore"
+          ],
+          "tech": [
+            "Python",
+            "FastAPI",
+            "React.Js",
+            "LlamaIndex",
+            "Strands"
+          ],
+          "tags": [
+            "AI/ML",
+            "Agents",
+            "Python",
+            "React",
+            "AWS"
+          ],
+          "region": "Philippines"
+        },
+        {
+          "meta": "NBS",
+          "start_date": "2025-06-01",
+          "duration_months": 2,
+          "role": [
+            "Developer"
+          ],
+          "title": "CogniSearch - Agentic RAG based Document Search",
+          "details": "Self-reflective agentic RAG document search with observability, monitoring, and evaluations. The system goes beyond vanilla retrieval-augmented generation by deploying an autonomous agent that plans its own search strategy, reflects on retrieved results, and iterates until it confidently answers the user's query — explaining its reasoning and citing sources along the way.Built with Python, LlamaIndex, and CrewAI, the agent operates over a corpus ingested and parsed by Docling, runs on local Ollama with Llama 3 models and OpenAI GPT4.1 as fallback. The entire pipeline is wrapped in Open-WebUI for a polished interface, with RAGAS metrics and custom evaluation harnesses tracking retrieval quality, faithfulness, and latency in real time.",
+          "tech": [
+            "Python",
+            "LlamaIndex",
+            "CrewAI",
+            "Docling",
+            "Ollama",
+            "Open-WebUI",
+            "RAGAs"
+          ],
+          "models": [
+            "Llama3",
+            "OpenAI GPT4.1"
+          ],
+          "tags": [
+            "AI/ML",
+            "GenAI",
+            "Agents",
+            "Python",
+            "RAG"
+          ],
+          "region": "UAE"
         }
       ]
     },
     {
-      "title": "Nisum Technologies (2018 — 2025)",
-      "cards": [
+      "company_name": "Nisum Technologies",
+      "duration": "2018 — 2025",
+      "projects": [
         {
-          "meta": "2025 · Nisum",
-          "title": "Agentic RAG based Document Search",
-          "content": "Self-reflective agentic RAG document search with observability, monitoring, and evaluations.",
-          "tech": "Python · LlamaIndex · CrewAI · Docling · Ollama + Llama3 · OpenAI GPT4.1 · Open-WebUI · RAGAs"
-        },
-        {
-          "meta": "2025 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2025-01-01",
+          "duration_months": 7,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Request PERCEPTA",
-          "content": "Multi-agent presales platform processing RFPs/RFQs into technical and financial proposals in hours.",
-          "tech": "Python · Gemini 2.5 Pro · Google ADK · Pandas"
+          "details": "Multi-agent presales platform processing RFPs/RFQs into technical and financial proposals in hours. The platform assigns specialized agents to different RFP sections — one parses technical requirements, another assesses financial terms, a third analyzes competitor positioning — then a coordinator agent synthesizes their findings into a cohesive response.Built with Python and Gemini 2.5 Pro (via Google ADK), the system leverages Pandas for financial modeling and pricing analysis, and can produce full proposal drafts complete with executive summaries, technical approaches, resource plans, and cost breakdowns — reducing what traditionally took weeks of manual effort to a matter of hours.",
+          "tech": [
+            "TypeScript",
+            "NodeJS",
+            "Python",
+            "FastAPIs",
+            "Google ADK",
+            "Pandas"
+          ],
+          "models": [
+            "Gemini 2.5 Pro"
+          ],
+          "tags": [
+            "GenAI",
+            "Agents",
+            "Python"
+          ],
+          "region": "Pakistan"
         },
         {
-          "meta": "2024 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2024-12-01",
+          "duration_months": 3,
+          "role": [
+            "Lead",
+            "Developer"
+          ],
+          "title": "Customer-Feedback / Store-Performance Analyzer",
+          "details": "A GenAI based solution that will enable users of the BI dashboard to ask questions in plain human language and get answers from the customer feedback and store performance data.",
+          "tech": [
+            "Python",
+            "Gemini 1.5 Flash"
+          ],
+          "models": [
+            "Gemini 1.5 Flash"
+          ],
+          "tags": [
+            "AI/ML",
+            "GenAI",
+            "DataEngg.",
+            "Python"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Nisum Technologies",
+          "start_date": "2024-10-01",
+          "duration_months": 5,
+          "role": [
+            "Lead",
+            "Developer"
+          ],
+          "title": "Customer Experience AI",
+          "details": "Developed a solution to ingest and process customer experience data using GCP's custom built data pipelines and DAGs, and then performing multi-dimensional classification and analysis using LLMs to decisive knowledge on customer behaviors and their interactions. And then be able to generate recommendations for the future rectifications and course corrections.",
+          "cloud_services": [
+            "GCP Vertex AI",
+            "GCP Dataflow",
+            "GCP DLP",
+            "GCP Cloud Composer",
+            "GCP BigQuery",
+            "GCP Cloud Storage",
+            "GCP Cloud SQL",
+            "GCP Google Kubernetes Engine",
+            "GCP Cloud Run",
+            "GCP Cloud Function"
+          ],
+          "tech": [
+            "Python",
+            "Apache Beam",
+            "Apache Airflow",
+            "Panda",
+            "LangChain",
+            "LangFlow"
+          ],
+          "models": [
+            "Gemini 1.5 Flash"
+          ],
+          "tags": [
+            "DataEngg.",
+            "GenAI",
+            "Agents",
+            "Python"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Nisum Technologies",
+          "start_date": "2024-10-01",
+          "duration_months": 2,
+          "role": [
+            "Lead",
+            "Developer"
+          ],
+          "title": "Invoice Analyzer",
+          "details": "A python based solution that can ingest digital invoices in the format of PDFs, DOCs, Excels, or simply images (as PNG or JPG formats) and then able to detect text, and identify them, classify them into various information and then able to generate knowledge from each invoice that can be feed or pipelines to the downstream systems.",
+          "cloud_services": [
+            "GCP Vertex AI",
+            "GCP Dataflow",
+            "GCP DLP",
+            "GCP Cloud Composer",
+            "GCP BigQuery",
+            "GCP Cloud Storage",
+            "GCP Cloud SQL",
+            "GCP Google Kubernetes Engine",
+            "GCP Cloud Run",
+            "GCP Cloud Function"
+          ],
+          "tech": [
+            "Python",
+            "Apache Beam",
+            "Apache Airflow",
+            "Panda",
+            "LangChain",
+            "LangFlow"
+          ],
+          "models": [
+            "Gemini 1.5 Flash"
+          ],
+          "tags": [
+            "DataEngg.",
+            "GenAI",
+            "Agents",
+            "Python"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Nisum Technologies",
+          "start_date": "2024-02-01",
+          "duration_months": 6,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Personalized Code Copilot",
-          "content": "Private AI coding assistant using open-source LLMs with IDE extensions.",
-          "tech": "Ollama · Python · Llama3.1 · CodeLlama · StarCoder · VSCode · Cody"
+          "details": "Private AI coding assistant using open-source LLMs with IDE extensions. The copilot runs entirely on-premises, ensuring sensitive code and intellectual property never leaves the organization's network, while delivering the productivity benefits of AI-powered code completion and generation.Built with Ollama serving Llama 3.1 and CodeLlama / StarCoder models, it provides real-time suggestions, refactoring help, and documentation generation through VSCode extensions and Cody integration. Engineers can ask the copilot to explain unfamiliar code, generate boilerplate, write tests, or adapt patterns from a curated knowledge base — all with full privacy and zero vendor lock-in.",
+          "tech": [
+            "Ollama",
+            "Python",
+            "VSCode",
+            "Cody"
+          ],
+          "models": [
+            "Llama3.1",
+            "CodeLlama",
+            "StarCoder"
+          ],
+          "tags": [
+            "AI/ML",
+            "GenAI",
+            "Python"
+          ],
+          "region": "Pakistan"
         },
         {
-          "meta": "2023-24 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2023-11-01",
+          "duration_months": 7,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Price Intelligence",
-          "content": "AI pricing optimization for BigCommerce.",
-          "tech": "React · Node · Python · TensorFlow · Keras · Matplotlib · NumPy · Pandas · BigCommerce"
+          "details": "AI pricing optimization for BigCommerce. The system analyzes competitor pricing, demand elasticity, and inventory levels in real time to recommend optimal price points for each SKU, balancing revenue maximization against margin preservation and competitive positioning.Built with a React frontend and a Python backend powered by TensorFlow and Keras, the engine trains neural networks on historical pricing and sales data, uses Matplotlib and NumPy for demand forecasting, and Pandas for feature engineering. Recommendations are pushed directly into BigCommerce via their API, enabling automated repricing rules that adapt to market conditions hourly.",
+          "tech": [
+            "React",
+            "Node",
+            "Python",
+            "TensorFlow",
+            "Keras",
+            "Matplotlib",
+            "NumPy",
+            "Pandas",
+            "BigCommerce"
+          ],
+          "models": [
+            "FBProphet",
+            "custom-LSTM",
+            "custom-Transformer"
+          ],
+          "tags": [
+            "AI/ML",
+            "TypeScript",
+            "Python",
+            "GCP"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2023 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2023-08-01",
+          "duration_months": 5,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "GenAI-based Enterprise Search",
-          "content": "NLU contextual search engine.",
-          "tech": "React · Node · Python · LangChain · GPT-3.5 · FAISS"
+          "details": "NLU contextual search engine. The platform understands the intent behind natural-language queries rather than relying on exact keyword matching, returning results that address the user's actual question even when it's phrased differently from how information is stored.Built with a React and Node.js stack and Python microservices, it uses LangChain for query understanding, GPT-3.5 for query expansion and disambiguation, and FAISS for high-performance vector similarity search. A dedicated NLU layer extracts entities, identifies relationships, and maintains session context so follow-up questions are understood in the right frame of reference.",
+          "tech": [
+            "React",
+            "Node",
+            "Python",
+            "LangChain",
+            "FAISS"
+          ],
+          "models": [
+            "GPT-3.5"
+          ],
+          "tags": [
+            "AI/ML",
+            "GenAI",
+            "TypeScript",
+            "Python",
+            "RAG"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2022 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2023-04-01",
+          "duration_months": 3,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Release Performance Analysis",
-          "content": "CI/CD analytics delivering team release performance insights.",
-          "tech": "GCP Cloud Run/Functions/PubSub/Firestore/BigTable/Looker · React · Node · Python · Jenkins · GitLab · Jira · Confluence · SendGrid"
+          "details": "CI/CD analytics delivering team release performance insights. The platform ingests data from CI/CD pipelines, issue trackers, and deployment systems to measure how quickly and reliably teams ship software, identifying bottlenecks and improvement opportunities.Built on Google Cloud (Cloud Run, Cloud Functions, PubSub, Firestore, BigTable, Looker) with a React and Node.js frontend and Python analytics backend, it integrates with Jenkins, GitLab, Jira, and Confluence to track deployment frequency, lead time, change failure rate, and MTTR. Automated alerts and dashboards keep engineering leaders informed, and SendGrid-powered reporting keeps stakeholders aligned.",
+          "cloud_services": [
+            "GCP Cloud Run",
+            "GCP Functions",
+            "GCP PubSub",
+            "GCP Firestore",
+            "GCP BigTable",
+            "GCP Looker"
+          ],
+          "tech": [
+            "React",
+            "Node",
+            "Python",
+            "Jenkins",
+            "GitLab",
+            "Jira",
+            "Confluence",
+            "SendGrid"
+          ],
+          "tags": [
+            "DevOps",
+            "TypeScript",
+            "Python",
+            "GCP"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2022 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2022-08-01",
+          "duration_months": 1,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Cloud Cost Optimization Engine",
-          "content": "Detects underutilized resources and generates cost recommendations.",
-          "tech": "GCP Cloud Run/Functions/PubSub/Looker · React · Node · Java · Quarkus · JPA · MongoDB · SendGrid"
+          "details": "Detects underutilized resources and generates cost recommendations. The engine continuously monitors cloud spending across all accounts and services, identifying idle or over-provisioned resources that can be right-sized or terminated without impacting performance.Built with Google Cloud technologies (Cloud Run, Cloud Functions, PubSub, Looker) and a Java/Quarkus backend with JPA and MongoDB for storage, it uses React for the interactive dashboard. The system generates detailed cost breakdowns, forecasts monthly spend, and provides actionable recommendations — from reserved instance purchasing to auto-scaling policies — that have consistently reduced cloud spend by significant margins. SendGrid notifications keep teams informed of savings opportunities.",
+          "cloud_services": [
+            "GCP Cloud Run",
+            "GCP Functions",
+            "GCP PubSub",
+            "GCP Looker"
+          ],
+          "tech": [
+            "React",
+            "Node",
+            "Java",
+            "Quarkus",
+            "JPA",
+            "MongoDB",
+            "SendGrid"
+          ],
+          "tags": [
+            "DevOps",
+            "TypeScript",
+            "Java",
+            "GCP"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2022 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2022-07-01",
+          "duration_months": 3,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
+          "title": "Asset Demand Forecasting System",
+          "details": "A demand forecasting solution for asset monitoring and management. We developed with the solution using LSTM (NN based) model and then with statistical model using FBProphet library.",
+          "tech": [
+            "Python",
+            "TensorFlow",
+            "FBProphet"
+          ],
+          "models": [
+            "FBProphet",
+            "LSTM"
+          ],
+          "tags": [
+            "AI/ML",
+            "DataEngg.",
+            "Python"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Nisum Technologies",
+          "start_date": "2022-06-01",
+          "duration_months": 4,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Invoice Ingestion Processor",
-          "content": "Digitized invoices into structured data.",
-          "tech": "OCI Functions/MySQL Heatwave/Document AI · Python · Tesseract"
+          "details": "Digitized invoices into structured data. The system ingests scanned and digital invoices, extracts line items and metadata using OCR and document AI, and outputs clean structured records ready for accounting system ingestion.Built on Oracle Cloud Infrastructure (Functions, MySQL Heatwave, Document AI) with Python microservices and Tesseract OCR as a fallback, it handles diverse invoice formats, validates extracted data against business rules, and supports error correction workflows. Output is structured as JSON or CSV and can be routed directly into ERP systems, eliminating manual data entry and reducing processing errors.",
+          "cloud_services": [
+            "OCI Functions",
+            "OCI MySQL Heatwave",
+            "OCI Document AI"
+          ],
+          "tech": [
+            "Python",
+            "Tesseract"
+          ],
+          "tags": [
+            "AI/ML",
+            "OCR",
+            "Python",
+            "OCI"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2022 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2022-06-01",
+          "duration_months": 4,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "NFT Marketplace",
-          "content": "Ethereum NFT marketplace.",
-          "tech": "Next.js · Tailwind · Web3UI Kit · React-Moralis · Moralis · MongoDB · Solidity · Hardhat · Metamask"
+          "details": "Ethereum NFT marketplace. The platform allows creators to mint, list, and sell NFT collections on the Ethereum blockchain, with a modern React-based frontend for discovery and trading.Built with Next.js and Tailwind CSS for a responsive UI, it integrates Web3UI Kit, React-Moralis, and Moralis for wallet authentication and blockchain interactions. Smart contracts are written in Solidity and tested with Hardhat, while Metamask integration provides a seamless wallet experience. The backend uses MongoDB for off-chain metadata and indexing, with real-time updates via event listeners.",
+          "tech": [
+            "Next.Js",
+            "Tailwind",
+            "Web3UI Kit",
+            "React-Moralis",
+            "Moralis",
+            "MongoDB",
+            "Solidity",
+            "Hardhat",
+            "Metamask"
+          ],
+          "tags": [
+            "Blockchain",
+            "TypeScript",
+            "Web3"
+          ],
+          "region": "Pakistan"
         },
         {
-          "meta": "2022 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2021-12-01",
+          "duration_months": 9,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Ecommerce Content Delivery Pipeline",
-          "content": "Adobe AEM to eCommerce marketplace content pipeline.",
-          "tech": "AEM · Sling · HTL · CRX-DE · Java · Spring Boot · JPA · JSP · Oracle DB"
+          "details": "Adobe AEM to eCommerce marketplace content pipeline. The system synchronizes product content, assets, and metadata from Adobe Experience Manager (AEM) to downstream eCommerce platforms, ensuring consistent product information across all channels.Built with Java and Spring Boot, it leverages Adobe's Sling and HTL templating, CRX-DE repository APIs, and JPA for persistence, with JSP for legacy view rendering. Oracle DB stores the synchronized content, and the pipeline supports incremental syncs, conflict resolution, and content versioning to handle the scale and complexity of enterprise product catalogs.",
+          "tech": [
+            "AEM",
+            "Sling",
+            "HTL",
+            "CRX-DE",
+            "Java",
+            "Spring Boot",
+            "JPA",
+            "JSP",
+            "Oracle DB"
+          ],
+          "tags": [
+            "Enterprise",
+            "Java"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2021-Present · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2021-05-01",
+          "duration_months": 23,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Human Capital Care",
-          "content": "HRM system: attendance, leaves, reimbursements, plus analytics.",
-          "tech": "VueJS · Java 14 · Spring Boot/Security · JPA · Thymeleaf · RabbitMQ · OAuth2 · JWT · MySQL · ELK · Docker · Jenkins · Flutter · Dart"
+          "details": "HRM system: attendance, leaves, reimbursements, plus analytics. The platform provides a comprehensive suite of HR tools covering employee lifecycle management, time and attendance tracking, leave management, and expense reimbursement processing.Built with Vue.js on the frontend and Java 14 with Spring Boot/Security on the backend, it uses JPA for data persistence, Thymeleaf for server-side templates, RabbitMQ for async messaging, OAuth2 and JWT for security, and MySQL for primary storage. ELK provides log aggregation and analytics, while Docker and Jenkins enable containerized CI/CD. A companion Flutter/Dart mobile app allows employees to manage attendance, apply for leaves, and submit reimbursements on the go.",
+          "tech": [
+            "VueJS",
+            "Java 14",
+            "Spring Boot",
+            "Spring Security",
+            "JPA",
+            "Thymeleaf",
+            "RabbitMQ",
+            "OAuth2",
+            "JWT",
+            "MySQL",
+            "ELK",
+            "Docker",
+            "Jenkins",
+            "Flutter",
+            "Dart"
+          ],
+          "tags": [
+            "Enterprise",
+            "Java",
+            "Mobile"
+          ],
+          "region": "Pakistan"
         },
         {
-          "meta": "2021 · Nisum",
-          "title": "Employee Satisfaction Analysis",
-          "content": "Sentiment analysis from online reviews.",
-          "tech": "Python · Scrapy · Elasticsearch · Kibana · GCP NLU"
-        },
-        {
-          "meta": "2020 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2021-02-01",
+          "duration_months": 6,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Food Promotion & Delivery Platform",
-          "content": "Multi-portal food ordering and management.",
-          "tech": "React · React Native · Java 8 · Spring Boot/Security/Cloud · Netflix OSS · OAuth2 · JWT · MySQL · RabbitMQ · Elasticsearch · Keycloak · Docker · Jenkins · Kubernetes · AWS"
+          "details": "Multi-portal food ordering and management. The platform connects restaurants to multiple food delivery aggregators (DoorDash, Uber Eats, Grubhub, etc.) through a unified backend, enabling centralized menu management, order processing, and real-time inventory synchronization.Built with React and React Native for cross-platform mobile and web experiences, the backend uses Java 8 with Spring Boot/Security/Cloud and Netflix OSS for resilience. OAuth2 and JWT handle authentication, MySQL stores core data, RabbitMQ manages async workflows, Elasticsearch provides search and analytics, and Keycloak offers identity and access management. Containerized with Docker, deployed on Kubernetes for scale, and hosted on AWS for reliability.",
+          "cloud_services": [
+            "AWS API Gateway",
+            "AWS ECS/Fargate",
+            "AWS Lambda",
+            "AWS SQS",
+            "AWS SES",
+            "AWS SNS",
+            "AWS RDP",
+            "AWS S3"
+          ],
+          "tech": [
+            "React",
+            "React Native",
+            "Java 8",
+            "Spring Boot",
+            "Spring Security",
+            "Spring Cloud",
+            "Netflix OSS",
+            "OAuth2",
+            "JWT",
+            "MySQL",
+            "RabbitMQ",
+            "Elasticsearch",
+            "Keycloak",
+            "Docker",
+            "Jenkins",
+            "Kubernetes"
+          ],
+          "tags": [
+            "Enterprise",
+            "MSA",
+            "Mobile",
+            "TypeScript",
+            "Java",
+            "AWS"
+          ],
+          "region": "Pakistan"
         },
         {
-          "meta": "2020 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2020-05-01",
+          "duration_months": 3,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Blockchain-based Asset Management",
-          "content": "Private-blockchain asset management.",
-          "tech": "JavaScript · Node · Go · Solidity · Hyperledger Fabric · CouchDB · Docker · Digital Ocean"
+          "details": "Private-blockchain asset management. The platform tracks, transfers, and manages digital assets on a permissioned blockchain network, providing auditability, immutability, and compliance for institutional asset management.Built with JavaScript and Node.js, and Go services, it uses Solidity for smart contracts deployed on Hyperledger Fabric, with CouchDB as the world-state database. The system supports multi-signature transactions, role-based access control, real-time asset tracking, and compliance reporting — all containerized with Docker and hosted on Digital Ocean for cost-effective deployment.",
+          "cloud_services": [
+            "Digital Ocean"
+          ],
+          "tech": [
+            "JavaScript",
+            "Node",
+            "Go",
+            "Solidity",
+            "Hyperledger Fabric",
+            "CouchDB",
+            "Docker"
+          ],
+          "tags": [
+            "Blockchain",
+            "Web3",
+            "Go",
+            "Java"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2019 · Nisum",
-          "title": "SWA Settlement",
-          "content": "Enterprise invoice-settlement system.",
-          "tech": "React · Node · Java 8 · Spring Boot/Security/Cloud · Netflix OSS · OAuth2 · JWT · MySQL · GCP"
+          "meta": "Nisum Technologies",
+          "start_date": "2020-04-01",
+          "duration_months": 6,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
+          "title": "Employee Satisfaction Analysis",
+          "details": "Sentiment analysis from online reviews. The system aggregates employee feedback from internal surveys, review platforms, and social channels, then applies NLP and sentiment analysis to identify trends, pain points, and areas for improvement.Built with Python and Scrapy for data collection, it stores and indexes results in Elasticsearch with Kibana for visualization, and uses Google Cloud Natural Language (GCP NLU) for advanced sentiment and entity analysis. The platform generates automated reports with topic clustering, sentiment trends over time, and actionable recommendations for HR and leadership teams.",
+          "cloud_services": [
+            "GCP NLU"
+          ],
+          "tech": [
+            "Python",
+            "Scrapy",
+            "Elasticsearch",
+            "Kibana"
+          ],
+          "tags": [
+            "AI/ML",
+            "Python",
+            "NLP"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2019 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2019-05-01",
+          "duration_months": 3,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Crosseek",
-          "content": "GIS-based recruitment platform.",
-          "tech": "React · Java 8 · Spring Boot/Security/Cloud · Netflix OSS · OAuth2 · JWT · MySQL · Docker · AWS"
+          "details": "GIS-based recruitment platform. The platform uses geographic and location-based data to match job seekers with nearby opportunities and help recruiters find candidates within specific regions or commute radii.Built with React, Java 8, and Spring Boot/Security/Cloud, it leverages Netflix OSS for distributed systems patterns, OAuth2 and JWT for authentication, and MySQL for core data storage. GIS integration enables spatial search, distance calculations, and location-based filtering. The system is containerized with Docker and hosted on AWS for scalability.",
+          "cloud_services": [
+            "GCP"
+          ],
+          "tech": [
+            "React",
+            "Java 8",
+            "Spring Boot",
+            "Spring Security",
+            "Spring Cloud",
+            "Netflix OSS",
+            "OAuth2",
+            "JWT",
+            "MySQL",
+            "Docker"
+          ],
+          "tags": [
+            "GIS",
+            "Enterprise",
+            "MSA",
+            "TypeScript",
+            "Java",
+            "GCP"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2018 · Nisum",
+          "meta": "Nisum Technologies",
+          "start_date": "2019-01-01",
+          "duration_months": 4,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
+          "title": "SWA Settlement",
+          "details": "Enterprise invoice-settlement system. The platform automates the end-to-end invoice-to-payment workflow, from invoice receipt and validation through approval routing to payment generation and settlement tracking.Built with React, Node.js, and Java 8 with Spring Boot/Security/Cloud, it leverages Netflix OSS for service resilience, OAuth2 and JWT for secure authentication, and MySQL for data persistence. Hosted on Google Cloud Platform, the system integrates with banking systems for payment initiation and provides comprehensive audit trails, reconciliation reports, and real-time settlement status updates.",
+          "cloud_services": [
+            "GCP"
+          ],
+          "tech": [
+            "React",
+            "Node",
+            "Java 8",
+            "Spring Boot",
+            "Spring Security",
+            "Spring Cloud",
+            "Netflix OSS",
+            "OAuth2",
+            "JWT",
+            "MySQL"
+          ],
+          "tags": [
+            "Enterprise",
+            "TypeScript",
+            "Java",
+            "GCP"
+          ],
+          "region": "Saudi Arabia"
+        },
+        {
+          "meta": "Nisum Technologies",
+          "start_date": "2018-09-01",
+          "duration_months": 3,
+          "role": [
+            "Architect"
+          ],
+          "title": "Product Information Management for Warehouse",
+          "details": "An extension to the Warehouse management system; a collection of microservices to an existing microservice forest. The new services provided capabilities to identifies incoming parcels with products with missing information/images or products that are flagged previously. The service coordinate with other services to manage the state of parcels and their containing products and being able to control the warehouse conveyer system to route the parcels to the dedicated stations.",
+          "tech": [
+            "Java 8",
+            "Spring Boot",
+            "JPA",
+            "Spring Cloud",
+            "Oracle DB",
+            "TibcoEMS",
+            "TestNG",
+            "RestAssured"
+          ],
+          "tags": [
+            "Enterprise",
+            "MSA",
+            "Java"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Nisum Technologies",
+          "start_date": "2018-04-01",
+          "duration_months": 5,
+          "role": [
+            "Lead",
+            "Developer"
+          ],
           "title": "ISP Elimination",
-          "content": "Order management system.",
-          "tech": "Java 8 · Spring Boot · JPA · Spring Cloud · Oracle DB · TibcoEMS · TestNG · RestAssured"
+          "details": "Order management system. The platform handles the full order lifecycle — from order creation and validation through inventory allocation, fulfillment, shipping, and post-sale support.Built with Java 8 and Spring Boot, it uses JPA for ORM, Spring Cloud for microservices orchestration, Oracle DB for enterprise-grade storage, and TibcoEMS for messaging. The architecture follows a highly available, distributed design with transactional consistency guarantees. Testing is performed with TestNG and RestAssured, covering both unit and integration scenarios.",
+          "tech": [
+            "Java 8",
+            "Spring Boot",
+            "JPA",
+            "Spring Cloud",
+            "Oracle DB",
+            "TibcoEMS",
+            "TestNG",
+            "RestAssured"
+          ],
+          "tags": [
+            "Enterprise",
+            "MSA",
+            "Java"
+          ],
+          "region": "USA"
         }
       ]
     },
     {
-      "title": "Folio3 (2006 — 2018)",
-      "cards": [
+      "company_name": "Folio3 Pvt Ltd.",
+      "duration": "2006 — 2018",
+      "projects": [
         {
-          "meta": "2017 · Folio3",
-          "title": "Smartphone Defect Detection System",
-          "content": "Mobile AI detecting hardware defects via image processing.",
-          "tech": "Android Java · iOS Swift · Java 8 · OpenCV · Python · TensorFlow · Keras · NumPy · CUDA · AWS Cognito/API Gateway/Lambda/DynamoDB"
-        },
-        {
-          "meta": "2017 · Folio3",
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2017-11-01",
+          "duration_months": 4,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "AAA's Cattle Management System",
-          "content": "Online cattle management for breeders.",
-          "tech": "Angular 2.0 · Java 8 · Spring Boot · JPA · RabbitMQ · MySQL · MongoDB"
+          "details": "Online cattle management for breeders. The platform digitizes livestock management, enabling breeders to track animal records, breeding cycles, health events, feeding schedules, and pedigree information through an intuitive web interface.Built with Angular 2.0 on the frontend and Java 8 with Spring Boot on the backend, it uses JPA for object-relational mapping, RabbitMQ for event-driven notifications, MySQL for primary data storage, and MongoDB for flexible document storage of animal media and health records. The system supports multi-user collaboration, role-based access control, and offline data sync for farms with intermittent connectivity.",
+          "tech": [
+            "Angular 2.0",
+            "Java 8",
+            "Spring Boot",
+            "JPA",
+            "RabbitMQ",
+            "MySQL",
+            "MongoDB"
+          ],
+          "tags": [
+            "Enterprise",
+            "MSA",
+            "TypeScript",
+            "Java",
+            "MongoDB"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2016 · Folio3",
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2017-02-01",
+          "duration_months": 5,
+          "role": [
+            "Developer"
+          ],
+          "title": "Converse Smartly",
+          "details": "Started as a POC project under the newly established ML practice led by Kashif Ali Siddiqui. An NLP-powered conversation analytics platform.",
+          "tech": [
+            "Python"
+          ],
+          "tags": [
+            "AI/ML",
+            "Product"
+          ],
+          "region": "Pakistan"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2016-09-01",
+          "duration_months": 18,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
+          "title": "Smartphone Defect Detection System",
+          "details": "Mobile AI detecting hardware defects via image processing. The system uses computer vision to identify physical defects in smartphone components — scratches, dents, discoloration, assembly flaws — from high-resolution images captured during quality control.Built for Android (Java) and iOS (Swift), the AI pipeline runs on-device and in the cloud, using OpenCV for image preprocessing, Python with TensorFlow and Keras for model inference, NumPy for numerical processing, and CUDA for GPU acceleration. Inference results sync to a backend on AWS (Cognito for auth, API Gateway and Lambda for serverless processing, DynamoDB for result storage), enabling real-time quality feedback on production lines.",
+          "cloud_services": [
+            "AWS Cognito",
+            "AWS API Gateway",
+            "AWS Lambda",
+            "AWS DynamoDB"
+          ],
+          "tech": [
+            "Android Java",
+            "IOS Swift",
+            "Java 8",
+            "OpenCV",
+            "Python",
+            "TensorFlow",
+            "Keras",
+            "NumPy",
+            "CUDA"
+          ],
+          "models": [
+            "custom-CNN-VGG12"
+          ],
+          "tags": [
+            "AI/ML",
+            "Mobile",
+            "Python",
+            "CUDA",
+            "AWS"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2016-06-01",
+          "duration_months": 13,
+          "role": [
+            "Developer"
+          ],
+          "title": "HipLink Desktop Client",
+          "details": "Desktop client for HipLink's enterprise mobility solution built with C/C++.",
+          "tech": [
+            "C/C++"
+          ],
+          "tags": [
+            "Desktop",
+            "C++"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2016-02-01",
+          "duration_months": 4,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Home Automation System",
-          "content": "Mercedes vehicles integrated with Samsung SmartThings.",
-          "tech": "Samsung SmartThings · Groovy"
+          "details": "Mercedes vehicles integrated with Samsung SmartThings. The system bridges Mercedes-Benz vehicle telematics with the Samsung SmartThings home automation ecosystem, allowing vehicle data to trigger home actions and vice versa.When a vehicle approaches home, the system can pre-condition the house — adjusting temperature, turning on lights, and disarming security. When the last family member leaves, the vehicle can automatically lock doors, close windows, and arm the alarm. Built with Samsung SmartThings and the Groovy language for custom device handlers and smart apps.",
+          "tech": [
+            "Samsung SmartThings",
+            "Groovy"
+          ],
+          "tags": [
+            "IoT",
+            "Groovy"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2008 · Folio3",
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2015-04-01",
+          "duration_months": 10,
+          "role": [
+            "Developer"
+          ],
+          "title": "Winkk",
+          "details": "A system for consumers to instantly get to know about ad campaigns, and their associated products. Contributors: Muhammad",
+          "tech": [
+            "Web"
+          ],
+          "tags": [
+            "Consumer",
+            "Product"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2015-01-01",
+          "duration_months": 4,
+          "role": [
+            "Developer"
+          ],
+          "title": "Qlue (formerly Vhispr)",
+          "details": "A product to proxify customer support for various businesses/services/organizations for the end consumers through a single mobile app.",
+          "tech": [
+            "Mobile"
+          ],
+          "tags": [
+            "Mobile",
+            "Product"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2013-09-01",
+          "duration_months": 4,
+          "role": [
+            "Developer"
+          ],
+          "title": "HipLink BlackBerry 10 Client",
+          "details": "First BB10 implementation in the company. Contributors: Kaab, M. Shoaib and 1 other",
+          "tech": [
+            "C/C++"
+          ],
+          "tags": [
+            "Mobile",
+            "BlackBerry"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2013-06-01",
+          "duration_months": 13,
+          "role": [
+            "Developer"
+          ],
+          "title": "HipLink Win Desktop HNP App",
+          "details": "Windows desktop native app for HipLink's enterprise mobility solution. Contributors: Mufaddal and Abdul",
+          "tech": [
+            "C/C++",
+            "Windows"
+          ],
+          "tags": [
+            "Desktop",
+            "C++"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2012-01-01",
+          "duration_months": 72,
+          "role": [
+            "Developer"
+          ],
+          "title": "HipLink iOS HNP App",
+          "details": "iOS native app for HipLink's users. Extends HipLink's offering for enterprise mobility on the iOS platform. Contributors: Mufaddal and Navaid",
+          "tech": [
+            "IOS (Swift)"
+          ],
+          "tags": [
+            "Mobile",
+            "iOS"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2012-01-01",
+          "duration_months": 48,
+          "role": [
+            "Developer"
+          ],
+          "title": "HipLink Android HNP App",
+          "details": "Android mobile app for HipLink. Extends HipLink's offering for enterprise mobility on the Android platform. Contributors: Mufaddal and Navaid",
+          "tech": [
+            "Android (Java)"
+          ],
+          "tags": [
+            "Mobile",
+            "Android"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2010-06-01",
+          "duration_months": 7,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "TruSight",
-          "content": "DirectX real-time video filter with patented DRC algorithms.",
-          "tech": "C++ · Windows SDK · DirectX"
+          "details": "DirectX real-time video filter with patented DRC algorithms. The system implements Dynamic Range Compression (DRC) for video content, enhancing visibility in high-contrast scenes where bright highlights and deep shadows coexist — critical for surveillance, medical imaging, and driver-assistance applications.Built with C++ and the Windows SDK using DirectX for GPU-accelerated video processing, it applies patented tone-mapping algorithms in real time with minimal latency. The filter is exposed as a DirectShow/DirectShow Media Foundation transform that integrates with existing video pipelines, providing plug-and-play enhanced video output.",
+          "tech": [
+            "C++",
+            "Windows SDK",
+            "DirectX"
+          ],
+          "tags": [
+            "C++",
+            "Windows",
+            "Video"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2006-2016 · Folio3",
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2009-06-01",
+          "duration_months": 7,
+          "role": [
+            "Developer"
+          ],
+          "title": "Virtual Appliance-EMC (TwinStrata)",
+          "details": "Developed an interface for operating a virtual appliance for TwinStrata using C++ (for Linux platform). Contributors: Syed Asad and Muhammad",
+          "tech": [
+            "C/C++"
+          ],
+          "tags": [
+            "Systems",
+            "C++"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2007-01-01",
+          "duration_months": 36,
+          "role": [
+            "Developer"
+          ],
+          "title": "HipLink Voice Solution",
+          "details": "A VoIP dispatch system with multi-tenant support. Integrates directly with HipLink, extending its capabilities to send out messages as voice calls. Contributors: Mufaddal",
+          "tech": [
+            "C/C++",
+            "Asterisk"
+          ],
+          "tags": [
+            "VoIP",
+            "C++"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2006-09-01",
+          "duration_months": 4,
+          "role": [
+            "Developer"
+          ],
+          "title": "MySQL (Sun Microsystems)",
+          "details": "Worked as QA to verify the query engine, and its processing results.",
+          "tech": [
+            "C/C++"
+          ],
+          "tags": [
+            "Systems",
+            "MySQL"
+          ],
+          "region": "USA"
+        },
+        {
+          "meta": "Folio3 Pvt Ltd.",
+          "start_date": "2006-06-01",
+          "duration_months": 134,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Hiplink Enterprise Communication Platform",
-          "content": "Enterprise notification and VoIP platform with mass alerting.",
-          "tech": "Android (Java) · iOS (Swift) · BB10 (Qt + C/C++) · Asterisk · Perl · Bash · C/C++ · MySQL"
+          "details": "Enterprise notification and VoIP platform with mass alerting. Hiplink delivers reliable, scalable communication across voice, SMS, email, and push channels, enabling organizations to reach anyone, anywhere, instantly — for both day-to-day collaboration and emergency mass notifications.Built with native mobile clients (Android Java, iOS Swift), a BB10 client (Qt + C/C++), and Asterisk for VoIP telephony, the platform also includes a Perl and Bash backend for automation scripting, C/C++ core services for high-throughput messaging, and MySQL for data persistence. The architecture supports carrier-grade reliability with redundant routing, message queuing, and failover mechanisms that ensure delivery even during outages.",
+          "tech": [
+            "Android (Java)",
+            "IOS (Swift)",
+            "BB10 (Qt + C/C++)",
+            "Asterisk",
+            "Perl",
+            "Bash",
+            "C/C++",
+            "MySQL"
+          ],
+          "tags": [
+            "Mobile",
+            "VoIP",
+            "C++",
+            "MySQL"
+          ],
+          "region": "USA"
         }
       ]
     },
     {
-      "title": "Earlier Work",
-      "cards": [
+      "company_name": "Earlier Works",
+      "duration": "",
+      "projects": [
         {
-          "meta": "2005 · ARPATech",
+          "meta": "ARPATech Pvt Ltd.",
+          "start_date": "2005-05-01",
+          "duration_months": 13,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Network Security Assessment System",
-          "content": "Network vulnerability assessment with threat reports.",
-          "tech": "JSF · JSP · Java · Servlets · JNI · MySQL"
+          "details": "Network vulnerability assessment with threat reports. The system scans enterprise networks to identify security vulnerabilities, misconfigurations, and potential attack vectors, then generates comprehensive reports with risk scores, remediation guidance, and compliance mapping.Built with JSF, JSP, Java, and Servlets for the web interface, it uses JNI to integrate native vulnerability-checking libraries, and MySQL for storing scan results, asset inventories, and historical trend data. The reporting engine supports customizable templates, executive summaries, and integration with ticketing systems for automated remediation workflows.",
+          "tech": [
+            "JSF",
+            "JSP",
+            "Java",
+            "Servlets",
+            "JNI",
+            "MySQL"
+          ],
+          "tags": [
+            "Security",
+            "Java"
+          ],
+          "region": "USA"
         },
         {
-          "meta": "2004-2005 · LUMS",
+          "meta": "Lahore University of Management Sciences (LUMS)",
+          "start_date": "2004-08-01",
+          "duration_months": 9,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Transparent Fault Tolerance Communication System",
-          "content": "Linux-native transport protocol.",
-          "tech": "Linux Kernel · C · Bash"
+          "details": "Linux-native transport protocol. The system implements a transparent fault-tolerant communication protocol at the kernel level, ensuring that network communications survive process crashes, hardware failures, and network partitions without application intervention.Built as a Linux kernel module in C, with Bash scripts for deployment and management, the protocol provides transparent session recovery, automatic failover, and guaranteed message delivery. Applications link against a standard socket API and require no code changes — the kernel handles checkpointing, state migration, and recovery behind the scenes.",
+          "tech": [
+            "Linux Kernel",
+            "C",
+            "Bash"
+          ],
+          "tags": [
+            "Systems",
+            "C",
+            "Linux"
+          ],
+          "region": "Pakistan"
         },
         {
-          "meta": "2003 · Infinilogics",
+          "meta": "Infinilogics",
+          "start_date": "2002-12-01",
+          "duration_months": 9,
+          "role": [
+            "Architect",
+            "Developer"
+          ],
           "title": "Dynamic NAS System",
-          "content": "Linux kernel customizations; RAID NAS with access control.",
-          "tech": "Linux Kernel · C · C++ · Bash"
+          "details": "Linux kernel customizations; RAID NAS with access control. The system implements a network-attached storage solution with custom Linux kernel module driver development for optimized disk I/O, RAID support for data redundancy, and fine-grained access control at the filesystem level.Built with Linux kernel modules in C, enhanced with C++ for higher-level management services, and Bash for administration scripts. The RAID layer supports multiple levels (0, 1, 5, 10) with hot-swap and rebuild capabilities, while the access-control subsystem enforces per-user and per-group permissions with audit logging for compliance.",
+          "tech": [
+            "Linux Kernel",
+            "C",
+            "C++",
+            "Bash"
+          ],
+          "tags": [
+            "SystemsProgramming",
+            "C++",
+            "Linux"
+          ],
+          "region": "Great Britain"
         }
       ]
     }
   ],
   "gallery": {
-    "headers": ["Project", "Organization", "Year"],
+    "headers": [
+      "Project",
+      "Organization",
+      "Year",
+      "Region",
+      "AI/ML"
+    ],
     "rows": [
-      ["AI Product Promotion Optimization Engine", "NorthBay Solutions", "2026"],
-      ["Agentic KYC Workflow", "NorthBay Solutions", "2026"],
-      ["Enterprise Work AI Platform For Executives", "NorthBay Solutions", "2025"],
-      ["CFO Copilot", "NorthBay Solutions", "2025"],
-      ["AI Based Recruiter and Interviewing Platform", "NorthBay Solutions", "2025"],
-      ["Agentic RAG based Document Search", "Nisum", "2025"],
-      ["Request PERCEPTA", "Nisum", "2025"],
-      ["Personalized Code Copilot", "Nisum", "2024"],
-      ["Price Intelligence", "Nisum", "2023-24"],
-      ["GenAI-based Enterprise Search", "Nisum", "2023"],
-      ["Release Performance Analysis", "Nisum", "2022"],
-      ["Cloud Cost Optimization Engine", "Nisum", "2022"],
-      ["Invoice Ingestion Processor", "Nisum", "2022"],
-      ["NFT Marketplace", "Nisum", "2022"],
-      ["Ecommerce Content Delivery Pipeline", "Nisum", "2022"],
-      ["Human Capital Care", "Nisum", "2021-Present"],
-      ["Employee Satisfaction Analysis", "Nisum", "2021"],
-      ["Food Promotion & Delivery Platform", "Nisum", "2020"],
-      ["Blockchain-based Asset Management", "Nisum", "2020"],
-      ["SWA Settlement", "Nisum", "2019"],
-      ["Crosseek", "Nisum", "2019"],
-      ["ISP Elimination", "Nisum", "2018"],
-      ["Smartphone Defect Detection System", "Folio3", "2017"],
-      ["AAA's Cattle Management System", "Folio3", "2017"],
-      ["Home Automation System", "Folio3", "2016"],
-      ["TruSight", "Folio3", "2008"],
-      ["Hiplink Enterprise Communication Platform", "Folio3", "2006-2016"],
-      ["Network Security Assessment System", "ARPATech", "2005"],
-      ["Transparent Fault Tolerance Communication System", "LUMS", "2004-2005"],
-      ["Dynamic NAS System", "Infinilogics", "2003"]
+      [
+        "AI Product Promotion Optimization Engine",
+        "NorthBay Solutions",
+        "2026",
+        "Saudi Arabia",
+        "✓"
+      ],
+      [
+        "Agentic KYC Workflow",
+        "NorthBay Solutions",
+        "2026",
+        "UAE",
+        "✓"
+      ],
+      [
+        "Enterprise Work AI Platform For Executives",
+        "NorthBay Solutions",
+        "2026",
+        "UAE",
+        "✓"
+      ],
+      [
+        "AI Based Product Portfolio Evalator Platform",
+        "NorthBay Solutions",
+        "2026",
+        "Saudi Arabia",
+        "✓"
+      ],
+      [
+        "CFO Copilot",
+        "NorthBay Solutions",
+        "2025",
+        "Saudi Arabia",
+        "✓"
+      ],
+      [
+        "AI Based Recruiter and Interviewing Platform",
+        "NorthBay Solutions",
+        "2025",
+        "Philippines",
+        "✓"
+      ],
+      [
+        "CogniSearch - Agentic RAG based Document Search",
+        "NorthBay Solutions",
+        "2025",
+        "UAE",
+        "✓"
+      ],
+      [
+        "Request PERCEPTA",
+        "Nisum Technologies",
+        "2025",
+        "Pakistan",
+        "✓"
+      ],
+      [
+        "Customer-Feedback / Store-Performance Analyzer",
+        "Nisum Technologies",
+        "2024",
+        "USA",
+        "✓"
+      ],
+      [
+        "Customer Experience AI",
+        "Nisum Technologies",
+        "2024",
+        "USA",
+        "✓"
+      ],
+      [
+        "Invoice Analyzer",
+        "Nisum Technologies",
+        "2024",
+        "USA",
+        "✓"
+      ],
+      [
+        "Personalized Code Copilot",
+        "Nisum Technologies",
+        "2024",
+        "Pakistan",
+        "✓"
+      ],
+      [
+        "Price Intelligence",
+        "Nisum Technologies",
+        "2023",
+        "USA",
+        "✓"
+      ],
+      [
+        "GenAI-based Enterprise Search",
+        "Nisum Technologies",
+        "2023",
+        "USA",
+        "✓"
+      ],
+      [
+        "Release Performance Analysis",
+        "Nisum Technologies",
+        "2023",
+        "USA",
+        ""
+      ],
+      [
+        "Cloud Cost Optimization Engine",
+        "Nisum Technologies",
+        "2022",
+        "USA",
+        ""
+      ],
+      [
+        "Asset Demand Forecasting System",
+        "Nisum Technologies",
+        "2022",
+        "USA",
+        "✓"
+      ],
+      [
+        "Invoice Ingestion Processor",
+        "Nisum Technologies",
+        "2022",
+        "USA",
+        "✓"
+      ],
+      [
+        "NFT Marketplace",
+        "Nisum Technologies",
+        "2022",
+        "Pakistan",
+        ""
+      ],
+      [
+        "Ecommerce Content Delivery Pipeline",
+        "Nisum Technologies",
+        "2021",
+        "USA",
+        ""
+      ],
+      [
+        "Human Capital Care",
+        "Nisum Technologies",
+        "2021",
+        "Pakistan",
+        ""
+      ],
+      [
+        "Food Promotion & Delivery Platform",
+        "Nisum Technologies",
+        "2021",
+        "Pakistan",
+        ""
+      ],
+      [
+        "Blockchain-based Asset Management",
+        "Nisum Technologies",
+        "2020",
+        "USA",
+        ""
+      ],
+      [
+        "Employee Satisfaction Analysis",
+        "Nisum Technologies",
+        "2020",
+        "USA",
+        "✓"
+      ],
+      [
+        "Crosseek",
+        "Nisum Technologies",
+        "2019",
+        "USA",
+        ""
+      ],
+      [
+        "SWA Settlement",
+        "Nisum Technologies",
+        "2019",
+        "Saudi Arabia",
+        ""
+      ],
+      [
+        "Product Information Management for Warehouse",
+        "Nisum Technologies",
+        "2018",
+        "USA",
+        ""
+      ],
+      [
+        "ISP Elimination",
+        "Nisum Technologies",
+        "2018",
+        "USA",
+        ""
+      ],
+      [
+        "AAA's Cattle Management System",
+        "Folio3 Pvt Ltd.",
+        "2017",
+        "USA",
+        ""
+      ],
+      [
+        "Converse Smartly",
+        "Folio3 Pvt Ltd.",
+        "2017",
+        "Pakistan",
+        "✓"
+      ],
+      [
+        "Smartphone Defect Detection System",
+        "Folio3 Pvt Ltd.",
+        "2016",
+        "USA",
+        "✓"
+      ],
+      [
+        "HipLink Desktop Client",
+        "Folio3 Pvt Ltd.",
+        "2016",
+        "USA",
+        ""
+      ],
+      [
+        "Home Automation System",
+        "Folio3 Pvt Ltd.",
+        "2016",
+        "USA",
+        ""
+      ],
+      [
+        "Winkk",
+        "Folio3 Pvt Ltd.",
+        "2015",
+        "USA",
+        ""
+      ],
+      [
+        "Qlue (formerly Vhispr)",
+        "Folio3 Pvt Ltd.",
+        "2015",
+        "USA",
+        ""
+      ],
+      [
+        "HipLink BlackBerry 10 Client",
+        "Folio3 Pvt Ltd.",
+        "2013",
+        "USA",
+        ""
+      ],
+      [
+        "HipLink Win Desktop HNP App",
+        "Folio3 Pvt Ltd.",
+        "2013",
+        "USA",
+        ""
+      ],
+      [
+        "HipLink iOS HNP App",
+        "Folio3 Pvt Ltd.",
+        "2012",
+        "USA",
+        ""
+      ],
+      [
+        "HipLink Android HNP App",
+        "Folio3 Pvt Ltd.",
+        "2012",
+        "USA",
+        ""
+      ],
+      [
+        "TruSight",
+        "Folio3 Pvt Ltd.",
+        "2010",
+        "USA",
+        ""
+      ],
+      [
+        "Virtual Appliance-EMC (TwinStrata)",
+        "Folio3 Pvt Ltd.",
+        "2009",
+        "USA",
+        ""
+      ],
+      [
+        "HipLink Voice Solution",
+        "Folio3 Pvt Ltd.",
+        "2007",
+        "USA",
+        ""
+      ],
+      [
+        "MySQL (Sun Microsystems)",
+        "Folio3 Pvt Ltd.",
+        "2006",
+        "USA",
+        ""
+      ],
+      [
+        "Hiplink Enterprise Communication Platform",
+        "Folio3 Pvt Ltd.",
+        "2006",
+        "USA",
+        ""
+      ]
     ]
   }
 }

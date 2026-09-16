@@ -91,7 +91,7 @@ body {
     border-radius:6px; cursor:pointer; transition:all .15s; border:1px solid transparent;
     color:var(--fg); text-decoration:none; font-size:.85rem;
 }
-.cmd-item .ext { color:var(--cyan); font-size:.75rem; min-width:2.2rem; }
+    .cmd-item .ext { color:var(--cyan); font-size:1rem; min-width:2.4rem; vertical-align:middle; font-family:"Courier New",Courier,"Segoe UI Symbol","DejaVu Sans Mono",monospace; }
 .cmd-item:hover { background:rgba(0,255,136,.06); border-color:var(--border); }
 .cmd-item.active { background:rgba(0,255,136,.09); border-color:var(--border-glow); color:var(--green); }
 .cmd-item.active .ext { color:var(--green-dim); }
@@ -269,13 +269,13 @@ body.theme-rose-pine .prompt-bar { background:rgba(25,23,36,.92); }
 <div class="shell">
     <nav class="cmd-list">
         <div class="ls-label">ls data/</div>
-        <a class="cmd-item active" data-page="index" onclick="loadPage('index'); return false;"><span class="ext">json</span>index.json</a>
-        <a class="cmd-item" data-page="about" onclick="loadPage('about'); return false;"><span class="ext">json</span>about.json</a>
-        <a class="cmd-item" data-page="experiences" onclick="loadPage('experiences'); return false;"><span class="ext">json</span>experiences.json</a>
-        <a class="cmd-item" data-page="projects" onclick="loadPage('projects'); return false;"><span class="ext">json</span>projects.json</a>
-        <a class="cmd-item" data-page="skills" onclick="loadPage('skills'); return false;"><span class="ext">json</span>skills.json</a>
-        <a class="cmd-item" data-page="education" onclick="loadPage('education'); return false;"><span class="ext">json</span>education.json</a>
-        <a class="cmd-item" data-page="certifications" onclick="loadPage('certifications'); return false;"><span class="ext">json</span>certifications.json</a>
+        <a class="cmd-item active" data-page="index" onclick="loadPage('index'); return false;"><span class="ext">🏠︎</span>index.md</a>
+        <a class="cmd-item" data-page="about" onclick="loadPage('about'); return false;"><span class="ext">👤︎</span>about.md</a>
+        <a class="cmd-item" data-page="experiences" onclick="loadPage('experiences'); return false;"><span class="ext">💼︎</span>experiences.md</a>
+        <a class="cmd-item" data-page="projects" onclick="loadPage('projects'); return false;"><span class="ext">📁︎</span>projects.md</a>
+        <a class="cmd-item" data-page="skills" onclick="loadPage('skills'); return false;"><span class="ext">🛠︎</span>skills.md</a>
+        <a class="cmd-item" data-page="education" onclick="loadPage('education'); return false;"><span class="ext">🎓︎</span>education.md</a>
+        <a class="cmd-item" data-page="certifications" onclick="loadPage('certifications'); return false;"><span class="ext">📜︎</span>certifications.md</a>
         <div class="divider">external links</div>
 
         <a class="social-link" href="https://www.linkedin.com/in/ksiddiqui/" target="_blank" rel="noopener">linkedin/in/ksiddiqui</a>
@@ -297,7 +297,7 @@ const PAGES = {
     'index':           { cmd:'cat data/index.json',           hero:'Kashif Ali Siddiqui', tag:'GenAI • Architecture • Cloud', loc:'Islamabad, Pakistan' },
     'about':           { cmd:'cat data/about.json',           hero:'About Me', tag:'whoami — beyond the terminal', loc:'22+ years in IT' },
     'experiences':     { cmd:'cat data/experiences.json',     hero:'Professional Experience', tag:'Ideation → Design → Implementation', loc:'2002 — Present' },
-    'projects':        { cmd:'cat data/projects.json',        hero:'Projects', tag:'Things I have built', loc:'30 engagements · 4 companies' },
+    'projects':        { cmd:'cat data/projects.json',        hero:'Projects', tag:'Things I have built', loc:'47 projects · 4 companies' },
     'skills':          { cmd:'cat data/skills.json',          hero:'Skills', tag:'Technologies & competencies', loc:'uptime: 22+ years' },
     'education':       { cmd:'cat data/education.json',        hero:'Education', tag:'Academic background', loc:'LUMS · University of Karachi' },
     'certifications':  { cmd:'cat data/certifications.json',  hero:'Certifications', tag:'Professional credentials', loc:'PSDC · no vendor certs — 22+ years hands-on' }
@@ -511,12 +511,23 @@ function renderProjects(d) {
     md.appendChild(tabs);
     const detailsPanel = el('div', 'tab-panel');
     detailsPanel.dataset.panel = 'details'; detailsPanel.hidden = true;
-    d.groups.forEach((g, gi) => {
-        detailsPanel.appendChild(el('h2', null, g.title));
+    d.engagements.forEach((eng, ei) => {
+        const engTitle = eng.duration ? `${eng.company_name} (${eng.duration})` : eng.company_name;
+        detailsPanel.appendChild(el('h2', null, engTitle));
         const grid = el('div', 'card-grid');
-        g.cards.forEach(c => grid.appendChild(makeCard(c)));
+        eng.projects.forEach(p => {
+            const year = p.start_date ? p.start_date.slice(0, 4) : '';
+            const card = {
+                meta: year ? `${year} · ${p.meta}` : p.meta,
+                title: p.title,
+                content: p.details,
+                tech: ([...(p.tech || []), ...(p.cloud_services || [])]).join(' · '),
+                tags: p.tags || []
+            };
+            grid.appendChild(makeCard(card));
+        });
         detailsPanel.appendChild(grid);
-        if (gi < d.groups.length - 1) detailsPanel.appendChild(el('hr'));
+        if (ei < d.engagements.length - 1) detailsPanel.appendChild(el('hr'));
     });
     md.appendChild(detailsPanel);
     const galleryPanel = el('div', 'tab-panel');
