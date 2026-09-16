@@ -58,6 +58,24 @@ body {
 .prompt-line2 .git-branch .branch { color:var(--magenta); font-weight:500; }
 .prompt-line2 .git-dirty { color:var(--amber); }
 .theme-btn:hover { border-color:var(--green); color:var(--green); box-shadow:0 0 12px var(--border-glow); }
+/* ===== THEME MENU ===== */
+.theme-menu-wrapper { position:relative; }
+.theme-menu {
+    display:none; position:absolute; top:100%; right:0; margin-top:.35rem;
+    background:var(--panel); border:1px solid var(--border); border-radius:6px;
+    padding:.25rem 0; min-width:150px; z-index:100;
+    box-shadow:0 8px 24px rgba(0,0,0,.4);
+}
+.theme-menu.open { display:block; }
+.theme-menu-item {
+    display:flex; align-items:center; gap:.4rem;
+    padding:.35rem .75rem; font-size:.72rem; color:var(--fg-dim);
+    cursor:pointer; border:none; background:none; width:100%; text-align:left;
+    font-family:inherit; letter-spacing:.5px; transition:all .15s;
+}
+.theme-menu-item:hover { color:var(--fg); background:var(--panel-alt); }
+.theme-menu-item.active { color:var(--green); }
+.theme-menu-item .check { min-width:1em; text-align:center; }
 /* ===== LAYOUT ===== */
 .shell { display:grid; grid-template-columns:320px 1fr; gap:0; max-width:1820px; margin:0; min-height:calc(100vh - 110px); }
 .shell > * { min-width:0; }
@@ -161,15 +179,64 @@ body {
 .boot { padding:3rem 1rem; color:var(--fg-dim); }
 .boot .line { margin:.4rem 0; }
 .boot .ok { color:var(--green); }
-/* light theme */
-body.light {
+/* ===== THEMES ===== */
+body.theme-light {
     --bg:#f4f2ec; --bg-alt:#ece9e0; --panel:#faf9f5; --panel-alt:#f0ede6;
     --green:#00884a; --green-dim:#006b3c; --cyan:#0369a1; --amber:#b45309; --magenta:#be185d;
     --fg:#333a45; --fg-dim:#6b7280; --fg-bright:#111827; --art:#00694a;
     --border:#d9d4c8; --border-glow:rgba(0,136,74,.3); --code-bg:#ece9e0;
     background-image:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.012) 3px);
 }
-body.light .prompt-bar { background:rgba(244,242,236,.92); }
+body.theme-light .prompt-bar { background:rgba(244,242,236,.92); }
+body.theme-light .theme-menu-item:hover { background:rgba(0,0,0,.04); }
+
+body.theme-tokyo-night {
+    --bg:#1a1b26; --bg-alt:#16161e; --panel:#1f2335; --panel-alt:#24283b;
+    --green:#9ece6a; --green-dim:#73daca; --cyan:#7dcfff; --amber:#e0af68; --magenta:#bb9af7;
+    --art:#2ac3de; --code-bg:#16161e;
+    --fg:#c0caf5; --fg-dim:#565f89; --fg-bright:#e0e6ff;
+    --border:#292e42; --border-glow:rgba(125,207,255,.2);
+    background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(125,207,255,.05), transparent),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.008) 3px);
+}
+body.theme-tokyo-night .prompt-bar { background:rgba(26,27,38,.92); }
+
+body.theme-dracula {
+    --bg:#282a36; --bg-alt:#21222c; --panel:#282a36; --panel-alt:#2d2f3d;
+    --green:#50fa7b; --green-dim:#00c670; --cyan:#8be9fd; --amber:#f1fa8c; --magenta:#ff79c6;
+    --art:#bd93f9; --code-bg:#21222c;
+    --fg:#f8f8f2; --fg-dim:#6272a4; --fg-bright:#ffffff;
+    --border:#44475a; --border-glow:rgba(80,250,123,.2);
+    background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(80,250,123,.05), transparent),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.01) 3px);
+}
+body.theme-dracula .prompt-bar { background:rgba(40,42,54,.92); }
+
+body.theme-nord {
+    --bg:#2e3440; --bg-alt:#3b4252; --panel:#2e3440; --panel-alt:#3b4252;
+    --green:#a3be8c; --green-dim:#8fbcbb; --cyan:#88c0d0; --amber:#ebcb8b; --magenta:#b48ead;
+    --art:#88c0d0; --code-bg:#3b4252;
+    --fg:#d8dee9; --fg-dim:#4c566a; --fg-bright:#eceff4;
+    --border:#3b4252; --border-glow:rgba(136,192,208,.25);
+    background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(136,192,208,.05), transparent),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.008) 3px);
+}
+body.theme-nord .prompt-bar { background:rgba(46,52,64,.92); }
+
+body.theme-rose-pine {
+    --bg:#191724; --bg-alt:#1f1d2e; --panel:#191724; --panel-alt:#1f1d2e;
+    --green:#31748f; --green-dim:#9ccfd8; --cyan:#9ccfd8; --amber:#f6c177; --magenta:#eb6f92;
+    --art:#c4a7e7; --code-bg:#1f1d2e;
+    --fg:#e0def4; --fg-dim:#6e6a86; --fg-bright:#f0eff4;
+    --border:#393552; --border-glow:rgba(156,207,216,.2);
+    background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(156,207,216,.05), transparent),
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.008) 3px);
+}
+body.theme-rose-pine .prompt-bar { background:rgba(25,23,36,.92); }
 @media (max-width:900px) {
     .shell { grid-template-columns:1fr; }
     .cmd-list { position:static; height:auto; border-right:none; border-bottom:1px solid var(--border); display:flex; flex-wrap:wrap; gap:.25rem; padding:1rem; }
@@ -188,7 +255,10 @@ body.light .prompt-bar { background:rgba(244,242,236,.92); }
     <span><span class="user"><span class="k">k</span>siddiqui</span><span class="at">@</span><span class="host">agentic-transformation-specialist</span>:<span class="path">~</span><span class="dollar">$</span> <span class="cmd" id="cmd-display">cat data/index.json</span></span>
     <span class="cursor-block"></span>
     <span class="spacer"></span>
-    <button class="theme-btn" onclick="toggleTheme()">[ theme: dark ]</button>
+    <div class="theme-menu-wrapper">
+        <button class="theme-btn" id="theme-toggle" aria-haspopup="menu" aria-expanded="false">[ theme: dark ]</button>
+        <div class="theme-menu" id="theme-menu"></div>
+    </div>
     <div class="prompt-line2">
         <span class="cwd">~/ksiddiqui/my/profile</span>
         <span class="git-branch"> git:(<span class="branch">dev</span>)</span>
@@ -233,12 +303,69 @@ const PAGES = {
     'certifications':  { cmd:'cat data/certifications.json',  hero:'Certifications', tag:'Professional credentials', loc:'PSDC · no vendor certs — 22+ years hands-on' }
 };
 
-function toggleTheme() {
-    document.body.classList.toggle('light');
-    const btn = document.querySelector('.theme-btn');
-    const light = document.body.classList.contains('light');
-    btn.textContent = light ? '[ theme: light ]' : '[ theme: dark ]';
-    localStorage.setItem('proto-theme', light ? 'light' : 'dark');
+const THEMES = [
+    { id: 'dark',         label: 'Dark' },
+    { id: 'light',        label: 'Light' },
+    { id: 'tokyo-night',  label: 'Tokyo Night' },
+    { id: 'dracula',      label: 'Dracula' },
+    { id: 'nord',         label: 'Nord' },
+    { id: 'rose-pine',    label: 'Rose Pine' }
+];
+
+function setTheme(id) {
+    document.body.className = document.body.className.replace(/theme-\S+/g, '').trim();
+    if (id !== 'dark') document.body.classList.add('theme-' + id);
+
+    const label = THEMES.find(t => t.id === id)?.label.toLowerCase() || 'dark';
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) toggle.textContent = '[ theme: ' + label + ' ]';
+    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+
+    const menu = document.getElementById('theme-menu');
+    if (menu) menu.classList.remove('open');
+
+    document.querySelectorAll('.theme-menu-item').forEach(btn => {
+        const active = btn.dataset.theme === id;
+        btn.classList.toggle('active', active);
+        const chk = btn.querySelector('.check');
+        if (chk) chk.textContent = active ? '●' : '○';
+    });
+    localStorage.setItem('proto-theme', id);
+}
+
+function buildThemeMenu() {
+    const menu = document.getElementById('theme-menu');
+    if (!menu) return;
+    menu.innerHTML = '';
+    THEMES.forEach(t => {
+        const btn = document.createElement('button');
+        btn.className = 'theme-menu-item';
+        btn.dataset.theme = t.id;
+        btn.innerHTML = '<span class="check">○</span> ' + t.label;
+        btn.addEventListener('click', () => setTheme(t.id));
+        menu.appendChild(btn);
+    });
+    const toggle = document.getElementById('theme-toggle');
+    if (toggle) {
+        toggle.addEventListener('click', e => {
+            e.stopPropagation();
+            menu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', menu.classList.contains('open'));
+        });
+    }
+    document.addEventListener('click', e => {
+        if (!e.target.closest('.theme-menu-wrapper')) {
+            const m = document.getElementById('theme-menu');
+            if (m) m.classList.remove('open');
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
+function initTheme() {
+    const saved = localStorage.getItem('proto-theme') || 'dark';
+    const id = THEMES.find(t => t.id === saved) ? saved : 'dark';
+    setTheme(id);
 }
 
 /* ---------- DOM helpers ---------- */
@@ -545,7 +672,8 @@ function syncHeaderHeight() {
 }
 window.addEventListener('resize', syncHeaderHeight);
 document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('proto-theme') === 'light') toggleTheme();
+    buildThemeMenu();
+    initTheme();
     syncHeaderHeight();
     loadPage('index');
 });
