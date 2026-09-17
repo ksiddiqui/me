@@ -153,15 +153,6 @@ body {
 .md table.jump-table tbody tr td:first-child::after { content:' ⤵'; color:var(--fg-dim); font-size:.7em; opacity:0; transition:opacity .15s; }
 .md table.jump-table tbody tr:hover td:first-child::after { opacity:1; }
 .md hr { border:none; height:1px; background:repeating-linear-gradient(90deg,var(--border) 0 8px,transparent 8px 16px); margin:2.5rem 0; }
-/* project tabs */
-.md .proj-tabs { display:flex; gap:.5rem; margin:0 0 1.5rem; }
-.md .proj-tabs .tab-btn {
-    background:var(--panel); border:1px solid var(--border); color:var(--fg-dim);
-    font-family:inherit; font-size:.8rem; padding:.45rem 1.1rem; border-radius:6px;
-    cursor:pointer; transition:all .2s; letter-spacing:.5px;
-}
-.md .proj-tabs .tab-btn:hover { border-color:var(--border-glow); color:var(--fg); }
-.md .proj-tabs .tab-btn.active { background:rgba(0,255,136,.09); border-color:var(--border-glow); color:var(--green); }
 /* project gallery filters and expandable detail rows */
 .proj-filters {
     display:flex; flex-wrap:wrap; gap:.5rem; align-items:center;
@@ -589,41 +580,8 @@ const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov
 
 function renderProjects(d) {
     const md = el('div', 'md');
-    const tabs = el('div', 'proj-tabs');
-    const gBtn = el('button', 'tab-btn active', 'Gallery');
-    gBtn.type = 'button'; gBtn.dataset.tab = 'gallery'; gBtn.onclick = () => switchProjTab('gallery');
-    const dBtn = el('button', 'tab-btn', 'Details');
-    dBtn.type = 'button'; dBtn.dataset.tab = 'details'; dBtn.onclick = () => switchProjTab('details');
-    tabs.appendChild(gBtn); tabs.appendChild(dBtn);
-    md.appendChild(tabs);
-
-    // ---- Details panel (existing engagement cards) ----
-    const detailsPanel = el('div', 'tab-panel');
-    detailsPanel.dataset.panel = 'details'; detailsPanel.hidden = true;
-    d.engagements.forEach((eng, ei) => {
-        const engTitle = eng.duration ? eng.company_name + ' (' + eng.duration + ')' : eng.company_name;
-        detailsPanel.appendChild(el('h2', null, engTitle));
-        const grid = el('div', 'card-grid');
-        eng.projects.forEach(p => {
-            const year = p.start_date ? p.start_date.slice(0, 4) : '';
-            const card = {
-                meta: year ? year + ' · ' + p.meta : p.meta,
-                title: p.title,
-                content: p.details,
-                tech: ([...(p.tech || []), ...(p.cloud_services || [])]).join(' · '),
-                tags: p.tags || []
-            };
-            grid.appendChild(makeCard(card));
-        });
-        detailsPanel.appendChild(grid);
-        if (ei < d.engagements.length - 1) detailsPanel.appendChild(el('hr'));
-    });
-    md.appendChild(detailsPanel);
-
-    // ---- Gallery panel ----
-    const galleryPanel = el('div', 'tab-panel');
-    galleryPanel.dataset.panel = 'gallery';
-    galleryPanel.appendChild(el('h2', null, 'Project Gallery'));
+    // ---- Gallery (only view) ----
+    const galleryPanel = el('div', 'proj-gallery');
 
     // Project lookup map: key = title + "|" + meta (organization from meta attribute)
     const projectMap = new Map();
@@ -1043,11 +1001,6 @@ function wireTimelineJumps(content) {
             row.style.cursor = 'default';
         }
     });
-}
-
-function switchProjTab(tab) {
-    document.querySelectorAll('.md .proj-tabs .tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
-    document.querySelectorAll('.md .tab-panel').forEach(p => { p.hidden = p.dataset.panel !== tab; });
 }
 
 function syncHeaderHeight() {
