@@ -224,6 +224,27 @@ body {
 }
 tr.proj-row-expanded td {
     background: rgba(0,255,136,.08) !important;
+    border-top: 2px solid var(--green);
+}
+tr.proj-row-expanded td:first-child {
+    border-left: 2px solid var(--green);
+}
+tr.proj-row-expanded td:last-child {
+    border-right: 2px solid var(--green);
+}
+tr.proj-row-expanded + .proj-detail-row td {
+    border: 2px solid var(--green);
+    border-top: none;
+}
+.proj-pagination {
+    display: flex; justify-content: flex-end; gap: .4rem;
+    margin-top: 1rem; padding-top: .75rem; border-top: 1px solid var(--border);
+}
+.proj-nav-btn {
+    min-width: 72px; font-size: .72rem;
+}
+.proj-nav-btn:disabled {
+    opacity: .3; cursor: not-allowed;
 }
 .proj-separator { height:1px; background:var(--border); margin:1rem 0; }
 /* cards (from .card-grid in md) */
@@ -635,6 +656,56 @@ function renderProjects(d) {
     const tbody = el('tbody');
     let expandedRow = null;
 
+    function updateNavButtons(prevBtn, nextBtn, currentTr) {
+        const vis = Array.from(tbody.querySelectorAll('tr:not(.proj-detail-row):not([hidden])'));
+        const idx = vis.indexOf(currentTr);
+        prevBtn.disabled = idx <= 0;
+        nextBtn.disabled = idx >= vis.length - 1;
+    }
+
+    function switchToRow(targetTr) {
+        const alreadyOpen = expandedRow && expandedRow.previousElementSibling === targetTr;
+        if (alreadyOpen) {
+            targetTr.classList.remove('proj-row-expanded');
+            expandedRow.remove(); expandedRow = null;
+            return;
+        }
+        if (expandedRow) {
+            expandedRow.previousElementSibling?.classList.remove('proj-row-expanded');
+            expandedRow.remove(); expandedRow = null;
+        }
+        const ri = parseInt(targetTr.dataset.ri, 10);
+        const targetRow = galleryRows[ri];
+        const targetProj = projectMap.get(targetRow[0] + '|' + targetRow[1]) || null;
+        const detailTr = buildGalleryDetail(targetProj, targetRow);
+        targetTr.parentNode.insertBefore(detailTr, targetTr.nextSibling);
+        expandedRow = detailTr;
+        targetTr.classList.add('proj-row-expanded');
+
+        // Pagination buttons at bottom-right of detail
+        const detailTd = detailTr.querySelector('td');
+        const navDiv = el('div', 'proj-pagination');
+        const prevBtn = el('button', 'theme-btn proj-nav-btn', 'Prev');
+        const nextBtn = el('button', 'theme-btn proj-nav-btn', 'Next');
+        prevBtn.type = 'button'; nextBtn.type = 'button';
+        updateNavButtons(prevBtn, nextBtn, targetTr);
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const vis = Array.from(tbody.querySelectorAll('tr:not(.proj-detail-row):not([hidden])'));
+            const idx = vis.indexOf(targetTr);
+            if (idx > 0) switchToRow(vis[idx - 1]);
+        });
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const vis = Array.from(tbody.querySelectorAll('tr:not(.proj-detail-row):not([hidden])'));
+            const idx = vis.indexOf(targetTr);
+            if (idx < vis.length - 1) switchToRow(vis[idx + 1]);
+        });
+        navDiv.appendChild(prevBtn);
+        navDiv.appendChild(nextBtn);
+        detailTd.appendChild(navDiv);
+    }
+
     galleryRows.forEach((row, ri) => {
         const tr = el('tr');
         tr.dataset.ri = String(ri);
@@ -654,23 +725,7 @@ function renderProjects(d) {
         tr.appendChild(el('td', null, row[3]));
         tr.appendChild(el('td', null, row[4] || ''));
 
-        tr.addEventListener('click', () => {
-            const alreadyOpen = expandedRow && expandedRow.previousElementSibling === tr;
-            if (alreadyOpen) {
-                tr.classList.remove('proj-row-expanded');
-                expandedRow.remove(); expandedRow = null;
-                return;
-            }
-            if (expandedRow) {
-                expandedRow.previousElementSibling?.classList.remove('proj-row-expanded');
-                expandedRow.remove(); expandedRow = null;
-            }
-            const detailTr = buildGalleryDetail(proj, row);
-            tr.parentNode.insertBefore(detailTr, tr.nextSibling);
-            expandedRow = detailTr;
-            tr.classList.add('proj-row-expanded');
-        });
-
+        tr.addEventListener('click', () => switchToRow(tr));
         tbody.appendChild(tr);
     });
     table.appendChild(tbody);
@@ -732,7 +787,6 @@ function renderProjects(d) {
     clearBtn.type = 'button';
     filterRow.appendChild(clearBtn);
 
-    // Filter logic (closure over tbody + selects)
     function applyFilters() {
         const fo = orgSel.value, fy = yearSel.value, fr = regionSel.value, fa = aiCb.checked;
         const dataRows = tbody.querySelectorAll('tr:not(.proj-detail-row)');
@@ -747,6 +801,16 @@ function renderProjects(d) {
                 expandedRow.hidden = !v;
             }
         });
+        // Update nav button states if a row is expanded
+        if (expandedRow) {
+            const detailTd = expandedRow.querySelector('td');
+            const prevBtn = detailTd?.querySelector('.proj-nav-btn:first-child');
+            const nextBtn = detailTd?.querySelector('.proj-nav-btn:last-child');
+            const expandedTr = expandedRow.previousElementSibling;
+            if (prevBtn && nextBtn && expandedTr) {
+                updateNavButtons(prevBtn, nextBtn, expandedTr);
+            }
+        }
     }
     [orgSel, yearSel, regionSel].forEach(sel => sel.addEventListener('change', applyFilters));
     aiCb.addEventListener('change', applyFilters);
