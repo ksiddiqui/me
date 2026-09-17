@@ -162,6 +162,70 @@ body {
 }
 .md .proj-tabs .tab-btn:hover { border-color:var(--border-glow); color:var(--fg); }
 .md .proj-tabs .tab-btn.active { background:rgba(0,255,136,.09); border-color:var(--border-glow); color:var(--green); }
+/* project gallery filters and expandable detail rows */
+.proj-filters {
+    display:flex; flex-wrap:wrap; gap:.5rem; align-items:center;
+    margin:0 0 1rem; padding:.75rem .85rem; background:var(--panel);
+    border:1px solid var(--border); border-radius:8px;
+}
+.proj-filter-row { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; }
+.proj-filter-group { display:flex; align-items:center; gap:.3rem; }
+.proj-filter-group label { font-size:.76rem; color:var(--fg-dim); white-space:nowrap; }
+.proj-filter-group select {
+    font-family:inherit; font-size:.78rem; padding:.25rem .55rem;
+    background:var(--panel-alt); border:1px solid var(--border);
+    border-radius:4px; color:var(--fg); cursor:pointer; min-width:110px;
+}
+.proj-filter-group select option { background:var(--panel); color:var(--fg); }
+.proj-filter-group input[type="checkbox"] {
+    width:15px; height:15px; cursor:pointer; accent-color:var(--green);
+}
+.proj-filter-row .theme-btn { margin-left:auto; }
+.proj-gallery-table tbody tr { cursor:pointer; }
+.proj-gallery-table tbody tr:hover td { background:rgba(0,255,136,.04); }
+.proj-gallery-table tbody tr td:first-child::after {
+    content:' ⤵'; color:var(--fg-dim); font-size:.7em; opacity:0;
+    transition:opacity .15s;
+}
+.proj-gallery-table tbody tr:hover td:first-child::after { opacity:1; }
+.proj-detail-row td {
+    padding:1rem .85rem !important; border-top:none;
+    background:var(--panel-alt);
+}
+.proj-meta-line { font-size:.8rem; margin-bottom:.4rem; }
+.proj-meta-label { color:var(--fg-bright); margin-right:.3rem; }
+.proj-meta-val { color:var(--cyan); margin-right:1.2rem; }
+.proj-section-label {
+    color:var(--fg-bright); font-size:.66rem; text-transform:uppercase;
+    letter-spacing:.6px; margin:0 .3rem .3rem 0; display:inline-block;
+}
+.proj-role-tile {
+    display:inline-block; background:rgba(0,255,136,.08);
+    border:1px solid rgba(0,255,136,.15); border-radius:4px;
+    padding:.12rem .45rem; margin:.08rem; font-size:.72rem;
+    color:var(--green-dim);
+}
+.proj-tag-tile {
+    display:inline-block; background:rgba(0,255,136,.08);
+    border:1px solid rgba(0,255,136,.15); border-radius:4px;
+    padding:.12rem .45rem; margin:.08rem; font-size:.72rem;
+    color:var(--green-dim);
+}
+.proj-tile {
+    display:inline-block; background:var(--panel); border:1px solid var(--border);
+    border-radius:4px; padding:.12rem .5rem; margin:.08rem; font-size:.72rem;
+    color:var(--fg-dim); white-space:nowrap;
+}
+.proj-badge {
+    display:inline-block; background:rgba(56,217,255,.12);
+    border:1px solid rgba(56,217,255,.2); border-radius:3px;
+    padding:.1rem .4rem; margin:.08rem; font-size:.7rem;
+    color:var(--cyan);
+}
+tr.proj-row-expanded td {
+    background: rgba(0,255,136,.08) !important;
+}
+.proj-separator { height:1px; background:var(--border); margin:1rem 0; }
 /* cards (from .card-grid in md) */
 .md .card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:1.1rem; margin:1.75rem 0; }
 .md .card { background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:1.35rem; transition:all .2s; position:relative; overflow:hidden; }
@@ -500,6 +564,8 @@ function renderExperiences(d) {
     return md;
 }
 
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
 function renderProjects(d) {
     const md = el('div', 'md');
     const tabs = el('div', 'proj-tabs');
@@ -509,16 +575,18 @@ function renderProjects(d) {
     dBtn.type = 'button'; dBtn.dataset.tab = 'details'; dBtn.onclick = () => switchProjTab('details');
     tabs.appendChild(gBtn); tabs.appendChild(dBtn);
     md.appendChild(tabs);
+
+    // ---- Details panel (existing engagement cards) ----
     const detailsPanel = el('div', 'tab-panel');
     detailsPanel.dataset.panel = 'details'; detailsPanel.hidden = true;
     d.engagements.forEach((eng, ei) => {
-        const engTitle = eng.duration ? `${eng.company_name} (${eng.duration})` : eng.company_name;
+        const engTitle = eng.duration ? eng.company_name + ' (' + eng.duration + ')' : eng.company_name;
         detailsPanel.appendChild(el('h2', null, engTitle));
         const grid = el('div', 'card-grid');
         eng.projects.forEach(p => {
             const year = p.start_date ? p.start_date.slice(0, 4) : '';
             const card = {
-                meta: year ? `${year} · ${p.meta}` : p.meta,
+                meta: year ? year + ' · ' + p.meta : p.meta,
                 title: p.title,
                 content: p.details,
                 tech: ([...(p.tech || []), ...(p.cloud_services || [])]).join(' · '),
@@ -530,12 +598,253 @@ function renderProjects(d) {
         if (ei < d.engagements.length - 1) detailsPanel.appendChild(el('hr'));
     });
     md.appendChild(detailsPanel);
+
+    // ---- Gallery panel ----
     const galleryPanel = el('div', 'tab-panel');
     galleryPanel.dataset.panel = 'gallery';
     galleryPanel.appendChild(el('h2', null, 'Project Gallery'));
-    galleryPanel.appendChild(makeTable(d.gallery.headers, d.gallery.rows));
+
+    // Project lookup map: key = title + "|" + meta (organization from meta attribute)
+    const projectMap = new Map();
+    d.engagements.forEach(eng => {
+        eng.projects.forEach(p => {
+            projectMap.set(p.title + '|' + p.meta, p);
+        });
+    });
+
+    // Combine gallery rows with Earlier Works projects
+    const galleryRows = [...d.gallery.rows];
+    d.engagements.forEach(eng => {
+        if (eng.company_name === 'Earlier Works') {
+            eng.projects.forEach(p => {
+                const year = p.start_date ? p.start_date.slice(0, 4) : '';
+                const aiMl = p.tags && p.tags.includes('AI/ML') ? '✓' : '';
+                galleryRows.push([p.title, p.meta, year, p.region || '', aiMl]);
+            });
+        }
+    });
+
+    // Gallery table
+    const table = el('table', 'proj-gallery-table');
+    const thead = el('thead');
+    const htr = el('tr');
+    d.gallery.headers.forEach(h => htr.appendChild(el('th', null, h)));
+    thead.appendChild(htr);
+    table.appendChild(thead);
+
+    const tbody = el('tbody');
+    let expandedRow = null;
+
+    galleryRows.forEach((row, ri) => {
+        const tr = el('tr');
+        tr.dataset.ri = String(ri);
+        tr.dataset.org = row[1];
+        tr.dataset.year = row[2];
+        tr.dataset.region = row[3];
+        tr.dataset.aiml = row[4] || '';
+
+        const proj = projectMap.get(row[0] + '|' + row[1]) || null;
+        const yearDisplay = proj && proj.start_date
+            ? row[2] + ' (' + MONTHS[parseInt(proj.start_date.slice(5, 7), 10) - 1] + ')'
+            : row[2];
+
+        tr.appendChild(el('td', null, row[0]));
+        tr.appendChild(el('td', null, row[1]));
+        tr.appendChild(el('td', null, yearDisplay));
+        tr.appendChild(el('td', null, row[3]));
+        tr.appendChild(el('td', null, row[4] || ''));
+
+        tr.addEventListener('click', () => {
+            const alreadyOpen = expandedRow && expandedRow.previousElementSibling === tr;
+            if (alreadyOpen) {
+                tr.classList.remove('proj-row-expanded');
+                expandedRow.remove(); expandedRow = null;
+                return;
+            }
+            if (expandedRow) {
+                expandedRow.previousElementSibling?.classList.remove('proj-row-expanded');
+                expandedRow.remove(); expandedRow = null;
+            }
+            const detailTr = buildGalleryDetail(proj, row);
+            tr.parentNode.insertBefore(detailTr, tr.nextSibling);
+            expandedRow = detailTr;
+            tr.classList.add('proj-row-expanded');
+        });
+
+        tbody.appendChild(tr);
+    });
+    table.appendChild(tbody);
+
+    // Filter bar
+    const filterBar = el('div', 'proj-filters');
+    const filterRow = el('div', 'proj-filter-row');
+
+    // Organization select
+    const orgGroup = el('div', 'proj-filter-group');
+    orgGroup.appendChild(el('label', null, 'Organization'));
+    const orgSel = document.createElement('select');
+    ['All', ...new Set(galleryRows.map(r => r[1]))].sort().forEach(o => {
+        const opt = document.createElement('option');
+        opt.value = o; opt.textContent = o;
+        orgSel.appendChild(opt);
+    });
+    orgGroup.appendChild(orgSel);
+    filterRow.appendChild(orgGroup);
+
+    // Year select (descending)
+    const yearVals = [...new Set(galleryRows.map(r => r[2]))].sort((a, b) => b - a);
+    const yearGroup = el('div', 'proj-filter-group');
+    yearGroup.appendChild(el('label', null, 'Year'));
+    const yearSel = document.createElement('select');
+    ['All', ...yearVals].forEach(y => {
+        const opt = document.createElement('option');
+        opt.value = y; opt.textContent = y;
+        yearSel.appendChild(opt);
+    });
+    yearGroup.appendChild(yearSel);
+    filterRow.appendChild(yearGroup);
+
+    // Region select
+    const regionGroup = el('div', 'proj-filter-group');
+    regionGroup.appendChild(el('label', null, 'Region'));
+    const regionSel = document.createElement('select');
+    ['All', ...new Set(d.gallery.rows.map(r => r[3]))].sort().forEach(rg => {
+        const opt = document.createElement('option');
+        opt.value = rg; opt.textContent = rg;
+        regionSel.appendChild(opt);
+    });
+    regionGroup.appendChild(regionSel);
+    filterRow.appendChild(regionGroup);
+
+    // AI/ML checkbox
+    const aiGroup = el('div', 'proj-filter-group');
+    const aiCb = el('input');
+    aiCb.type = 'checkbox';
+    aiCb.id = 'proj-aiml-toggle';
+    const aiLbl = el('label', null, 'AI/ML only');
+    aiLbl.setAttribute('for', 'proj-aiml-toggle');
+    aiGroup.appendChild(aiCb);
+    aiGroup.appendChild(aiLbl);
+    filterRow.appendChild(aiGroup);
+
+    // Clear button
+    const clearBtn = el('button', 'theme-btn', 'Clear');
+    clearBtn.type = 'button';
+    filterRow.appendChild(clearBtn);
+
+    // Filter logic (closure over tbody + selects)
+    function applyFilters() {
+        const fo = orgSel.value, fy = yearSel.value, fr = regionSel.value, fa = aiCb.checked;
+        const dataRows = tbody.querySelectorAll('tr:not(.proj-detail-row)');
+        dataRows.forEach(tr => {
+            let v = true;
+            if (fo !== 'All' && tr.dataset.org  !== fo) v = false;
+            if (fy !== 'All' && tr.dataset.year !== fy) v = false;
+            if (fr !== 'All' && tr.dataset.region !== fr) v = false;
+            if (fa && !tr.dataset.aiml) v = false;
+            tr.hidden = !v;
+            if (expandedRow && expandedRow.previousElementSibling === tr) {
+                expandedRow.hidden = !v;
+            }
+        });
+    }
+    [orgSel, yearSel, regionSel].forEach(sel => sel.addEventListener('change', applyFilters));
+    aiCb.addEventListener('change', applyFilters);
+    clearBtn.addEventListener('click', () => {
+        orgSel.value = 'All'; yearSel.value = 'All'; regionSel.value = 'All'; aiCb.checked = false;
+        applyFilters();
+    });
+
+    filterBar.appendChild(filterRow);
+    galleryPanel.appendChild(filterBar);
+    galleryPanel.appendChild(table);
     md.appendChild(galleryPanel);
     return md;
+}
+
+function buildGalleryDetail(proj, row) {
+    const detailTr = el('tr', 'proj-detail-row');
+    const td = el('td');
+    td.colSpan = 5;
+    detailTr.appendChild(td);
+
+    if (proj) {
+        // Meta line: Start / Duration / Tags (white labels, cyan values, tags as tiles)
+        let start = '';
+        if (proj.start_date) {
+            const m = parseInt(proj.start_date.slice(5, 7), 10) - 1;
+            const y = proj.start_date.slice(0, 4);
+            start = MONTHS[m] + ' ' + y;
+        }
+        const dur = proj.duration_months
+            ? (proj.duration_months === 1 ? '1 month' : proj.duration_months + ' months')
+            : '';
+        const metaLine = el('div', 'proj-meta-line');
+        if (start) {
+            metaLine.appendChild(el('span', 'proj-meta-label', 'Start:'));
+            metaLine.appendChild(el('span', 'proj-meta-val', start));
+        }
+        if (dur) {
+            metaLine.appendChild(el('span', 'proj-meta-label', 'Duration:'));
+            metaLine.appendChild(el('span', 'proj-meta-val', dur));
+        }
+        // Tags in meta line (where Region was)
+        if (proj.tags && proj.tags.length) {
+            proj.tags.forEach(t => metaLine.appendChild(el('span', 'proj-tag-tile', t)));
+        }
+        td.appendChild(metaLine);
+
+        // Roles (inline after label)
+        if (proj.role && proj.role.length) {
+            td.appendChild(el('div', 'proj-separator'));
+            const roleDiv = el('div');
+            roleDiv.appendChild(el('span', 'proj-section-label', 'ROLE:'));
+            proj.role.forEach(r => roleDiv.appendChild(el('span', 'proj-role-tile', r)));
+            td.appendChild(roleDiv);
+        }
+
+        // Description
+        if (proj.details) {
+            td.appendChild(el('div', 'proj-separator'));
+            td.appendChild(el('p', null, proj.details));
+        }
+
+        // Tech, Cloud Services, Models (consistent tiles, inline after labels)
+        const hasTech = proj.tech && proj.tech.length;
+        const hasCloud = proj.cloud_services && proj.cloud_services.length;
+        const hasModels = proj.models && proj.models.length;
+
+        if (hasTech || hasCloud || hasModels) {
+            td.appendChild(el('div', 'proj-separator'));
+
+            if (hasTech) {
+                const techDiv = el('div');
+                techDiv.appendChild(el('span', 'proj-section-label', 'TECH:'));
+                proj.tech.forEach(t => techDiv.appendChild(el('span', 'proj-tile', t)));
+                td.appendChild(techDiv);
+            }
+
+            if (hasCloud) {
+                const csDiv = el('div');
+                csDiv.appendChild(el('span', 'proj-section-label', 'CLOUD SERVICE:'));
+                proj.cloud_services.forEach(s => csDiv.appendChild(el('span', 'proj-tile', s)));
+                td.appendChild(csDiv);
+            }
+
+            if (hasModels) {
+                const mDiv = el('div');
+                mDiv.appendChild(el('span', 'proj-section-label', 'MODELS:'));
+                proj.models.forEach(m => mDiv.appendChild(el('span', 'proj-tile', m)));
+                td.appendChild(mDiv);
+            }
+        }
+    } else {
+        // Unmatched: minimal detail
+        td.appendChild(el('div', 'proj-meta-line', row[0] + ' · ' + row[1] + ' · ' + row[2]));
+        if (row[4]) td.appendChild(el('span', 'proj-tag-tile', row[4]));
+    }
+
+    return detailTr;
 }
 
 function renderSkills(d) {
